@@ -189,8 +189,9 @@
                 function () { console.log("playAudio():Audio Success"); },
                 function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
               );
-            
-              my_media2.play(); 
+              
+              my_media2.play({ playAudioWhenScreenIsLocked : true });
+//            my_media2.play(); 
               my_media2.setVolume(MASTER_VOLUME);         
      
             }, 17000);      
@@ -202,8 +203,9 @@
             function () { console.log("playAudio():Audio Success"); },
             function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
           );
-        
-          my_media.play();          
+         
+          my_media.play({ playAudioWhenScreenIsLocked : true });
+//        my_media.play();          
           my_media.setVolume(MASTER_VOLUME);
         }
        
