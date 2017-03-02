@@ -85,6 +85,7 @@
         app.initialize();
     </script>
     
+    <script type="text/javascript" src="js/Insomnia.js"></script>
     <script type="text/javascript" src="js/pluginUtils.js"></script>
     <script type="text/javascript">
       var my_media;
@@ -304,7 +305,7 @@
           body.style.backgroundImage = 'url(img/bg1.png)';
           document.getElementById("titler").style.marginRight = "3%";
           document.getElementById("setup_but").style.marginRight = "10px";
-          document.getElementById("clock").style.left = "190px";
+          document.getElementById("clock").style.left = "152px";
           document.getElementById("clock").style.top = "320px";
 
           return 'portrait';
@@ -313,7 +314,7 @@
           body.style.backgroundImage = 'url(img/bg2.png)';
           document.getElementById("titler").style.marginRight = "50px";
           document.getElementById("setup_but").style.marginRight = "50px";
-          document.getElementById("clock").style.left = "223px";
+          document.getElementById("clock").style.left = "185px";
           document.getElementById("clock").style.top = "190px";
          
           return 'landscape';
@@ -322,6 +323,8 @@
 
       doOnOrientationChange()
       window.addEventListener('orientationchange', doOnOrientationChange);
+      
+      window.plugins.insomnia.keepAwake();
      
     </script>
   
