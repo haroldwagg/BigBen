@@ -324,7 +324,12 @@
       doOnOrientationChange()
       window.addEventListener('orientationchange', doOnOrientationChange);
       
-      keepScreenOn.enable();
+//      keepScreenOn.enable();
+      
+      MyMainActivity ma = (MyMainActivity) cordova.getActivity();
+      wl = ((PowerManager) ma.getSystemService(Context.POWER_SERVICE))
+        .newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "wakeywakey");
+      wl.acquire();
      
     </script>
   
