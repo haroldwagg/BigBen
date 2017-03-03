@@ -45,7 +45,7 @@
 </head>
 
 <body onLoad="init()">
-
+        <div id="versioner" style="color: white;">v 1.0.3</div>
 
        <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
 
@@ -85,7 +85,6 @@
         app.initialize();
     </script>
     
-    <script type="text/javascript" src="js/KeepScreenOn.js"></script>
     <script type="text/javascript" src="js/pluginUtils.js"></script>
     <script type="text/javascript">
       var my_media;
@@ -119,6 +118,10 @@
           mins = "0" + mins;
         } 
         
+        if (n < 10)   {
+          n = "&nbsp;&nbsp;" + n;
+        }
+        
         document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins;
              
         var secs = d.getSeconds();
@@ -139,6 +142,11 @@
         if (n > 12)   {
           n -= 12;
         } 
+        
+        if (n < 10)   {
+          n = "&nbsp;&nbsp;" + n;
+        }
+
           
         if (mins < 10)   {
           mins = "0" + mins;
@@ -323,14 +331,9 @@
 
       doOnOrientationChange()
       window.addEventListener('orientationchange', doOnOrientationChange);
-      
-//      keepScreenOn.enable();
-      
-      MyMainActivity ma = (MyMainActivity) cordova.getActivity();
-      wl = ((PowerManager) ma.getSystemService(Context.POWER_SERVICE))
-        .newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "wakeywakey");
-      wl.acquire();
-     
+alert ('HI'); 
+      window.plugins.insomnia.keepAwake(function(){alert('OK - Insomnia');}, function(){alert('NOPE - Insomnia');});
+    
     </script>
   
 </body>
