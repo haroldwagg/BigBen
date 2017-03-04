@@ -35,9 +35,8 @@ body {
     text-transform:uppercase;
     width:100%;
     background-repeat: no-repeat;
-    background-size: cover
+    background-size: cover;
     background-attachment: fixed;
-    background-position: center top;
     background-color: #4b459f;
 
 }
@@ -47,7 +46,6 @@ body {
         background-repeat: no-repeat;
         background-size: cover
     background-attachment: fixed;
-    background-position: center top;
     position:absolute;             /* position in the center of the screen */
     left:0%;
     top:3%;

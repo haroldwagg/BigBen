@@ -333,16 +333,14 @@
         doOnOrientationChange()
         window.addEventListener('orientationchange', doOnOrientationChange);
 
-    window.onload = function ()   { 
-        init();
-         
-//        alert ("Here goes: " + JSON.stringify(window.plugins));
-//        alert ("Here goes2: " + JSON.stringify(cordova.plugins));
-        
-        window.plugins.insomnia.keepAwake();
-        
-//        alert ("Aftrer the command");
-     };
+        window.onbeforeunload = function() {
+          return "Exit BIG BEN?";
+        }
+
+        window.onload = function ()   { 
+          init();
+          window.plugins.insomnia.keepAwake();
+        };
 
 
     </script>
