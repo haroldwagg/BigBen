@@ -45,7 +45,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;">v 1.7.0</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;">v 1.7.1</div>
 
        <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
 
@@ -341,6 +341,13 @@
         init();
         window.plugins.insomnia.keepAwake();
       };
+
+      document.addEventListener("resume", onResume, false);
+      
+      function onResume()   {
+        clearTimeout(loopThread);
+        init();
+      }
 
 
     </script>
