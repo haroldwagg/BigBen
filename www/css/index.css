@@ -158,11 +158,10 @@ h1 {
   font-size: 6.0em; 
   color: #000099;
   float: right;
+  display: block;
+  visibility: visible;
 }
 
 #versioner {
   color: white;
-}
-
-#setupPanel {
 }
