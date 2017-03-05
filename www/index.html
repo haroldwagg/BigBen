@@ -123,7 +123,7 @@
           n = "&nbsp;&nbsp;" + n;
         }
         
-        document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins;
+        document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins + "&nbsp;";
              
         var secs = d.getSeconds();
         loopDelay = (60 - secs) * 1000;
@@ -153,7 +153,7 @@
           mins = "0" + mins;
         } 
         
-        document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins;
+        document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins + "&nbsp;";
                  
         if ((mins % 15) == 0)   {
           playBen(mins);
@@ -317,32 +317,16 @@
 //          alert ("width = " + screen.width + ";  height = " + screen.height + ";");
         
           body.style.backgroundImage = 'url(img/bg1.png)';
-          document.getElementById("titler").style.marginRight = "3%";
+          document.getElementById("titler").style.marginRight = "10px";
           document.getElementById("setup_but").style.marginRight = "10px";
-
-//          var PdocLeft = screen.width - 400;
-//          var PdocLeft = 0;
-//          PdocLeft = PdocLeft + "px";
-          document.getElementById("clock").style.marginLeft = "44%";
-
-//          var PdocTop = screen.height - 440;
-//          PdocTop = PdocTop + "px";
           document.getElementById("clock").style.marginTop = "60%";
 
           ORIENT = 'portrait';
         }
         else   {
           body.style.backgroundImage = 'url(img/bg2.png)';
-          document.getElementById("titler").style.marginRight = "50px";
-          document.getElementById("setup_but").style.marginRight = "50px";
-
-//          var LdocLeft = screen.width - 485;
-//          LdocLeft = LdocLeft + "px";
-          document.getElementById("clock").style.marginLeft = "60%";
-
-          
-//          var LdocTop = screen.height - 250;
-//          LdocTop = LdocTop + "px";
+          document.getElementById("titler").style.marginRight = "20px";
+          document.getElementById("setup_but").style.marginRight = "20px";
           document.getElementById("clock").style.marginTop = "20%";
          
           ORIENT = 'landscape';
