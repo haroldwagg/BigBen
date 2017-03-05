@@ -314,14 +314,16 @@
         var body = document.getElementsByTagName('body')[0];
          
         if (screen.height > screen.width) {
+          alert ("width = " + screen.width + ";  height = " + screen.height + ";");
+        
           body.style.backgroundImage = 'url(img/bg1.png)';
           document.getElementById("titler").style.marginRight = "3%";
           document.getElementById("setup_but").style.marginRight = "10px";
 
 //          var PdocLeft = screen.width - 400;
-          var PdocLeft = 0;
-          PdocLeft = PdocLeft + "px";
-          document.getElementById("clock").style.marginLeft = PdocLeft;
+//          var PdocLeft = 0;
+//          PdocLeft = PdocLeft + "px";
+//          document.getElementById("clock").style.marginLeft = PdocLeft;
 
           var PdocTop = screen.height - 440;
           PdocTop = PdocTop + "px";
@@ -334,9 +336,9 @@
           document.getElementById("titler").style.marginRight = "50px";
           document.getElementById("setup_but").style.marginRight = "50px";
 
-          var LdocLeft = screen.width - 485;
-          LdocLeft = LdocLeft + "px";
-          document.getElementById("clock").style.marginLeft = LdocLeft;
+//          var LdocLeft = screen.width - 485;
+//          LdocLeft = LdocLeft + "px";
+//          document.getElementById("clock").style.marginLeft = LdocLeft;
 
           
           var LdocTop = screen.height - 250;
