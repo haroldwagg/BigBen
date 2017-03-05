@@ -318,7 +318,10 @@
           document.getElementById("titler").style.marginRight = "3%";
           document.getElementById("setup_but").style.marginRight = "10px";
 //          document.getElementById("clock").style.left = (screen.width - 200) + "px";
-          document.getElementById("clock").style.top = (screen.height - 300) + "px";
+
+          var PdocTop = screen.height - 300;
+          PdocTop = PdocTop + "px";
+          document.getElementById("clock").style.top = PdocTop;
 
           ORIENT = 'portrait';
         }
@@ -327,7 +330,10 @@
           document.getElementById("titler").style.marginRight = "50px";
           document.getElementById("setup_but").style.marginRight = "50px";
 //          document.getElementById("clock").style.left = (screen.width - 285) + "px";
-          document.getElementById("clock").style.top = (screen.height - 100) + "px";
+          
+          var LdocTop = screen.height - 100;
+          LdocTop = LdocTop + "px";
+          document.getElementById("clock").style.top = LdocTop;
          
           ORIENT = 'landscape';
         }
