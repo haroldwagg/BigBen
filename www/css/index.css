@@ -157,8 +157,12 @@ h1 {
   position: absolute;
   font-size: 6.0em; 
   color: #000099;
+  float: right;
 }
 
 #versioner {
   color: white;
+}
+
+#setupPanel {
 }
