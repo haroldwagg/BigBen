@@ -166,3 +166,8 @@ h1 {
 #versioner {
   color: white;
 }
+
+#xer {
+  float: right;
+  margin-top: -20px;
+}
