@@ -65,8 +65,8 @@
                 <input type="checkbox" name="half" id="Half" checked onClick="doHalfHourOption()"> Half-Hour<br />
                 <input type="checkbox" name="three-quart" id="Three-quarters" checked onClick="doThreeQuarterOption()"> Three-Quarter-Hour<br />
                 <input type="checkbox" name="hhourr" id="Hour-strikes" onClick="doHourStrikeOption()" checked> On-the-Hour Strike
-                <br /><br /><img  src="img/juk.png" id="spkr" style="margin: 0; padding: 0; height: 20px; width: 20px; margin-right: 8px; margin-top: 0px;"  /><input type="button" value="-" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-right: 8px; margin-top: 0px; padding-top: 4px;" onClick="doVolumeDown()" /><progress id="prog" name="prog" value="0.4" max="1.0" style="width: 110px; height: 8px; margin: 0; padding: 0; margin-bottom: 4px;">
-                </progress><input type="button" value="+" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-left: 8px; padding-top: 4px;" onClick="doVolumeUp()" />
+                <br /><br /><img  src="img/juk.png" id="spkr" style="margin: 0; padding: 0; height: 20px; width: 20px; margin-right: 8px; margin-top: 0px;"  /><input type="button" value="-" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-right: 8px; margin-top: 0px; padding-top: 4px;" onClick="changeVolume('-')" /><progress id="prog" name="prog" value="0.4" max="1.0" style="width: 110px; height: 8px; margin: 0; padding: 0; margin-bottom: 4px;">
+                </progress><input type="button" value="+" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-left: 8px; padding-top: 4px;" onClick="changeVolume('+')" />
                 </td></tr></table>
                 
                 </div>
@@ -101,6 +101,8 @@
       var loopThread;
       var QUARTER_HOUR_SYNC = false;
       var ORIENT;
+      var lastVolumePush = "Neither";
+      var my_media_TEST = "NOT_RUNNING";
       
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -360,24 +362,37 @@
         navigator.app.exitApp();
       }
       
-      function doVolumeUp()   {
-//      alert ("UP");
+      function changeVolume(dir)   {
         var pBar = document.getElementById("prog");
         
-        if (MASTER_VOLUME < 1.0)   {
-          MASTER_VOLUME += 0.1;
-          pBar.value = MASTER_VOLUME;
-        }      
-      }
+        if(my_media_TEST == "NOT_RUNNING")   {
+          var dingerFile = this.root + "audio/" + "bb_hour.mp3";
+          my_media_TEST = new Media(dingerFile,
+                function () { console.log("playAudio():Audio Success"); },
+                function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
+          );
 
-      function doVolumeDown()   {
-//      alert ("DOWN");
-        var pBar = document.getElementById("prog");
+          my_media_TEST.play();
+          
+          setTimeout(function()   { 
+            my_media_TEST = "NOT_RUNNING";
+          }, 17000);
+        } 
         
-        if (MASTER_VOLUME > 0.0)   {
-          MASTER_VOLUME -= 0.1;
-          pBar.value = MASTER_VOLUME;
-        }      
+        if (dir == "+")   {            
+          if (MASTER_VOLUME < 1.0)   {
+            MASTER_VOLUME += 0.1;
+            pBar.value = MASTER_VOLUME;
+            my_media_TEST.setVolume(MASTER_VOLUME);
+          }
+        }
+        else   {
+          if (MASTER_VOLUME > 0.0)   {
+            MASTER_VOLUME -= 0.1;
+            pBar.value = MASTER_VOLUME;
+            my_media_TEST.setVolume(MASTER_VOLUME);
+          }
+        }          
       }
       
       function showScreenSize()   {
