@@ -239,8 +239,8 @@
         } 
         else   {
           document.getElementById("setup_but").value = "< SETUP";
-          document.getElementById("clock").style.visibility = 'visible';
           panelStyle.width = '0px';
+          setTimeout(function() {document.getElementById("clock").style.visibility = 'visible';}, 1500);          
         }      
       }
       
