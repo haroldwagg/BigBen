@@ -171,3 +171,20 @@ h1 {
   float: right;
   margin-top: -20px;
 }
+
+#setupPanel {
+  float: right; 
+  margin-right: -65px; 
+  text-align: right; 
+  background-color: transparent; 
+  margin-top: 25px; 
+/*  width: 205px;  */
+  width: 0px;   
+  height: 200px;
+ 
+  transition:           width 1500ms;
+  -webkit-transition:   width 1500ms;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
