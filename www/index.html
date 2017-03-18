@@ -55,11 +55,13 @@
                 <input type="button" class="rounderCorners" id="setup_but" value="< SETUP" onClick="doSetUp()" style="margin-right: 10px;" />
                 </div>
                 <div id="setupPanel">
-                  <br />
+                
+                <table style="border: none; float: right;">
+                  <tr><td align="left">
                   <input type="radio" name="edbuttons" onClick="doEnable()" id="enable_but" checked style="vertical-align: text-bottom"> ENABLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="edbuttons" id="disable_but" onClick="doDisable()" style="vertical-align: text-bottom"> DISABLE
                   <br /><br />
-                  <table style="border: none; float: right;">
-                  <tr><td align="left">
+                 
+                  
                   <span style="font-size: 1.2em; color: #0000bb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHIMES &amp; STRIKERS</span><br />
                   <input type="checkbox" name="quart" id="Quarter" checked onClick="doQuarterHourOption()">Quarter-Hour<br />
                   <input type="checkbox" name="half" id="Half" checked onClick="doHalfHourOption()"> Half-Hour<br />
@@ -235,7 +237,6 @@
           document.getElementById("setup_but").value = "SETUP >";
           document.getElementById("clock").style.visibility = 'hidden';
           panelStyle.width = '205px';
-          
         } 
         else   {
           document.getElementById("setup_but").value = "< SETUP";
