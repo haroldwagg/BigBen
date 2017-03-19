@@ -181,9 +181,14 @@ h1 {
 /*  width: 205px;  */
   width: 0px;   
   height: 200px;
+
  
   transition:           width 1500ms;
   -webkit-transition:   width 1500ms;
+
+
+  transition-timing-function: linear;  
+  
   overflow: hidden;
   display: inline-block;
   white-space: nowrap;
