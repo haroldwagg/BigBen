@@ -358,12 +358,12 @@
         window.plugins.insomnia.keepAwake();
         
         alert(JSON.stringify(window.plugins));
-        alert(JSON.stringify(cordova.plugins));
+        
         
         cordova.plugins.backgroundMode.setEnabled(true);
         cordova.plugins.backgroundMode.enable();
         
-        alert("Did not hang");
+        alert(JSON.stringify(cordova.plugins));
       }       
       
      
