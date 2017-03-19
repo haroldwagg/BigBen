@@ -45,7 +45,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 1.9.9</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 2.0.1</div>
         <div id="xer"><img id="ximage" src="img/x.png" width="30" height="31" style="border: none; border_top: 4px;" onClick="doExit()" /></div>
 
        <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
@@ -233,7 +233,7 @@
       function doSetUp()   {
         var panelStyle = document.getElementById("setupPanel").style;
         
-        alert ("Is the App in Background? " + cordova.plugins.backgroundMode.isActive());
+//        alert ("Is the App in Background? " + cordova.plugins.backgroundMode.isActive());
     
         if (document.getElementById("setup_but").value == "< SETUP")   {
           document.getElementById("setup_but").value = "SETUP >";
@@ -347,14 +347,35 @@
     
       doOnOrientationChange()
       window.addEventListener('orientationchange', doOnOrientationChange);
-      
 
-      window.onload = function ()   { 
+      document.addEventListener("deviceready", function(){alert("deviceready");}, false);
+      
+      window.onload = setTimeout(function() {starter();}, 2000);
+
+      function starter()   {
         document.getElementById("clock").style.visibility = 'visible';
         init();
         window.plugins.insomnia.keepAwake();
-        cordova.plugins.backgroundMode.setEnabled(true);
-      };
+        
+        alert(JSON.stringify(window.plugins));
+        alert(JSON.stringify(cordova.plugins));
+        
+//        cordova.plugins.backgroundMode.setEnabled(true);
+      }       
+      
+     
+////////////////////
+//      window.onload = function ()   { 
+//        document.getElementById("clock").style.visibility = 'visible';
+//        init();
+//        window.plugins.insomnia.keepAwake();
+//        
+//        alert(toJSON(window.plugins));
+//        alert(toJSON(cordova.plugins));
+//        
+//        cordova.plugins.backgroundMode.setEnabled(true);
+//      };
+///////////////////      
       
 
       document.addEventListener("resume", onResume, false);
