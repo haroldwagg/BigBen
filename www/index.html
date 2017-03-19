@@ -350,15 +350,7 @@
       window.onload = function ()   { 
         document.getElementById("clock").style.visibility = 'visible';
         init();
-//        window.plugins.insomnia.keepAwake();
-        document.addEventListener("pause", function() {
-          navigator.notification.alert(
-          "But Why do you want to leave me?!",
-          noticeDismissed,
-          "But Why?!",
-          "Deal With It"
-        );
-        });
+        window.plugins.insomnia.keepAwake();
       };
       
 
