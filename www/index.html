@@ -233,7 +233,7 @@
       function doSetUp()   {
         var panelStyle = document.getElementById("setupPanel").style;
         
-//        alert ("Is the App in Background? " + cordova.plugins.backgroundMode.isActive());
+        alert ("Is the App in Background? " + cordova.plugins.backgroundMode.isActive());
     
         if (document.getElementById("setup_but").value == "< SETUP")   {
           document.getElementById("setup_but").value = "SETUP >";
@@ -360,7 +360,9 @@
         alert(JSON.stringify(window.plugins));
         alert(JSON.stringify(cordova.plugins));
         
-//        cordova.plugins.backgroundMode.setEnabled(true);
+        cordova.plugins.backgroundMode.setEnabled(true);
+        
+        alert("Did not hang");
       }       
       
      
@@ -395,7 +397,7 @@
         var pBar = document.getElementById("prog");
         
         if(my_media_TEST == "NOT_RUNNING")   {
-          var dingerFile = this.root + "audio/" + "bb_hour.mp3";
+          var dingerFile = this.root + "audio/" + "bb_three-quarter.mp3";
           my_media_TEST = new Media(dingerFile,
                 function () { console.log("playAudio():Audio Success"); },
                 function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
