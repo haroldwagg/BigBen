@@ -232,6 +232,8 @@
       
       function doSetUp()   {
         var panelStyle = document.getElementById("setupPanel").style;
+        
+        alert ("Is the App in Background? " + cordova.plugins.backgroundMode.isActive());
     
         if (document.getElementById("setup_but").value == "< SETUP")   {
           document.getElementById("setup_but").value = "SETUP >";
@@ -351,6 +353,7 @@
         document.getElementById("clock").style.visibility = 'visible';
         init();
         window.plugins.insomnia.keepAwake();
+        cordova.plugins.backgroundMode.setEnabled(true);
       };
       
 
