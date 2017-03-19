@@ -361,6 +361,7 @@
         alert(JSON.stringify(cordova.plugins));
         
         cordova.plugins.backgroundMode.setEnabled(true);
+        cordova.plugins.backgroundMode.enable();
         
         alert("Did not hang");
       }       
