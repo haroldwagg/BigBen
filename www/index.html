@@ -75,6 +75,8 @@
                 <div id="clock">
                 </div>
                 
+                <div><input type="button" value="toBackground" onClick="cordova.plugins.backgroundMode.moveToBackground();" />
+                
   
           
         
@@ -85,9 +87,6 @@
      
     <script type="text/javascript" src="js/index.js"></script>
         
-    <script type="text/javascript">
-        app.initialize();
-    </script>
     
     <script type="text/javascript" src="js/pluginUtils.js"></script>
     <script type="text/javascript">
@@ -362,9 +361,13 @@
         
         cordova.plugins.backgroundMode.setEnabled(true);
         cordova.plugins.backgroundMode.enable();
-        cordova.plugins.backgroundMode.moveToBackground();
         
-        alert(JSON.stringify(cordova.plugins));
+        
+        cordova.plugins.backgroundMode.on('activate', function() {
+          cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+        });
+        
+//        alert(JSON.stringify(cordova.plugins));
       }       
       
      
