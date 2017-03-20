@@ -355,13 +355,14 @@
       function starter()   {
         document.getElementById("clock").style.visibility = 'visible';
         init();
-        window.plugins.insomnia.keepAwake();
+//        window.plugins.insomnia.keepAwake();
         
         alert(JSON.stringify(window.plugins));
         
         
         cordova.plugins.backgroundMode.setEnabled(true);
         cordova.plugins.backgroundMode.enable();
+        cordova.plugins.backgroundMode.moveToBackground();
         
         alert(JSON.stringify(cordova.plugins));
       }       
