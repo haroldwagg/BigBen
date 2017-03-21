@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.0.2</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.0.3</div>
         <div id="xer"><img id="ximage" src="img/x.png" width="30" height="31" style="border: none; border_top: 4px;" onClick="doExit()" /></div>
 
        <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
@@ -78,6 +78,7 @@
       var DING_SELECTION     = "bb";
       
       var Timeouter;
+      var delayRelease;
       
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -148,10 +149,10 @@
       }
 
       function playBen(x)   {
-//        if (typeof my_media == "object") {
-//          my_media.stop();
-//          my_media.release();
-//        }
+        if (typeof(my_media) == "object")   {
+          my_media.stop();
+          my_media.release();
+        }
         
         src = "";
         
@@ -165,10 +166,15 @@
           src = this.root + "audio/" + THREE_QUARTER_DING;
         }   
         else if ((x == "00") && (! MASTER_MUTE))   {
+          alert
           src = this.root + "audio/" + HOUR_DING;
           
           if (DO_STRIKES)   {
-            my_media2.release();
+            if (typeof(my_media2) == "object")   {
+              my_media2.stop();
+              my_media2.release();
+            }
+
             setTimeout(function()   { 
               var d = new Date();
               var n = d.getHours();
@@ -181,19 +187,17 @@
               }
               
               var inserter;
-              
-              
+                            
               inserter = (DING_SELECTION == "bb") ? "bb_" : "bg_";
               
               var dingerFile = this.root + "audio/" + inserter + n + ".mp3";
               my_media2 = new Media(dingerFile,
                 function () { console.log("playAudio():Audio Success"); },
-                function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
+                ignoreError()
               );
             
               my_media2.play({ playAudioWhenScreenIsLocked : true }); 
-              my_media2.setVolume(MASTER_VOLUME);         
-     
+              my_media2.setVolume(MASTER_VOLUME);     
             }, 17000);      
           }   
         }     
@@ -201,11 +205,11 @@
         if (src != "")   {
           my_media = new Media(src,
             function () { console.log("playAudio():Audio Success"); },
-            function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
+            ignoreError()
           );
           
           my_media.play({ playAudioWhenScreenIsLocked : true });         
-          my_media.setVolume(MASTER_VOLUME);
+          my_media.setVolume(MASTER_VOLUME); 
         }
        
       }
@@ -237,7 +241,7 @@
         }
         
         if(my_media_TEST != "NOT_RUNNING")   {
-          clearTimeout(Timeouter);
+          clearTimeout(delayRelease);
           my_media_TEST.stop();
           my_media_TEST.release();
           my_media_TEST = "NOT_RUNNING";
@@ -245,7 +249,7 @@
           
         my_media_WHICH = new Media(dingerFile,
            function () { console.log("playAudio():Audio Success"); },
-           function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
+           ignoreError()
         );
         
         my_media_WHICH.play();
@@ -256,7 +260,8 @@
         THREE_QUARTER_DING = "bb_three-quarter.mp3";
         HOUR_DING          = "bb_hour.mp3";
                   
-        Timeouter = setTimeout(function()   { 
+        Timeouter = setTimeout(function()   {
+            my_media_WHICH.stop(); 
             my_media_WHICH.release();
             my_media_WHICH = "NOT_RUNNING";
           }, 15000);
@@ -274,7 +279,7 @@
         }
         
         if(my_media_TEST != "NOT_RUNNING")   {
-          clearTimeout(Timeouter);
+          clearTimeout(delayRelease);
           my_media_TEST.stop();
           my_media_TEST.release();
           my_media_TEST = "NOT_RUNNING";
@@ -282,7 +287,7 @@
           
         my_media_WHICH = new Media(dingerFile,
            function () { console.log("playAudio():Audio Success"); },
-           function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
+           ignoreError()
         );
         
         my_media_WHICH.play();
@@ -310,8 +315,8 @@
 //        
 //        QUARTER_MUTE = true;
 //        HALF_MUTE = true;
-//       THREE_QUARTER_MUTE = true;
-//       DO_STRIKES = false;
+//        THREE_QUARTER_MUTE = true;
+//        DO_STRIKES = false;
 //        
 //        clearTimeout(loopThread);  
 //      } 
@@ -405,7 +410,7 @@
         
         cordova.plugins.backgroundMode.setDefaults({
           title: "Big Ben Bonger Background",
-          text: "[Tap here to restore]",
+          text: "[Tap here to Restore & Exit]",
         });
         
         cordova.plugins.backgroundMode.overrideBackButton();
@@ -453,15 +458,24 @@
           var dingerFile = this.root + "audio/" + THREE_QUARTER_DING;
           my_media_TEST = new Media(dingerFile,
                 function () { console.log("playAudio():Audio Success"); },
-                function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
+                ignoreError()
           );
 
           my_media_TEST.play();
           
-          setTimeout(function()   { 
+          var delay;          
+          if (DING_SELECTION == "bb")   {
+            delay = 20000;
+          }
+          else   {
+            delay = 20000;
+          }
+          
+          delayRelease = setTimeout(function()   { 
+            my_media_TEST.stop();
             my_media_TEST.release();
             my_media_TEST = "NOT_RUNNING";
-          }, 15000);
+          }, delay);
         } 
         
         if (dir == "+")   {            
@@ -486,6 +500,10 @@
         var w = screen.width * ratio;
         
         alert("" + w + " x " + h + "\r RATIO = " + ratio);
+      }
+      
+      function ignoreError(err){
+        ;
       }
 
     </script>
