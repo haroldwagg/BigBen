@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.0.0</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.0.1</div>
         <div id="xer"><img id="ximage" src="img/x.png" width="30" height="31" style="border: none; border_top: 4px;" onClick="doExit()" /></div>
 
        <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
@@ -44,13 +44,7 @@
                 </div>
                 <div id="clock">
                 </div>
-<!--                
-                <div><input type="button" value="toBackground" onClick="cordova.plugins.backgroundMode.moveToBackground();" />
--->                
-  
-          
-        
-        
+
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -60,7 +54,6 @@
     
     <script type="text/javascript" src="js/pluginUtils.js"></script>
     <script type="text/javascript">
-      var my_media;
       var src;
       var MASTER_MUTE = false;
       var QUARTER_MUTE = false;
@@ -75,6 +68,8 @@
       var lastVolumePush = "Neither";
       var my_media_TEST = "NOT_RUNNING";
       var my_media_WHICH = "NOT_RUNNING";
+      var my_media2;
+      var my_media;      
       
       var QUARTER_DING       = "bb_quarter.mp3";
       var HALF_DING          = "bb_half.mp3";
@@ -153,6 +148,11 @@
       }
 
       function playBen(x)   {
+        if (typeof my_media == "object") {
+          my_media.stop();
+          my_media.release();
+        }
+        
         src = "";
         
         if ((x == "15") && (! QUARTER_MUTE) && (! MASTER_MUTE))   {
@@ -168,6 +168,7 @@
           src = this.root + "audio/" + HOUR_DING;
           
           if (DO_STRIKES)   {
+            my_media2.release();
             setTimeout(function()   { 
               var d = new Date();
               var n = d.getHours();
@@ -180,7 +181,7 @@
               }
               
               var inserter;
-              var my_media2;
+              
               
               inserter = (DING_SELECTION == "bb") ? "bb_" : "bg_";
               
@@ -234,6 +235,13 @@
           my_media_WHICH.release();
           my_media_WHICH = "NOT_RUNNING";
         }
+        
+        if(my_media_TEST != "NOT_RUNNING")   {
+          clearTimeout(Timeouter);
+          my_media_TEST.stop();
+          my_media_TEST.release();
+          my_media_TEST = "NOT_RUNNING";
+        }
           
         my_media_WHICH = new Media(dingerFile,
            function () { console.log("playAudio():Audio Success"); },
@@ -263,6 +271,13 @@
           my_media_WHICH.release();
           my_media_WHICH = "NOT_RUNNING";
         }
+        
+        if(my_media_TEST != "NOT_RUNNING")   {
+          clearTimeout(Timeouter);
+          my_media_TEST.stop();
+          my_media_TEST.release();
+          my_media_TEST = "NOT_RUNNING";
+        }        
           
         my_media_WHICH = new Media(dingerFile,
            function () { console.log("playAudio():Audio Success"); },
@@ -386,6 +401,11 @@
           cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
         });
         
+        cordova.plugins.backgroundMode.setDefaults({
+          title: "Big Ben Bonger Background",
+          text: "[Tap here to restore]",
+        });
+        
         cordova.plugins.backgroundMode.overrideBackButton();
       }       
       
@@ -418,10 +438,17 @@
       }
       
       function changeVolume(dir)   {
+        if(my_media_WHICH != "NOT_RUNNING")   {
+          clearTimeout(Timeouter);
+          my_media_WHICH.stop();
+          my_media_WHICH.release();
+          my_media_WHICH = "NOT_RUNNING";
+        }
+              
         var pBar = document.getElementById("prog");
         
         if(my_media_TEST == "NOT_RUNNING")   {
-          var dingerFile = this.root + "audio/" + "bb_three-quarter.mp3";
+          var dingerFile = this.root + "audio/" + THREE_QUARTER_DING;
           my_media_TEST = new Media(dingerFile,
                 function () { console.log("playAudio():Audio Success"); },
                 function (err) { alert ("playAudio():Audio Error: " + JSON.stringify(err)); }
@@ -430,6 +457,7 @@
           my_media_TEST.play();
           
           setTimeout(function()   { 
+            my_media_TEST.release();
             my_media_TEST = "NOT_RUNNING";
           }, 15000);
         } 
