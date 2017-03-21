@@ -257,6 +257,7 @@
         HOUR_DING          = "bb_hour.mp3";
                   
         Timeouter = setTimeout(function()   { 
+            my_media_WHICH.release();
             my_media_WHICH = "NOT_RUNNING";
           }, 15000);
       }
@@ -293,6 +294,7 @@
         HOUR_DING          = "bg_hour.mp3";
 
         Timeouter = setTimeout(function()   { 
+            my_media_WHICH.release();
             my_media_WHICH = "NOT_RUNNING";
           }, 20000);        
       }
