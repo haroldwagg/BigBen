@@ -10,6 +10,7 @@
     <content src="index.html" />
     <icon src="icon.png" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="AndroidLaunchMode" value="singleInstance" />
     <preference name="android-minSdkVersion" value="14" />
     <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0" />
