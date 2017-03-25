@@ -412,7 +412,7 @@
         document.getElementById("clock").style.visibility = 'visible';
         
         var sUser = openDatabase("singleUser", "1.0", "singleUser", 10000);
-        if (sUser == "undefined")   {
+        if (sUser.toJSON() == "undefined")   {
            navigator.app.exitApp();
         }
         
