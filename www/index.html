@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.0.3</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.0.5</div>
         <div id="xer"><img id="ximage" src="img/x.png" width="30" height="31" style="border: none; border_top: 4px;" onClick="doExit()" /></div>
 
        <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
@@ -174,7 +174,15 @@
               my_media2.stop();
               my_media2.release();
             }
-
+            
+            var deela;          
+            if (DING_SELECTION == "bb")   {
+              deela = 15800;
+            }
+            else   {
+              deela = 13000;
+            }
+ 
             setTimeout(function()   { 
               var d = new Date();
               var n = d.getHours();
@@ -198,7 +206,7 @@
             
               my_media2.play({ playAudioWhenScreenIsLocked : true }); 
               my_media2.setVolume(MASTER_VOLUME);     
-            }, 17000);      
+            }, deela);      
           }   
         }     
         
@@ -496,10 +504,10 @@
       
       function showScreenSize()   {
         var ratio = window.devicePixelRatio || 1;
-        var h = screen.height * ratio;
-        var w = screen.width * ratio;
+        var h = screen.height;
+        var w = screen.width;
         
-        alert("" + w + " x " + h + "\r RATIO = " + ratio);
+        alert("SCREEN = " + w + " x " + h + "\r\n RATIO = " + ratio);
       }
       
       function ignoreError(err){
