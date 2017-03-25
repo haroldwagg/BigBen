@@ -44,6 +44,10 @@
                 </div>
                 <div id="clock">
                 </div>
+                
+                <div id="helpDiv">
+                  <img src="img/help.png" width="40" height="40" id="helpIcon" />
+                </div>
 
     </div>
 
@@ -406,6 +410,12 @@
 
       function starter()   {
         document.getElementById("clock").style.visibility = 'visible';
+        
+        var sUser = openDatabase("singleUser", "1.0", "singleUser", 10000);
+        alert("AFTER = " + sUser);
+        
+        
+        
         init();
         window.plugins.insomnia.keepAwake();
         
