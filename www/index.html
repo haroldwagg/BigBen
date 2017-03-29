@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.1.0</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.1.1</div>
         <div id="xer"><img id="ximage" src="img/x.png" width="30" height="31" style="border: none; border_top: 4px;" onClick="doExit()" /></div>
         <div id="miner"><img id="minimage" src="img/min.png" width="30" height="31" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -20px;" onClick="doGoToBG()" /></div>
 
@@ -431,7 +431,7 @@
         
         cordova.plugins.backgroundMode.setDefaults({
           title: "Big Ben Bonger Background",
-          text: "[Tap here to Restore & Exit]",
+          text: "[Tap the Big Ben icon to Restore & Exit]",
         });
         
         cordova.plugins.backgroundMode.overrideBackButton();
@@ -507,7 +507,7 @@
       
       function doHelp()   {
         navigator.notification.alert(
-          "Tap the [< Setup] button to adjust settings.  When finished, tap the [Setup >] button again to save your changes.  You can leave Ben like this and he'll display the time and bong for you all day.  But most likely you'll want to do other things with your phone. You can minimize Big Ben by tapping the Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\nTo exit Big Ben, tap the Big Ben icon to maximize Big Ben so you can exit the app by tapping the X Icon in the upper right corner.\n\nGod Save The Queen.",  
+          "Tap the [< Setup] button to adjust settings.  When finished, tap the [Setup >] button again to save your changes.  You can leave Ben like this and he'll display the time and bong for you all day.\n\nBut most likely you'll want to do other things with your phone. You can minimize Big Ben by tapping the Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\nThe ONLY way to exit Big Ben is to tap the Big Ben icon. This will maximize Ben so you can exit the app by tapping the X Icon in the upper right corner.\n\nGod Save The Queen.",  
           "",         
           'Welcome to the Big Ben Bonger',           
           'Dismiss'                 
