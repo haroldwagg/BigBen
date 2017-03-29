@@ -17,6 +17,7 @@
 <body>
         <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.0.8</div>
         <div id="xer"><img id="ximage" src="img/x.png" width="30" height="31" style="border: none; border_top: 4px;" onClick="doExit()" /></div>
+        <div id="miner"><img id="minimage" src="img/min.png" width="30" height="31" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -20px;" onClick="doGoToBG()" /></div>
 
        <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
 
@@ -46,7 +47,7 @@
                 </div>
                 
                 <div id="helpDiv">
-                  <img src="img/help.png" width="40" height="40" id="helpIcon" />
+                  <a href="#" onClick="doHelp()"><img src="img/help.png" width="40" height="40" id="helpIcon" /></a>
                 </div>
 
     </div>
@@ -435,25 +436,11 @@
         
         cordova.plugins.backgroundMode.overrideBackButton();
       }       
-      
-     
-////////////////////
-//      window.onload = function ()   { 
-//        document.getElementById("clock").style.visibility = 'visible';
-//        init();
-//        window.plugins.insomnia.keepAwake();
-//        
-//        alert(toJSON(window.plugins));
-//        alert(toJSON(cordova.plugins));
-//        
-//        cordova.plugins.backgroundMode.setEnabled(true);
-//      };
-///////////////////      
-      
 
       document.addEventListener("resume", onResume, false);
       
       function onResume()   {
+        cordova.plugins.backgroundMode.moveToForeground();
         clearTimeout(loopThread);
         init();
       }
@@ -513,6 +500,21 @@
           }
         }          
       }
+      
+      function doGoToBG()   { 
+        cordova.plugins.backgroundMode.moveToBackground();      
+      }
+      
+      function doHelp()   {
+        navigator.notification.alert(
+          "Tap the [< Setup] button to adjust settings.  When finished, tap the [Setup >] button again to save your changes.  You can leave Ben like this and he'll display the time and bong for you all day.  But most likely you'll want to do other things with your phone. You can minimize Big Ben by tapping the Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\nTo exit Big Ben, tap the Big Ben icon to maximize Big Ben so you can exit the app by tapping the X Icon in the upper right corner.\n\nGod Save The Queen.",  
+          "",         
+          'Welcome to the Big Ben Bonger',           
+          'Dismiss'                 
+        );      
+      }
+      
+      
       
       function showScreenSize()   {
         var ratio = window.devicePixelRatio || 1;
