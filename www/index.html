@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.1.2</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.1.3</div>
         <div id="xer"><img id="ximage" src="img/x.png" width="30" height="31" style="border: none; border_top: 4px;" onClick="doExit()" /></div>
         <div id="miner"><img id="minimage" src="img/min.png" width="30" height="31" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -20px;" onClick="doGoToBG()" /></div>
 
@@ -239,16 +239,18 @@
           var h = screen.height;
 
           if (h / ratio > 780)   {
-            panelStyle.width = '400px';
+            panelStyle.width = '360px';
             panelStyle.height = '400px';
             document.getElementById("setupPanel").style.paddingTop = "30px";
-            theCheckboxes.style.paddingTop = "10px";
+            document.getElementById("Quarter").style.marginTop = "10px";
+            document.getElementById("Half").style.marginTop = "8px";
+            document.getElementById("Three-quarters").style.marginTop = "8px";
+            document.getElementById("Hour-strikes").style.marginTop = "8px";
           }
           else   {
             panelStyle.width = '205px';
             panelStyle.height = '200px';
             document.getElementById("setupPanel").style.paddingTop = "2px";
-            theCheckboxes.style.paddingTop = "0px";
           }          
         } 
         else   {
