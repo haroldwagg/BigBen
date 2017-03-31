@@ -248,12 +248,7 @@
             document.getElementById("Hour-strikes").style.marginTop = "8px";
             document.getElementById("spkr").style.width = "40px";
             document.getElementById("spkr").style.height = "40px";
-            document.getElementById("sprk").style.marginBottom = "-8px";
-            document.getElementById("ximage").style.width = "45px";
-            document.getElementById("ximage").style.height = "45px";
-            document.getElementById("minimage").style.width = "45px";
-            document.getElementById("minimage").style.height = "45px";
-            
+            document.getElementById("sprk").style.marginBottom = "-8px";            
           }
           else   {
             panelStyle.width = '205px';
@@ -470,6 +465,16 @@
         });
         
         cordova.plugins.backgroundMode.overrideBackButton();
+        
+        var ratio = window.devicePixelRatio || 1;
+        var h = screen.height;
+
+        if (h / ratio > 780)   {
+          document.getElementById("ximage").style.width = "45px";
+          document.getElementById("ximage").style.height = "45px";
+          document.getElementById("minimage").style.width = "45px";
+          document.getElementById("minimage").style.height = "45px";
+        }
       }       
 
       document.addEventListener("resume", onResume, false);
