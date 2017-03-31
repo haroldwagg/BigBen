@@ -233,7 +233,16 @@
         if (document.getElementById("setup_but").value == "< SETUP")   {
           document.getElementById("setup_but").value = "SETUP >";
           document.getElementById("clock").style.visibility = 'hidden';
-          panelStyle.width = '205px';
+          
+          var ratio = window.devicePixelRatio || 1;
+          var h = screen.height;
+
+          if (h / ratio > 780)   {
+            panelStyle.width = '400px';
+          }
+          else   {
+            panelStyle.width = '205px';
+          }          
         } 
         else   {
           document.getElementById("setup_but").value = "< SETUP";
@@ -385,7 +394,7 @@
         var h = screen.height;
 
         if (h / ratio > 780)   {
-          body.style.fontSize = "22px";
+          body.style.fontSize = "20px";
         }
         else   {
           body.style.fontSize = "12px";
