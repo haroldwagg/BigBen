@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.1.1</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.1.2</div>
         <div id="xer"><img id="ximage" src="img/x.png" width="30" height="31" style="border: none; border_top: 4px;" onClick="doExit()" /></div>
         <div id="miner"><img id="minimage" src="img/min.png" width="30" height="31" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -20px;" onClick="doGoToBG()" /></div>
 
@@ -34,12 +34,12 @@
                  
                   
                   <span style="font-size: 1.2em; color: #0000bb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHIMES &amp; STRIKERS</span><br />
-                  <input type="checkbox" name="quart" id="Quarter" checked onClick="doQuarterHourOption()">Quarter-Hour<br />
-                  <input type="checkbox" name="half" id="Half" checked onClick="doHalfHourOption()"> Half-Hour<br />
-                  <input type="checkbox" name="three-quart" id="Three-quarters" checked onClick="doThreeQuarterOption()"> Three-Quarter-Hour<br />
-                  <input type="checkbox" name="hhourr" id="Hour-strikes" onClick="doHourStrikeOption()" checked> Hour Strikes
-                  <br /><br /><img  src="img/juk.png" id="spkr" style="margin: 0; padding: 0; height: 20px; width: 20px; margin-right: 8px; margin-top: 0px;"  /><input type="button" value="-" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-right: 8px; margin-top: 0px; padding-top: 4px;" onClick="changeVolume('-')" /><progress id="prog" name="prog" value="0.4" max="1.0" style="width: 110px; height: 8px; margin: 0; padding: 0; margin-bottom: 4px;">
-                  </progress><input type="button" value="+" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-left: 8px; padding-top: 4px;" onClick="changeVolume('+')" />
+                  <input type="checkbox" class="checkers" name="quart" id="Quarter" checked onClick="doQuarterHourOption()">Quarter-Hour<br />
+                  <input type="checkbox" class="checkers" name="half" id="Half" checked onClick="doHalfHourOption()"> Half-Hour<br />
+                  <input type="checkbox" class="checkers" name="three-quart" id="Three-quarters" checked onClick="doThreeQuarterOption()"> Three-Quarter-Hour<br />
+                  <input type="checkbox" class="checkers" name="hhourr" id="Hour-strikes" onClick="doHourStrikeOption()" checked> Hour Strikes
+                  <br /><br /><img  src="img/juk.png" id="spkr" style="margin: 0; padding: 0; height: 20px; width: 20px; margin-right: 0.8em; margin-top: 0px;"  /><input type="button" value="-" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-right: 8px; margin-top: 0px; padding-top: 4px;" onClick="changeVolume('-')" /><progress id="prog" name="prog" value="0.4" max="1.0">
+                  </progress><input type="button" value="+" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-left: 0.8em; padding-top: 4px;" onClick="changeVolume('+')" />
                   </td></tr></table>
                 
                 </div>
@@ -229,6 +229,7 @@
       
       function doSetUp()   {
         var panelStyle = document.getElementById("setupPanel").style;
+        var theCheckboxes = document.getElementsByClassName("checkers");
     
         if (document.getElementById("setup_but").value == "< SETUP")   {
           document.getElementById("setup_but").value = "SETUP >";
@@ -240,10 +241,14 @@
           if (h / ratio > 780)   {
             panelStyle.width = '400px';
             panelStyle.height = '400px';
+            document.getElementById("setupPanel").style.paddingTop = "30px";
+            theCheckboxes.style.paddingTop = "10px";
           }
           else   {
             panelStyle.width = '205px';
             panelStyle.height = '200px';
+            document.getElementById("setupPanel").style.paddingTop = "2px";
+            theCheckboxes.style.paddingTop = "0px";
           }          
         } 
         else   {

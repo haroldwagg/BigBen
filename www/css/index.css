@@ -174,7 +174,7 @@ h1 {
 
 #setupPanel {
   float: right; 
-  margin-right: -75px; 
+  margin-right: -70px; 
   text-align: right; 
   background-color: transparent; 
   margin-top: 25px; 
@@ -204,3 +204,10 @@ h1 {
   font-size: 1em;
 }
 
+#prog {
+  width: 9em; 
+  height: 0.5em; 
+  margin: 0; 
+  padding: 0; 
+  margin-bottom: 4px;
+}
