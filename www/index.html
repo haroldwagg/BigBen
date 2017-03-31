@@ -38,7 +38,7 @@
                   <input type="checkbox" class="checkers" name="half" id="Half" checked onClick="doHalfHourOption()"> Half-Hour<br />
                   <input type="checkbox" class="checkers" name="three-quart" id="Three-quarters" checked onClick="doThreeQuarterOption()"> Three-Quarter-Hour<br />
                   <input type="checkbox" class="checkers" name="hhourr" id="Hour-strikes" onClick="doHourStrikeOption()" checked> Hour Strikes
-                  <br /><br /><img  src="img/juk.png" id="spkr" style="margin: 0; padding: 0; height: 20px; width: 20px; margin-right: 0.8em; margin-top: 0px;"  /><input type="button" value="-" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-right: 8px; margin-top: 0px; padding-top: 4px;" onClick="changeVolume('-')" /><progress id="prog" name="prog" value="0.4" max="1.0">
+                  <br /><br /><img  src="img/juk.png" id="spkr" style="margin: 0; padding: 0; height: 20px; width: 20px; margin-right: 0.8em; margin-top: 0px; margin-bottom: -3px;"  /><input type="button" value="-" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-right: 8px; margin-top: 0px; padding-top: 4px;" onClick="changeVolume('-')" /><progress id="prog" name="prog" value="0.4" max="1.0">
                   </progress><input type="button" value="+" style="height: 19px; width: 15px; border:none; margin: 0; padding: 0; margin-left: 0.8em; padding-top: 4px;" onClick="changeVolume('+')" />
                   </td></tr></table>
                 
@@ -246,11 +246,16 @@
             document.getElementById("Half").style.marginTop = "8px";
             document.getElementById("Three-quarters").style.marginTop = "8px";
             document.getElementById("Hour-strikes").style.marginTop = "8px";
+            document.getElementById("spkr").style.width = "40px";
+            document.getElementById("spkr").style.height = "40px";
+
           }
           else   {
             panelStyle.width = '205px';
             panelStyle.height = '200px';
             document.getElementById("setupPanel").style.paddingTop = "2px";
+            document.getElementById("spkr").style.width = "22px";
+            document.getElementById("spkr").style.height = "22px";
           }          
         } 
         else   {
