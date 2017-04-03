@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.2.4</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.2.5</div>
         <div id="xer"><img id="ximage" src="img/x3.png" width="25" height="25" style="border: none; " onClick="doExit()" /></div>
         <div id="miner"><img id="minimage" src="img/min3.png" width="25" height="25" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -20px;" onClick="doGoToBG()" /></div>
 
@@ -462,7 +462,17 @@
           text: "[Tap the Big Ben icon to Restore & Exit]",
         });
         
-        cordova.plugins.backgroundMode.overrideBackButton();
+//        cordova.plugins.backgroundMode.overrideBackButton();
+
+        document.addEventListener("backbutton", function (e) {               // Disable Back Button
+          e.preventDefault();
+          navigator.notification.alert(
+            "You can only exit Big Ben Bonger by tapping the \"X\" in the upper right corner.\n\nTo minimize Big Ben, tap the \"Minimize\" icon above.",  
+            "",         
+            'Back Button Disabled',           
+            'I understand'                 
+          );      
+        }, false );
         
         var ratio = window.devicePixelRatio || 1;
         var h = screen.height;
