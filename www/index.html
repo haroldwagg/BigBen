@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.2.0</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.2.4</div>
         <div id="xer"><img id="ximage" src="img/x3.png" width="25" height="25" style="border: none; " onClick="doExit()" /></div>
         <div id="miner"><img id="minimage" src="img/min3.png" width="25" height="25" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -20px;" onClick="doGoToBG()" /></div>
 
@@ -575,26 +575,27 @@
           var d = new Date();
           MAGIC_NUMBER = "" + d.getUTCMilliseconds() + "" + d.getUTCSeconds();
         }
-        alert ("Magic Number is " + MAGIC_NUMBER);
+
+//      alert ("Magic Number is " + MAGIC_NUMBER);
           
-        if (typeof localStorage["locker"] === 'undefined')   {        // Lock Variable does not exist
+        if (typeof localStorage["locker"] === 'undefined')   {        // Lock Variable does not exist -- OK to proceed.
           localStorage["locker"] = MAGIC_NUMBER;
-          alert ("Locker did not exist. I created it with " + localStorage["locker"]);
+//        alert ("Locker did not exist. I created it with " + localStorage["locker"]);
           return;
         }
-        else if (localStorage["locker"] == "0")   {
+        else if (localStorage["locker"] == "0")   {                   // Lock Variable exists and contains "0" -- OK to proceed.
           localStorage["locker"] = MAGIC_NUMBER;
-          alert ("Locker existsed with '0'. I wrote it with " + localStorage["locker"]);
+//        alert ("Locker existsed with '0'. I wrote it with " + localStorage["locker"]);
           return;
         }
-        else if (localStorage["locker"] == MAGIC_NUMBER)   {
-          alert ("Locker existsed with my MagicNumber of " + localStorage["locker"]);
+        else if (localStorage["locker"] == MAGIC_NUMBER)   {          // Lock Variable exists and contains my MAGIC_NUMBER -- OK to proceed.
+//        alert ("Locker existsed with my MagicNumber of " + localStorage["locker"]);
           return;
         }
-        else   {
-          alert ("Locker says I must go home.");
-        }
-      
+        else   {                                                      // Doesn't match anything. Must exit.
+//        alert ("Locker says I must go home.");
+          navigator.app.exitApp();
+        }      
       }
       
       
