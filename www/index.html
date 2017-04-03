@@ -85,6 +85,8 @@
       var Timeouter;
       var delayRelease;
       
+      var MAGIC_NUMBER = 0;
+      
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
       
@@ -442,11 +444,7 @@
       function starter()   {
         document.getElementById("clock").style.visibility = 'visible';
         
-//        var sUser = openDatabase("singleUser", "1.0", "singleUser", 10000);
-//        if (sUser.toJSON() == "undefined")   {
-//           navigator.app.exitApp();
-//        }
-        
+        singleUser();        
         
         
         init();
@@ -490,9 +488,15 @@
       
       function doExit()   {
         clearTimeout(loopThread);
+        localStorage["locker"] = 0;
         window.plugins.insomnia.allowSleepAgain();
         navigator.app.exitApp();
       }
+      
+      window.addEventListener("beforeunload", function (event) {
+//      event.preventDefault();
+        localStorage["locker"] = 0;
+      });
       
       function changeVolume(dir)   {
         if(my_media_WHICH != "NOT_RUNNING")   {
@@ -556,9 +560,7 @@
           'Dismiss'                 
         );      
       }
-      
-      
-      
+            
       function showScreenSize()   {
         var ratio = window.devicePixelRatio || 1;
         var h = screen.height;
@@ -567,9 +569,43 @@
         alert("SCREEN = " + w + " x " + h + "\r\n RATIO = " + ratio);
       }
       
+      function singleUser()   {
+        
+        if (MAGIC_NUMBER == "0")   {
+          var d = new Date();
+          MAGIC_NUMBER = "" + d.getUTCMilliseconds() + "" + d.getUTCSeconds();
+        }
+        alert ("Magic Number is " + MAGIC_NUMBER);
+          
+        if (typeof localStorage["locker"] === 'undefined')   {        // Lock Variable does not exist
+          localStorage["locker"] = MAGIC_NUMBER;
+          alert ("Locker did not exist. I created it with " + localStorage["locker"]);
+          return;
+        }
+        else if (localStorage["locker"] == "0")   {
+          localStorage["locker"] = MAGIC_NUMBER;
+          alert ("Locker existsed with '0'. I wrote it with " + localStorage["locker"]);
+          return;
+        }
+        else if (localStorage["locker"] == MAGIC_NUMBER)   {
+          alert ("Locker existsed with my MagicNumber of " + localStorage["locker"]);
+          return;
+        }
+        else   {
+          alert ("Locker says I must go home.");
+        }
+      
+      }
+      
+      
+      
+      
       function ignoreError(err){
         ;
       }
+      
+            
+      
 
     </script>
   
