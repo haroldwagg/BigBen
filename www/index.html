@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.2.9</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.2.10</div>
         <div id="xer"><img id="ximage" name="ximage" src="" width="30" height="30" style="border: none; " onClick="doExit()" /></div>
         <div id="miner"><img id="minimage" name="minimage" src="" width="30" height="30" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -20px;" onClick="doGoToBG()" /></div>
 
@@ -464,7 +464,7 @@
         
         cordova.plugins.backgroundMode.setDefaults({
           title: "Big Ben Bonger Background",
-          text: "[Tap the Big Ben icon to Restore & Exit]",
+          text: "[Tap here to Restore & Exit]",
         });
         
 //        cordova.plugins.backgroundMode.overrideBackButton();
@@ -573,7 +573,7 @@
       
       function doHelp()   {
         navigator.notification.alert(
-          "Take Big Ben with you when you want to be reminded of the time. Never be late again (or at least you'll have less of an excuse).\n\nTap the [< Setup] button to adjust settings.  When finished, tap the [Setup >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\nBut most likely you'll want to do other things with your phone. You can minimize Big Ben by tapping the Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\nTo exit the Bonger after you have minimized it, tap the Big Ben icon again to maximize this app. You can then exit the Big Ben Bonger by tapping the X Icon in the upper right corner.\n\nGod Save The Queen.\n\n\numikeapps@outlook.com",  
+          "Take Big Ben with you when you want to be reminded of the time. Never be late again (or at least you'll have less of an excuse).\n\nTap the [< Setup] button to adjust settings.  When finished, tap the [Setup >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\nBut most likely you'll want to do other things with your phone. You can minimize Big Ben by tapping the Minimize \"__\" Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\nTo re-maximize the Bonger after you have minimized it, go to your top-of-the-screen notifications and tap Big Ben. You can then re-adjust Big Ben or exit by tapping the \"X\" Icon in the upper right corner.\n\nGod Save The Queen.\n\n\numikeapps@outlook.com",  
           "",         
           'Welcome to the Big Ben Bonger',           
           'Dismiss'                 
