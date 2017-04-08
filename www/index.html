@@ -15,7 +15,7 @@
 </head>
 
 <body>
-        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.2.8</div>
+        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 3.2.9</div>
         <div id="xer"><img id="ximage" name="ximage" src="" width="30" height="30" style="border: none; " onClick="doExit()" /></div>
         <div id="miner"><img id="minimage" name="minimage" src="" width="30" height="30" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -20px;" onClick="doGoToBG()" /></div>
 
@@ -471,9 +471,9 @@
         document.addEventListener("backbutton", function (e) {               // Disable Back Button
           e.preventDefault();
           navigator.notification.alert(
-            "You can only exit Big Ben Bonger by tapping the \"X\" in the upper right corner.\n\nTo minimize Big Ben, tap the \"Minimize\" icon above.",  
+            "The only way to exit the Big Ben Bonger is by tapping the \"X\" in the upper right corner.\n\nTo minimize Big Ben so he'll keep bonging for you, tap the \"Minimize\" icon above.",  
             "",         
-            'Back Button Disabled',           
+            '',           
             'I understand'                 
           );      
         }, false );
