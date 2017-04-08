@@ -445,12 +445,13 @@
       
 //     window.onload = setTimeout(function() {starter();}, 2000);
 
+
+
       function starter()   {
         document.getElementById("clock").style.visibility = 'visible';
         
         singleUser();        
-        
-        
+                
         init();
         window.plugins.insomnia.keepAwake();
         
@@ -466,7 +467,19 @@
           text: "[Tap here to Restore & Exit]",
         });
         
-//        cordova.plugins.backgroundMode.overrideBackButton();
+        PhoneCallTrap.onCall(function(state) {
+          switch (state) {
+            case "RINGING":
+                MASTER_MUTE = true;
+                break;
+            case "OFFHOOK":
+                MASTER_MUTE = true;
+                break;
+            case "IDLE":
+                MASTER_MUTE = false;
+                break;
+          }
+        });
 
         document.addEventListener("backbutton", function (e) {               // Disable Back Button
           e.preventDefault();
@@ -492,7 +505,9 @@
           document.getElementById("helpIcon").style.width = "45px";
           document.getElementById("helpIcon").style.height = "45px";
         }
-      }       
+      } 
+      
+            
 
       document.addEventListener("resume", onResume, false);
       
