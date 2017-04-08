@@ -423,12 +423,6 @@
           document.getElementById("clock").style.marginTop = "60%";
           document['ximage'].src='img/x.png';
           document['minimage'].src='img/min.png';
-          document.getElementById("ximage").style.width = "30px";
-          document.getElementById("ximage").style.height = "30px";
-          document.getElementById("minimage").style.width = "30px";
-          document.getElementById("minimage").style.height = "30px";
-          document.getElementById("helpIcon").style.width = "30px";
-          document.getElementById("helpIcon").style.height = "30px";
           
           ORIENT = 'portrait';
         }
@@ -439,12 +433,6 @@
           document.getElementById("clock").style.marginTop = "20%";
           document['ximage'].src='img/xLITE.png';
           document['minimage'].src='img/minLITE.png';
-          document.getElementById("ximage").style.width = "45px";
-          document.getElementById("ximage").style.height = "45px";
-          document.getElementById("minimage").style.width = "45px";
-          document.getElementById("minimage").style.height = "45px";
-          document.getElementById("helpIcon").style.width = "45px";
-          document.getElementById("helpIcon").style.height = "45px";
           
           ORIENT = 'landscape';
         }
@@ -494,13 +482,15 @@
         var h = screen.height;
 
         if (h / ratio > 780)   {
-          document.getElementById("ximage").style.width = "37px";
-          document.getElementById("ximage").style.height = "37px";
-          document.getElementById("minimage").style.width = "37px";
-          document.getElementById("minimage").style.height = "37px";
           document.getElementById("minimage").style.marginTop = "-28px";
           document.getElementById("minimage").style.marginRight = "70px";
           document.getElementById("ximage").style.marginTop = "-8px";
+          document.getElementById("ximage").style.width = "45px";
+          document.getElementById("ximage").style.height = "45px";
+          document.getElementById("minimage").style.width = "45px";
+          document.getElementById("minimage").style.height = "45px";
+          document.getElementById("helpIcon").style.width = "45px";
+          document.getElementById("helpIcon").style.height = "45px";
         }
       }       
 
