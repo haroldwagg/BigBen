@@ -611,10 +611,10 @@
           return;
         }
         else   {                                                      // Doesn't match anything. Must exit.
-//          if (checkForLockup())   {
-//            localStorage["locker"] = MAGIC_NUMBER; 
-//            return; 
-//          }
+          if (checkForLockup())   {
+            localStorage["locker"] = MAGIC_NUMBER; 
+            return; 
+          }
         
           DUP_EXIT = true;
           navigator.app.exitApp();
