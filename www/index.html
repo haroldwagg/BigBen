@@ -611,10 +611,10 @@
           return;
         }
         else   {                                                      // Doesn't match anything. Must exit.
-          if (checkForLockup())   {
-            localStorage["locker"] = MAGIC_NUMBER; 
-            return; 
-          }
+//          if (checkForLockup())   {
+//            localStorage["locker"] = MAGIC_NUMBER; 
+//            return; 
+//          }
         
           DUP_EXIT = true;
           navigator.app.exitApp();
@@ -627,7 +627,7 @@
         startTimeArray[nextUp++] = d.getTime(); 
         
         if (nextup > 3)   {
-          if (startTimeArray[nextUp - 1] - startTimeArray[nextUp - 3] < 40000)   {            
+          if (startTimeArray[nextUp - 1] - startTimeArray[nextUp - 3] < 4000)   {            
             return true;
           }       
         }
