@@ -625,8 +625,13 @@
       function checkForLockup()   {
         var d = new Date();    
         startTimeArray[nextUp++] = d.getTime(); 
+       
+       alert ("nextUp = " + nextUp);
+       
+        if (nextUp > 3)   {
         
-        if (nextup > 3)   {
+          alert ("" + startTimeArray[nextUp - 1] + " minus " + startTimeArray[nextUp - 3] + " equals " + (startTimeArray[nextUp - 1] - startTimeArray[nextUp - 3]));
+        
           if (startTimeArray[nextUp - 1] - startTimeArray[nextUp - 3] < 4000)   {            
             return true;
           }       
