@@ -629,11 +629,11 @@
         var d = new Date();    
         localStorage["last-start"] = d.getTime(); 
         
-      alert ("" + localStorage["last-start"] + " minus " + localStorage["second-to-last-start"] + " equals " + (localStorage["last-start"] - localStorage["second-to-last-start"]));
+//      alert ("" + localStorage["last-start"] + " minus " + localStorage["second-to-last-start"] + " equals " + (localStorage["last-start"] - localStorage["second-to-last-start"]));
 
        
         if (localStorage["second-to-last-start"] != null && localStorage["second-to-last-start"] != 0)   {       
-          if (localStorage["last-start"] - localStorage["second-to-last-start"]  < 5000)   {            
+          if (localStorage["last-start"] - localStorage["second-to-last-start"]  < 7000)   {            
             return true;
           }       
         }
