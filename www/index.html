@@ -623,14 +623,15 @@
 
 
       function checkForLockup()   {
+        localStorage["second-to-last-start"] = localStorage["next-to-last-start"];
+        localStorage["next-to-last-start"] = localStorage["last-start"];  
+      
         var d = new Date();    
-        startTimeArray[nextUp++] = d.getTime(); 
+        localStorage["last-start"] = d.getTime(); 
        
-       alert ("nextUp = " + nextUp);
-       
-        if (nextUp > 3)   {
+        if (localStorage["last-start"] - localStorage["second-to-last-start"] < 5000)   {
         
-          alert ("" + startTimeArray[nextUp - 1] + " minus " + startTimeArray[nextUp - 3] + " equals " + (startTimeArray[nextUp - 1] - startTimeArray[nextUp - 3]));
+          alert ("" + localStorage["last-start"] + " minus " + localStorage["second-to-last-start"] + " equals " + (localStorage["last-start"] - localStorage["second-to-last-start"]));
         
           if (startTimeArray[nextUp - 1] - startTimeArray[nextUp - 3] < 4000)   {            
             return true;
