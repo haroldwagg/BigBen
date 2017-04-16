@@ -87,8 +87,9 @@
       
       var MAGIC_NUMBER = 0;
       var DUP_EXIT = false;
-      var savedFS = null;
-      var savedFileEntry = null;
+      var startTimeArray = [];
+      var nextUp = 0;
+
       
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -434,7 +435,7 @@
       function starter()   {
         document.getElementById("clock").style.visibility = 'visible';
         
-        singleUser();        
+//        singleUser();        
                 
         init();
         window.plugins.insomnia.keepAwake();
@@ -589,89 +590,52 @@
       }
 
 
-//////////////////////////////////////////////////////      
-//      function singleUser()   {
-//        
-//        if (MAGIC_NUMBER == "0")   {
-//          var d = new Date();
-//          MAGIC_NUMBER = "" + d.getUTCMilliseconds() + "" + d.getUTCSeconds();
-//        }
-//
-//      alert ("Magic Number is " + MAGIC_NUMBER);
-//          
-//        if (typeof localStorage["locker"] === 'undefined')   {        // Lock Variable does not exist -- OK to proceed.
-//          localStorage["locker"] = MAGIC_NUMBER;
-//        alert ("Locker did not exist. I created it with " + localStorage["locker"]);
-//          return;
-//        }
-//        else if (localStorage["locker"] == "0" || localStorage["locker"] == "" || localStorage["locker"] == null)   {                   // Lock Variable exists and contains "0" -- OK to proceed.
-//          localStorage["locker"] = MAGIC_NUMBER;
-//        alert ("Locker existsed with '0'. I wrote it with " + localStorage["locker"]);
-//          return;
-//        }
-//        else if (localStorage["locker"] == MAGIC_NUMBER)   {          // Lock Variable exists and contains my MAGIC_NUMBER -- OK to proceed.
-//        alert ("Locker existsed with my MagicNumber of " + localStorage["locker"]);
-//          return;
-//        }
-//        else   {                                                      // Doesn't match anything. Must exit.
-//        alert ("Locker says I must go home.");
-//          DUP_EXIT = true;
-//          navigator.app.exitApp();
-//        }      
-//      }
-//////////////////////////////////////////////////////
-
-
-      function singleUser()   {
+      
+      function singleUser()   {        
         if (MAGIC_NUMBER == "0")   {
           var d = new Date();
           MAGIC_NUMBER = "" + d.getUTCMilliseconds() + "" + d.getUTCSeconds();
         }
 
-        window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, singUserGotFS, ignoreError);       
-
-        
-        function singUserGotFS(fs)   {
-          alert("Successful FS");
-          savedFS = fs;
-          fs.root.getFile('bb_locker.txt', {create: false, exclusive: false}, singUserGotFileEntry, singUserErrFileEntry);      
+//      alert ("Magic Number is " + MAGIC_NUMBER);
+          
+        if (typeof localStorage["locker"] === 'undefined')   {        // Lock Variable does not exist -- OK to proceed.
+          localStorage["locker"] = MAGIC_NUMBER;
+          return;
         }
-        
-        function singUserGotFileEntry(fileEntry)   {
-          if (savedFileEntry == null)   {
-            savedFileEntry = fileEntry;
+        else if (localStorage["locker"] == "0" || localStorage["locker"] == "" || localStorage["locker"] == null)   {                   // Lock Variable exists and contains "0" -- OK to proceed.
+          localStorage["locker"] = MAGIC_NUMBER;
+          return;
+        }
+        else if (localStorage["locker"] == MAGIC_NUMBER)   {          // Lock Variable exists and contains my MAGIC_NUMBER -- OK to proceed.
+          return;
+        }
+        else   {                                                      // Doesn't match anything. Must exit.
+          if (checkForLockup())   {
+            localStorage["locker"] = MAGIC_NUMBER; 
+            return; 
           }
-          alert ("Got File Entry -- File Exists or has jmust been created. Now we got to see if the file is ours");        
-        }
         
-        function singUserErrFileEntry(err)   {
-          alert ("No File Entry -- Im gonna have to make it.");
-          savedFS.root.getFile('bb_locker.txt', {create: true, exclusive: false}, singUserGotFileEntry2, singUserErrFileEntry2);   
-        
-        }
-        
-        function singUserGotFileEntry2(fileEntry)   {
-          alert ("Writing Magic Number to File"); 
-          
-          fileEntry.createWriter(gotFileWriter, ignoreError);       
-        }
-        
-        function gotFileWriter(fileWriter)   {
-          alert("Got File Writer -- Writing: " + MAGIC_NUMBER);
-          
-          fileWriter.onwriteend = function(evt)   {
-            singUserGotFileEntry();
-          }
-          
-          fileWriter.write(MAGIC_NUMBER);                      
-        
-        }
-        
-        
-        function singUserErrFileEntry2()   {
-          alert ("You are screwed");
-        }
+          DUP_EXIT = true;
+          navigator.app.exitApp();
+        }      
       }
+
+
+      function checkForLockup()   {
+        var d = new Date();    
+        startTimeArray[nextUp++] = d.getTime(); 
+        
+        if (nextup > 3)   {
+          if (startTimeArray[nextUp - 1] - startTimeArray[nextUp - 3] < 4000)   {            
+            return true;
+          }       
+        }
+                             
+        return false;
+      
+      }
+      
       
       function ignoreError(err){
         ;
