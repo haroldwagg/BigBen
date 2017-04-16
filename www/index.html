@@ -628,12 +628,12 @@
       
         var d = new Date();    
         localStorage["last-start"] = d.getTime(); 
+        
+//      alert ("" + localStorage["last-start"] + " minus " + localStorage["second-to-last-start"] + " equals " + (localStorage["last-start"] - localStorage["second-to-last-start"]));
+
        
-        if (localStorage["last-start"] - localStorage["second-to-last-start"] < 5000)   {
-        
-          alert ("" + localStorage["last-start"] + " minus " + localStorage["second-to-last-start"] + " equals " + (localStorage["last-start"] - localStorage["second-to-last-start"]));
-        
-          if (startTimeArray[nextUp - 1] - startTimeArray[nextUp - 3] < 4000)   {            
+        if (localStorage["second-to-last-start"] != null && localStorage["second-to-last-start"] != 0)   {       
+          if (localStorage["second-to-last-start"] - localStorage["last-start"] < 4000)   {            
             return true;
           }       
         }
