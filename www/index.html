@@ -498,6 +498,7 @@
       
       function onResume()   {
         cordova.plugins.backgroundMode.moveToForeground();
+        window.plugins.insomnia.keepAwake();
         clearTimeout(loopThread);
         init();
       }
@@ -569,6 +570,7 @@
       }
       
       function doGoToBG()   { 
+        window.plugins.insomnia.allowSleepAgain();
         cordova.plugins.backgroundMode.moveToBackground();      
       }
       
