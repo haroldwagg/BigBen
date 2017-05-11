@@ -16,8 +16,8 @@
 
 <body>
         <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">v 1.0</div>
-        <div id="xer"><img id="ximage" name="ximage" src="" width="30" height="30" style="border: none; " onClick="doExit()" /></div>
-        <div id="miner"><img id="minimage" name="minimage" src="" width="30" height="30" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -20px;" onClick="doGoToBG()" /></div>
+        <div id="xer"><img id="ximage" name="ximage" src="x.png" width="30" height="30" style="border: none; padding-top: 5px; padding-right: 5px;" onClick="doExit()" /></div>
+        <div id="miner"><img id="minimage" name="minimage" src="img/min.png" width="30" height="30" style="border: none; border_top: 4px; float: right; margin-right: 42px; margin-top: -16px;" onClick="doGoToBG()" /></div>
 
        <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
 
@@ -405,9 +405,8 @@
           body.style.backgroundImage = 'url(img/bg1.png)';
           document.getElementById("titler").style.marginRight = "10px";
           document.getElementById("setup_but").style.marginRight = "10px";
+          document.getElementById("setup_but").style.backgroundColor = "#d5c6fa";
           document.getElementById("clock").style.marginTop = "60%";
-          document['ximage'].src='img/x.png';
-          document['minimage'].src='img/min.png';
           
           ORIENT = 'portrait';
         }
@@ -415,9 +414,8 @@
           body.style.backgroundImage = 'url(img/bg2.png)';
           document.getElementById("titler").style.marginRight = "20px";
           document.getElementById("setup_but").style.marginRight = "20px";
+          document.getElementById("setup_but").style.backgroundColor = "#aab6f2";
           document.getElementById("clock").style.marginTop = "20%";
-          document['ximage'].src='img/xLITE.png';
-          document['minimage'].src='img/minLITE.png';
           
           ORIENT = 'landscape';
         }
@@ -480,9 +478,9 @@
         var h = screen.height;
 
         if (h / ratio > 780)   {
-          document.getElementById("minimage").style.marginTop = "-28px";
+          document.getElementById("minimage").style.marginTop = "-20px";
           document.getElementById("minimage").style.marginRight = "70px";
-          document.getElementById("ximage").style.marginTop = "-8px";
+          document.getElementById("ximage").style.marginTop = "0px";
           document.getElementById("ximage").style.width = "45px";
           document.getElementById("ximage").style.height = "45px";
           document.getElementById("minimage").style.width = "45px";
