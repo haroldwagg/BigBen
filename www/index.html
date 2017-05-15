@@ -16,8 +16,8 @@
 
 <body>
 <!--        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">&nbsp;v 1.0</div>  -->
-        <div id="xer"><img id="ximage" name="ximage" src="x.png" style="float: right; border: none; padding-top: 3px; padding-right: 5px; padding-top: 26px; width: 22%" onClick="doExit()" /></div>
-        <div id="miner"><img id="minimage" name="minimage" src="img/min.png" style="float: right; border: none; border_top: 4px; float: right; margin-right: -82px; margin-top: 6px; width: 10%" onClick="doGoToBG()" /></div>
+        <div id="xer"><img id="ximage" name="ximage" src="x.png" style="float: right; border: none; padding-top: 3px; padding-right: 5px; padding-top: 26px;" onClick="doExit()" /></div>
+        <div id="miner"><img id="minimage" name="minimage" src="img/min.png" style="float: right; border: none; border_top: 4px; float: right; margin-right: -82px; margin-top: 6px;" onClick="doGoToBG()" /></div>
 
         <br /><br />
        <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
@@ -408,6 +408,8 @@
           document.getElementById("setup_but").style.marginRight = "10px";
           document.getElementById("setup_but").style.backgroundColor = "#d5c6fa";
           document.getElementById("clock").style.marginTop = "60%";
+          document.getElementById('ximage').style.width = "width: 22%";
+          document.getElementById('minimage').style.width = "width: 10%";
           
           ORIENT = 'portrait';
         }
