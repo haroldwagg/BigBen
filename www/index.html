@@ -163,11 +163,24 @@
       }
 
       function playBen(x)   {
+        var phoneAdjustmentsHaveBeenMade = false;
+      
         if (typeof(my_media) == "object")   {
           my_media.stop();
           my_media.release();
         }
         
+        if (MASTER_MUTE)   {
+          if (document.getElementById("phone-mute").checked == false)   {
+            MASTER_MUTE = false;
+            CURRENT_VOLUME = MASTER_VOLUME / 2; 
+            if (CURRENT_VOLUME < 1.0)   {
+              CURRENT_VOLUME = 1.0;
+            } 
+            phoneAdjustmentsHaveBeenMade = true;            
+          }
+        }
+                    
         src = "";
         
         if ((x == "15") && (! QUARTER_MUTE) && (! MASTER_MUTE))   {
@@ -218,7 +231,13 @@
               );
             
               my_media2.play({ playAudioWhenScreenIsLocked : true }); 
-              my_media2.setVolume(MASTER_VOLUME);     
+              my_media2.setVolume(CURRENT_VOLUME);
+              
+              if (phoneAdjustmentsHaveBeenMade)   {
+                phoneAdjustmentsHaveBeenMade = false;
+                CURRENT_VOLUME = MASTER_VOLUME;
+                MASTER_MUTE = true;
+              }     
             }, deela);      
           }   
         }     
@@ -230,9 +249,14 @@
           );
           
           my_media.play({ playAudioWhenScreenIsLocked : true });         
-          my_media.setVolume(MASTER_VOLUME); 
+          my_media.setVolume(CURRENT_VOLUME); 
         }
-       
+        
+        if (phoneAdjustmentsHaveBeenMade && x != "00")   {
+          phoneAdjustmentsHaveBeenMade = false;
+          CURRENT_VOLUME = MASTER_VOLUME;
+          MASTER_MUTE = true;
+        }
       }
       
       function doSetUp()   {
@@ -252,7 +276,6 @@
             document.getElementById("setupPanel").style.paddingTop = "30px";
             document.getElementById("Quarter").style.marginTop = "10px";
             document.getElementById("Half").style.marginTop = "8px";
-            document.getElementById("Three-quarters").style.marginTop = "8px";
             document.getElementById("Hour-strikes").style.marginTop = "8px";
             document.getElementById("spkr").style.width = "40px";
             document.getElementById("spkr").style.height = "40px";
