@@ -12,15 +12,15 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 
     <title>Big Ben Bonger</title>
-</head>
+</head>                                        
 
 <body>
 <!--        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">&nbsp;v 1.0</div>  -->
-        <div id="xer"><img id="ximage" name="ximage" src="x.png" style="float: right; border: none; padding-top: 3px; padding-right: 5px; padding-top: 26px;" onClick="doExit()" /></div>
-        <div id="miner"><img id="minimage" name="minimage" src="img/min.png" style="border: none; border_top: 4px; float: right; margin-right: -82px; margin-top: 6px;" onClick="doGoToBG()" /></div>
-
-        <br /><br />
-       <br /><br /><h1 id="titler">BIG BEN BONGER</h1>   
+        <div id="iconbar" style="overflow: hidden; margin-bottom: 0px;">
+          <img id="ximage" name="ximage" src="x.png" style="float: right; border: none; padding-top: 3px; padding-right: 5px;" onClick="doExit()" />
+          <img id="minimage" name="minimage" src="img/min.png" style="float: right; border: none; margin-top: 6px;" onClick="doGoToBG()" />
+        </div>
+       <br /><h1 id="titler">BIG BEN BONGER</h1>   
 
                 <br />
                 <div id="setupButtonDiv" style="float: right">
@@ -412,9 +412,6 @@
           document.getElementById("setup_but").style.marginRight = "10px";
           document.getElementById("setup_but").style.backgroundColor = "#d5c6fa";
           document.getElementById("clock").style.marginTop = "60%";
-          document.getElementById('ximage').style.width = "23%";
-          document.getElementById('minimage').style.width = "10%";
-          document.getElementById('minimage').style.height = "auto";
           
           ORIENT = 'portrait';
         }
@@ -424,8 +421,6 @@
           document.getElementById("setup_but").style.marginRight = "20px";
           document.getElementById("setup_but").style.backgroundColor = "#aab6f2";
           document.getElementById("clock").style.marginTop = "20%";
-          document.getElementById('minimage').style.height = "7%";
-          document.getElementById('minimage').style.width = "7%";
           
           ORIENT = 'landscape';
         }
@@ -439,21 +434,39 @@
 //     window.onload = setTimeout(function() {starter();}, 2000);
 
 
+//////////////////////////////////////////////////////
+///  STARTER  ////////////////////////////////////////
+//////////////////////////////////////////////////////
 
       function starter()   {
-               
-        document.getElementById("clock").style.visibility = 'visible';
-        
         singleUser(); 
-       
+        
+        var ratio = window.devicePixelRatio || 1;
+        var h = screen.height;
+
+        if (h / ratio > 780)   {
+          document.getElementById("ximage").style.width = "55px";
+          document.getElementById("ximage").style.height = "55px";
+          document.getElementById("minimage").style.width = "47px";
+          document.getElementById("minimage").style.height = "47px";
+          document.getElementById("helpIcon").style.width = "55px";
+          document.getElementById("helpIcon").style.height = "55px";
+        }
+        else   {
+          document.getElementById("ximage").style.width = "40px";
+          document.getElementById("ximage").style.height = "40px";
+          document.getElementById("minimage").style.width = "35px";
+          document.getElementById("minimage").style.height = "35px";
+          document.getElementById("minimage").style.marginRight = "75px";
+          document.getElementById("helpIcon").style.width = "40px";
+          document.getElementById("helpIcon").style.height = "40px";
+        }
                 
         init();
+        
         window.plugins.insomnia.keepAwake();
         
-                  
-        
         cordova.plugins.backgroundMode.setEnabled(true);
-
         cordova.plugins.backgroundMode.enable();
       
         cordova.plugins.backgroundMode.on('activate', function() {
@@ -464,9 +477,7 @@
           title: "Big Ben Bonger Background",
           text: "[Tap here to Restore & Exit]",
         });
-        
-        
-        
+                
         PhoneCallTrap.onCall(function(state) {
           switch (state) {
             case "RINGING":
@@ -491,20 +502,6 @@
           );      
         }, false );
         
-        var ratio = window.devicePixelRatio || 1;
-        var h = screen.height;
-
-        if (h / ratio > 780)   {
-//          document.getElementById("minimage").style.marginTop = "-20px";
-//          document.getElementById("minimage").style.marginRight = "70px";
-//          document.getElementById("ximage").style.marginTop = "0px";
-//          document.getElementById("ximage").style.width = "45px";
-//          document.getElementById("ximage").style.height = "45px";
-//          document.getElementById("minimage").style.width = "45px";
-//          document.getElementById("minimage").style.height = "45px";
-          document.getElementById("helpIcon").style.width = "45px";
-          document.getElementById("helpIcon").style.height = "45px";
-        }
         
       } 
       
