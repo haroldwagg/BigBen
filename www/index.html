@@ -252,7 +252,7 @@
           my_media.setVolume(CURRENT_VOLUME); 
         }
         
-        if (phoneAdjustmentsHaveBeenMade && x != "00")   {
+        if ((phoneAdjustmentsHaveBeenMade && x != "00") || (phoneAdjustmentsHaveBeenMade && ! DO_STRIKES && x == "00"))   {
           phoneAdjustmentsHaveBeenMade = false;
           CURRENT_VOLUME = MASTER_VOLUME;
           MASTER_MUTE = true;
@@ -595,6 +595,8 @@
             pBar.value = MASTER_VOLUME;
             my_media_TEST.setVolume(MASTER_VOLUME);
           }
+          
+          CURRENT_VOLUME = MASTER_VOLUME;
         }          
       }
       
