@@ -32,7 +32,7 @@
                   <tr><td align="left">
                   <input type="radio" name="whichbuttons" onClick="selectBB()" id="bb_but" checked style="vertical-align: text-bottom">BIG BEN&nbsp;&nbsp;&nbsp;<input type="radio" name="whichbuttons" id="bg_but" onClick="selectBG()" style="vertical-align: text-bottom">MANTLE CLOCK
                   <br />
-                  <input type="checkbox" class="checkers" name="phone-mute" id="phone-mute" checked onClick="doPhoneMute()"> MUTE&nbsp;DURING&nbsp;PHONECALLS
+                  <input type="checkbox" class="checkers" name="no-phone-mute" id="no-phone-mute" onClick="doPhoneMute()"> BONG&nbsp;DURING&nbsp;PHONECALLS
                   <br /><br />
                  
                   
@@ -171,11 +171,11 @@
         }
         
         if (MASTER_MUTE)   {
-          if (document.getElementById("phone-mute").checked == false)   {
+          if (document.getElementById("no-phone-mute").checked == true)   {
             MASTER_MUTE = false;
             CURRENT_VOLUME = MASTER_VOLUME / 2; 
-            if (CURRENT_VOLUME < 1.0)   {
-              CURRENT_VOLUME = 1.0;
+            if (CURRENT_VOLUME < 0.1)   {
+              CURRENT_VOLUME = 0.1;
             } 
             phoneAdjustmentsHaveBeenMade = true;            
           }
