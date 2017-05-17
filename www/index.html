@@ -17,8 +17,8 @@
 <body>
 <!--        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">&nbsp;v 1.0</div>  -->
         <div id="iconbar" style="overflow: hidden; margin-bottom: 0px;">
-          <img id="ximage" name="ximage" src="x.png" style="float: right; border: none; padding-top: 3px; padding-right: 5px;" onClick="doExit()" />
-          <img id="minimage" name="minimage" src="img/min.png" style="float: right; border: none; margin-top: 6px;" onClick="doGoToBG()" />
+          <img id="ximage" name="ximage" src="x.png" width="38" height="38" style="float: right; border: none; padding-top: 3px; padding-right: 5px;" onClick="doExit()" />
+          <img id="minimage" name="minimage" src="img/min.png" width="40" height="40" style="float: right; border: none; margin-top: 6px;" onClick="doGoToBG()" />
         </div>
        <br /><h1 id="titler">BIG BEN BONGER</h1>   
 
@@ -31,13 +31,14 @@
                 <table style="border: none; float: right;">
                   <tr><td align="left">
                   <input type="radio" name="whichbuttons" onClick="selectBB()" id="bb_but" checked style="vertical-align: text-bottom">BIG BEN&nbsp;&nbsp;&nbsp;<input type="radio" name="whichbuttons" id="bg_but" onClick="selectBG()" style="vertical-align: text-bottom">MANTLE CLOCK
+                  <br />
+                  <input type="checkbox" class="checkers" name="phone-mute" id="phone-mute" checked onClick="doPhoneMute()"> MUTE&nbsp;DURING&nbsp;PHONECALLS
                   <br /><br />
                  
                   
                   <span style="font-size: 1.2em; color: #0000bb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHIMES &amp; STRIKERS</span><br />
-                  <input type="checkbox" class="checkers" name="quart" id="Quarter" checked onClick="doQuarterHourOption()">Quarter-Hour<br />
+                  <input type="checkbox" class="checkers" name="quart" id="Quarter" checked onClick="do1545Option()">:15 &amp; :45<br />
                   <input type="checkbox" class="checkers" name="half" id="Half" checked onClick="doHalfHourOption()"> Half-Hour<br />
-                  <input type="checkbox" class="checkers" name="three-quart" id="Three-quarters" checked onClick="doThreeQuarterOption()"> Three-Quarter-Hour<br />
                   <input type="checkbox" class="checkers" name="hhourr" id="Hour-strikes" onClick="doHourStrikeOption()" checked> Hour Strikes
                   <br /><br /><img  src="img/juk.png" id="spkr" style="margin: 0; padding: 0; height: 20px; width: 20px; margin-right: 0.8em; margin-top: 0px; margin-bottom: -3px;"  /><input type="button" value="  -  " style="font-size: 1em;  border:none; margin: 0; padding: 0; margin-right: 8px; margin-top: 0px; padding-top: 4px;" onClick="changeVolume('-')" /><progress id="prog" name="prog" value="0.4" max="1.0">
                   </progress><input type="button" value="  +  " style="font-size: 1em;  border:none; margin: 0; padding: 0; margin-left: 0.8em; padding-top: 4px;" onClick="changeVolume('+')" />
@@ -361,13 +362,15 @@
         }
       }     
       
-      function doQuarterHourOption()   {
+      function do1545Option()   {
         if (QUARTER_MUTE)   {
           QUARTER_MUTE = false;
+          THREE_QUARTER_MUTE = false;
           document.getElementById("Quarter").checked = true;
         }
         else   {
           QUARTER_MUTE = true;
+          THREE_QUARTER_MUTE = true;
           document.getElementById("Quarter").checked = false;
         }
       }     
@@ -380,17 +383,6 @@
         else   {
           HALF_MUTE = true;
           document.getElementById("Half").checked = false;
-        }
-      } 
-      
-      function doThreeQuarterOption()   {
-        if (THREE_QUARTER_MUTE)   {
-          THREE_QUARTER_MUTE = false;
-          document.getElementById("Three-quarters").checked = true;
-        }
-        else   {
-          THREE_QUARTER_MUTE = true;
-          document.getElementById("Three-quarters").checked = false;
         }
       } 
       
@@ -447,16 +439,17 @@
         if (h / ratio > 780)   {
           document.getElementById("ximage").style.width = "55px";
           document.getElementById("ximage").style.height = "55px";
-          document.getElementById("minimage").style.width = "47px";
-          document.getElementById("minimage").style.height = "47px";
+          document.getElementById("minimage").style.width = "50px";
+          document.getElementById("minimage").style.height = "50px";
+          document.getElementById("minimage").style.marginRight = "125px";
           document.getElementById("helpIcon").style.width = "55px";
           document.getElementById("helpIcon").style.height = "55px";
         }
         else   {
           document.getElementById("ximage").style.width = "40px";
           document.getElementById("ximage").style.height = "40px";
-          document.getElementById("minimage").style.width = "35px";
-          document.getElementById("minimage").style.height = "35px";
+          document.getElementById("minimage").style.width = "38px";
+          document.getElementById("minimage").style.height = "38px";
           document.getElementById("minimage").style.marginRight = "75px";
           document.getElementById("helpIcon").style.width = "40px";
           document.getElementById("helpIcon").style.height = "40px";
