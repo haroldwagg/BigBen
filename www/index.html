@@ -37,7 +37,7 @@
                  
                   
                   
-                  <input type="checkbox" class="checkers" name="quart" id="Quarter" checked onClick="do1545Option()">:15 &amp; :45 CHIMES<br />
+                  <input type="checkbox" class="checkers" name="quart" id="Quarter" checked onClick="do1545Option()"> :15 &amp; :45 CHIMES<br />
                   <input type="checkbox" class="checkers" name="half" id="Half" checked onClick="doHalfHourOption()"> HALF-HOUR CHIMES<br />
                   <input type="checkbox" class="checkers" name="hhourr" id="Hour-strikes" onClick="doHourStrikeOption()" checked> ON-THE-HOUR STRIKES
                   <br /><br /><img  src="img/juk.png" id="spkr" style="margin: 0; padding: 0; height: 20px; width: 20px; margin-right: 0.8em; margin-top: 0px; margin-bottom: -3px;"  /><input type="button" value="  -  " style="font-size: 1em;  border:none; margin: 0; padding: 0; margin-right: 8px; margin-top: 0px; padding-top: 4px;" onClick="changeVolume('-')" /><progress id="prog" name="prog" value="0.4" max="1.0">
@@ -467,6 +467,15 @@
           document.getElementById("minimage").style.marginRight = "125px";
           document.getElementById("helpIcon").style.width = "55px";
           document.getElementById("helpIcon").style.height = "55px";
+          document.getElementById("no-phone-mute").style.width = "35px";
+          document.getElementById("no-phone-mute").style.height = "35px";
+          document.getElementById("Quarter").style.width = "35px";
+          document.getElementById("Quarter").style.height = "35px";
+          document.getElementById("Half").style.width = "35px";
+          document.getElementById("Half").style.height = "35px";
+          document.getElementById("Hour-strikes").style.width = "35px";
+          document.getElementById("Hour-strikes").style.height = "35px";
+          
         }
         else   {
           document.getElementById("ximage").style.width = "40px";

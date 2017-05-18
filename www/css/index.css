@@ -177,7 +177,6 @@ h1 {
   text-align: right; 
   background-color: transparent; 
   margin-top: 25px; 
-/*  width: 205px;  */
   width: 0px;   
   height: 200px;
 
@@ -209,5 +208,10 @@ h1 {
   margin: 0; 
   padding: 0; 
   margin-bottom: 4px;
+}
+
+.checkers {
+  width: 20px;
+  height: 20px;
 }
 
