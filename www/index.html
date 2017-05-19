@@ -501,7 +501,9 @@
         
         cordova.plugins.backgroundMode.setDefaults({
           title: "Big Ben Bonger Background",
-          text: "[Tap here to Restore & Exit]"
+          text: "[Tap the Big Ben Icon to Restore]",
+          resume: false,
+          hidden: false
         });
                 
         PhoneCallTrap.onCall(function(state) {
