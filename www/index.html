@@ -520,7 +520,18 @@
           }
         });
 
-        document.addEventListener("backbutton", doBackButton(e), false );
+//        document.addEventListener("backbutton", doBackButton(e), false );
+
+        document.addEventListener("backbutton", function (e) {               // Disable Back Button
+          e.preventDefault();
+          navigator.notification.alert(
+            "The only way to exit the Big Ben Bonger is by tapping the \"X\" in the upper right corner.\n\nTo minimize Big Ben so he'll keep bonging for you, tap the \"Minimize\" icon above.",  
+            "",         
+            '',           
+            'I understand'                 
+          );      
+        }, false );
+
         
         
       } 
