@@ -520,28 +520,22 @@
           }
         });
 
-        document.addEventListener("backbutton", doBackButton(), false );
+        document.addEventListener("backbutton", doBackButton(e), false );
         
         
       } 
       
-      function doBackButton()   {
+      function doBackButton(e)   {
         e.preventDefault();
         alert ("HI");
-        navigator.notification.confirm(
-          'If you want Big Ben to continue to bong, tap "CANCEL" below and use the Minimize icon at the top of the screen.', // message
-           onOptionSelect,                                                                                                   // callback to invoke with index of button pressed
-          'You are about to exit Big Ben Bonger',                                                                            // title
-          ['CANCEL','EXIT BIG BEN']                                                                                          // buttonLabels
-        );
+//        navigator.notification.confirm(
+//          'If you want Big Ben to continue to bong, tap "CANCEL" below and use the Minimize icon at the top of the screen.', // message
+//           onOptionSelect,                                                                                                   // callback to invoke with index of button pressed
+//          'You are about to exit Big Ben Bonger',                                                                            // title
+//          ['CANCEL','EXIT BIG BEN']                                                                                          // buttonLabels
+//        );
       }
       
-      function onOptionSelect(buttonIndex) {
-        alert('You selected button ' + buttonIndex);
-      }
-      
-            
-
       document.addEventListener("resume", onResume, false);
       
       function onResume()   {
