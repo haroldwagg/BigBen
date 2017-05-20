@@ -520,38 +520,7 @@
           }
         });
 
-        document.addEventListener("backbutton", function (e) {               // Disable Back Button
-          e.preventDefault();
-          
-//          navigator.notification.alert(
-//            "The only way to exit the Big Ben Bonger is by tapping the \"X\" in the upper right corner.\n\nTo minimize Big Ben so he'll keep bonging for you, tap the \"Minimize\" icon above.",  
-//            "",         
-//            '',           
-//            'I understand'                 
-//          ); 
 
-          navigator.notification.confirm(
-            'If you want Big Ben to continue to bong, tap "CANCEL" below and use the Minimize icon at the top of the screen.', // message
-             onOptionSelect,                                                                                                   // callback to invoke with index of button pressed
-            'You are about to exit Big Ben Bonger',                                                                            // title
-            ['CANCEL','EXIT BIG BEN']                                                                                          // buttonLabels
-          );
-
-               
-        }, false );
-        
-        
-      } 
-      
-      function doBackButton(e)   {
-       
-//        navigator.notification.confirm(
-//          'If you want Big Ben to continue to bong, tap "CANCEL" below and use the Minimize icon at the top of the screen.', // message
-//           onOptionSelect,                                                                                                   // callback to invoke with index of button pressed
-//          'You are about to exit Big Ben Bonger',                                                                            // title
-//          ['CANCEL','EXIT BIG BEN']                                                                                          // buttonLabels
-//        );
-      }
       
       document.addEventListener("resume", onResume, false);
       
@@ -637,7 +606,7 @@
       
       function doHelp()   {
         navigator.notification.alert(
-          "Let Big Ben V1.0 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\nTap the [< Setup] button to adjust settings.  When finished, tap the [Setup >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\nBut most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\nTo re-maximize the Bonger, go to your top-of-the-screen notifications and tap Big Ben. You can then exit the app by tapping the \"X\" Icon in the upper right corner. Thank you for choosing this application.\n\nGod Save The Queen.\n\n\numikeapps@outlook.com",  
+          "Let Big Ben V1.0 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\nTap the [< Setup] button to adjust settings.  When finished, tap the [Setup >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\nBut most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\nTo re-maximize the Bonger, tap Big Ben icon. You can then exit the app by tapping the \"X\" Icon in the upper right corner. Thank you for choosing the Big Ben Bonger.\n\nGod Save The Queen.\n\n\numikeapps@outlook.com",  
           "",         
           'Welcome to the Big Ben Bonger',           
           'Dismiss'                 
