@@ -522,11 +522,12 @@
         
         document.addEventListener("backbutton", function (e) {               // Disable Back Button
             e.preventDefault();
-            var q = confirm("Do you want to leave Big Ben?");
-            if (q == true) {
-//              txt = "You pressed OK!";
-            } else {
-//              txt = "You pressed Cancel!";
+            var q = confirm("Do you want to exit Big Ben Bonger?");
+            if (q == true)   {
+              doExit();
+            } 
+            else   {
+              ;
             }       
           }, 
         false );
@@ -618,7 +619,7 @@
       
       function doHelp()   {
         navigator.notification.alert(
-          "Let Big Ben V1.0 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\nTap the [< Setup] button to adjust settings.  When finished, tap the [Setup >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\nBut most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\nTo re-maximize the Bonger, tap Big Ben icon. You can then exit the app by tapping the \"X\" Icon in the upper right corner. Thank you for choosing the Big Ben Bonger.\n\nGod Save The Queen.\n\n\numikeapps@outlook.com",  
+          "Let Big Ben V1.0 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\nTap the [< Setup] button to adjust settings.  When finished, tap the [Setup >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\nBut most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\nTo re-maximize the Bonger, tap the Big Ben icon. You can then exit the app using the \"X\" Icon in the upper right corner. Thank you for choosing the Big Ben Bonger.\n\nGod Save The Queen.\n\n\numikeapps@outlook.com",  
           "",         
           'Welcome to the Big Ben Bonger',           
           'Dismiss'                 
@@ -634,58 +635,6 @@
       }
 
 
-      
-      function singleUser()   {        
-        if (MAGIC_NUMBER == "0")   {
-          var d = new Date();
-          MAGIC_NUMBER = "" + d.getUTCMilliseconds() + "" + d.getUTCSeconds();
-        }
-
-//      alert ("Magic Number is " + MAGIC_NUMBER);
-          
-        if (typeof localStorage["locker"] === 'undefined')   {        // Lock Variable does not exist -- OK to proceed.
-          localStorage["locker"] = MAGIC_NUMBER;
-          return;
-        }
-        else if (localStorage["locker"] == "0" || localStorage["locker"] == "" || localStorage["locker"] == null)   {                   // Lock Variable exists and contains "0" -- OK to proceed.
-          localStorage["locker"] = MAGIC_NUMBER;
-          return;
-        }
-        else if (localStorage["locker"] == MAGIC_NUMBER)   {          // Lock Variable exists and contains my MAGIC_NUMBER -- OK to proceed.
-          return;
-        }
-        else   {                                                      // Doesn't match anything. Must exit.
-          if (checkForLockup())   {
-            localStorage["locker"] = MAGIC_NUMBER; 
-            return; 
-          }
-        
-          DUP_EXIT = true;
-          navigator.app.exitApp();
-        }      
-      }
-
-
-      function checkForLockup()   {
-        localStorage["second-to-last-start"] = localStorage["next-to-last-start"];
-        localStorage["next-to-last-start"] = localStorage["last-start"];  
-      
-        var d = new Date();    
-        localStorage["last-start"] = d.getTime(); 
-        
-//      alert ("" + localStorage["last-start"] + " minus " + localStorage["second-to-last-start"] + " equals " + (localStorage["last-start"] - localStorage["second-to-last-start"]));
-
-       
-        if (localStorage["second-to-last-start"] != null && localStorage["second-to-last-start"] != 0)   {       
-          if (localStorage["last-start"] - localStorage["second-to-last-start"]  < 7000)   {            
-            return true;
-          }       
-        }
-                             
-        return false;
-      
-      }
-      
       
       function ignoreError(err){
         ;
