@@ -519,6 +519,18 @@
                 break;
           }
         });
+        
+        document.addEventListener("backbutton", function (e) {               // Disable Back Button
+            e.preventDefault();
+            var q = confirm("Do you want to leave Big Ben?");
+            if (q == true) {
+//              txt = "You pressed OK!";
+            } else {
+//              txt = "You pressed Cancel!";
+            }       
+          }, 
+        false );
+
 
       }
       
