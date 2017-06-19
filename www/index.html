@@ -646,9 +646,15 @@
                                 if (myLang == "pt")   {          
                                   document.getElementById("titler").innerHTML = "BIG BEN BRAZIL";
                                 }
-                                                          
+                                else if (myLang == "fr")   {
+                                  document.getElementById("titler").innerHTML = "BIG BEN FRANCE";
+                                }
+                                else   {
+                                  document.getElementById("titler").innerHTML = "BIG BEN BONGER";
+                                }
+                                                                                          
           },
-          function () {document.getElementById("titler").innerHTML = "Error getting language";}
+          ignoreError(err)
         );      
       }
       
