@@ -645,27 +645,26 @@
           null
         );
         
-        var XPrefix = "XStr." + lang;
-        
-        XStr = { "en" : { "titler" : "BIG BEN BONGER",
-                          "setup_but_on" : "&lt; SETUP",
-                          "setup_but_off" : "SETUP &gt;"
-                        }, 
-        
-                 "fr" : { "titler" : "BIG BEN FRANCE",
-                          "setup_but_on" : "&lt; SETFR",
-                          "setup_but_off" : "SETFR &gt;"
-                        }, 
-                 
-                 "pt": { "titler" : "BIG BEN BRAZIL",
-                         "setup_but_on" : "&lt; SETBZ",
-                         "setup_but_off" : "SETBZ &gt;"
-                       }                  
-     
-               };
+        if (lang == "en")   {        
+          XStr =  { "titler" : "BIG BEN BONGER",
+                    "setup_but_on" : "&lt; SETUP",
+                    "setup_but_off" : "SETUP &gt;"
+                  };
+        }
+        else if (lang == "fr")   { 
+          XStr = { "titler" : "BIG BEN FRANCE",
+                   "setup_but_on" : "&lt; SETFR",
+                   "setup_but_off" : "SETFR &gt;"
+                 };
+        }
+        else if (lang == "pt")   {          
+          XStr = { "titler" : "BIG BEN BRAZIL",
+                   "setup_but_on" : "&lt; SETBZ",
+                   "setup_but_off" : "SETBZ &gt;"
+                 };                  
+        }
       
-      
-        document.getElementById("titler").innerHTML = XPrefix.titler;
+        document.getElementById("titler").innerHTML = XStr.titler;
 //        document.getElementById("titler").innerHTML = XStr.fr.titler;
         
       }
