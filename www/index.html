@@ -24,7 +24,7 @@
 
                 <br />
                 <div id="setupButtonDiv" style="float: right">
-                <input type="button" class="rounderCorners" id="setup_but"  onClick="doSetUp()" style="margin-right: 10px;" />
+                <input type="button" class="rounderCorners" id="setup_but" onClick="doSetUp()" style="margin-right: 10px;" />
                 </div>
                 <div id="setupPanel">
                 
@@ -643,8 +643,7 @@
       function setLanguage()   {
         navigator.globalization.getPreferredLanguage(
           function (language) { var myLang = language.value.substring(0, 2);
-                                localStorage["language"] = myLang;
-                                alert ("lang is " + localStorage["language"]);                                                                                          
+                                localStorage["language"] = myLang;                                                                                         
           },
           function () {document.getElementById("titler").innerHTML = "Error getting language";}
         );  
@@ -657,7 +656,7 @@
         }
         else   {
           document.getElementById("titler").innerHTML = "BIG BEN BONGER";
-          document.getElementById("setup_but").value = "&lt; SETUP";
+          document.getElementById("setup_but").value = "&#60; SETUP";
         } 
       }
       
