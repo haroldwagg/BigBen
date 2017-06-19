@@ -645,6 +645,7 @@
       
         navigator.globalization.getPreferredLanguage(
           function (language) { var myLang = language.value.substring(0, 2);
+                                alert ("lang is " + myLang);
                                 if (myLang == "pt")   {          
                                   document.getElementById("titler").innerHTML = "BIG BEN BRAZIL";
                                 }
