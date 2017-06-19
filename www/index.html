@@ -644,11 +644,9 @@
         navigator.globalization.getPreferredLanguage(
           function (language) { var myLang = language.value.substring(0, 2);
                                 if (myLang == "pt")   {          
-                                  XStr = { "titler" : "BIG BEN BRAZIL",
-                                           "setup_but_on" : "&lt; SETBZ",
-                                           "setup_but_off" : "SETBZ &gt;"
-                                  };
-                               }                            
+                                  document.getElementById("titler").innerHTML = "BIG BEN BRAZIL",
+                                }
+                                                          
           },
           function () {document.getElementById("titler").innerHTML = "Error getting language";}
         );      
@@ -674,7 +672,7 @@
 //                };                  
 //       }
    
-       document.getElementById("titler").innerHTML = XStr.titler;
+//       document.getElementById("titler").innerHTML = XStr.titler;
 //       document.getElementById("titler").innerHTML = XStr.fr.titler;
 
      
