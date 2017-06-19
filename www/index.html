@@ -24,7 +24,7 @@
 
                 <br />
                 <div id="setupButtonDiv" style="float: right">
-                <input type="button" class="rounderCorners" id="setup_but" value="< SETUP" onClick="doSetUp()" style="margin-right: 10px;" />
+                <input type="button" class="rounderCorners" id="setup_but"  onClick="doSetUp()" style="margin-right: 10px;" />
                 </div>
                 <div id="setupPanel">
                 
@@ -657,6 +657,7 @@
         }
         else   {
           document.getElementById("titler").innerHTML = "BIG BEN BONGER";
+          document.getElementById("setup_but").value = "&lt; SETUP";
         } 
       }
       
