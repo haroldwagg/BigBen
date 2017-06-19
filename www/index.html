@@ -92,6 +92,8 @@
       var DUP_EXIT = false;
       var startTimeArray = [];
       var nextUp = 0;
+      
+      var lang = "EN";
 
       
       var p = window.location.pathname;
@@ -487,8 +489,10 @@
           document.getElementById("minimage").style.marginRight = "75px";
           document.getElementById("helpIcon").style.width = "40px";
           document.getElementById("helpIcon").style.height = "40px";
-        }
-                
+        } 
+        
+        setLanguage(); 
+                        
         init();
         
         window.plugins.insomnia.keepAwake();
@@ -633,6 +637,14 @@
         
 //        alert("SCREEN = " + w + " x " + h + "\n RATIO = " + ratio + "\n\nMAGIC_NUMBER =\n" + MAGIC_NUMBER + "  [" + localStorage["locker"] + "]");
       }
+        
+      function setLanguage()   {
+        navigator.globalization.getPreferredLanguage(
+          function (language) { lang = language.value.substring(0, 2); alert (lang); },
+          null
+        );
+      }
+
 
 
       

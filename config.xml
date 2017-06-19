@@ -17,6 +17,7 @@
     <plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
     <plugin name="cordova-plugin-background-mode" source="npm" />
     <plugin name="io.gvox.plugin.phonecalltrap" source="npm" />
+    <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
     <platform name="browser">
 <!--    
       <preference name="SplashScreen" value="splash" />
