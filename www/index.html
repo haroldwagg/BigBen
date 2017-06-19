@@ -644,6 +644,8 @@
           function (language) { lang = language.value.substring(0, 2); },
           null
         );
+
+alert (lang); 
         
         if (lang == "en")   {        
           XStr =  { "titler" : "BIG BEN BONGER",
@@ -667,8 +669,8 @@
         document.getElementById("titler").innerHTML = XStr.titler;
 //        document.getElementById("titler").innerHTML = XStr.fr.titler;
 
-        alert (lang);
-        alert (JSON.stringify(XStr));
+        
+//        alert (JSON.stringify(XStr));
         
       }
 
