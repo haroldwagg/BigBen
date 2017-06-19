@@ -639,15 +639,15 @@
 //        alert("SCREEN = " + w + " x " + h + "\n RATIO = " + ratio + "\n\nMAGIC_NUMBER =\n" + MAGIC_NUMBER + "  [" + localStorage["locker"] + "]");
       }
         
+    
       function setLanguage()   {
-      var lang;
+        navigator.globalization.getPreferredLanguage(
+          function (language) {document.getElementById("pNotes").innerHTML = "language: " + language.value;},
+          function () {document.getElementById("pNotes").innerHTML = "Error getting language";}
+        );      
+      }
       
-      navigator.globalization.getPreferredLanguage( gotLanguage(language), null );
-      
-      function gotLanguage(language)   {
-        alert (language);
-      } 
-        
+       
 //        if (lang == "en")   {        
 //          XStr =  { "titler" : "BIG BEN BONGER",
 //                    "setup_but_on" : "&lt; SETUP",
@@ -667,7 +667,7 @@
 //                 };                  
 //        }
       
-        document.getElementById("titler").innerHTML = XStr.titler;
+//        document.getElementById("titler").innerHTML = XStr.titler;
 //        document.getElementById("titler").innerHTML = XStr.fr.titler;
 
         
