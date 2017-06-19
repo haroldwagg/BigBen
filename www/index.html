@@ -645,6 +645,8 @@
           null
         );
         
+        var XPrefix = "XStr." + lang;
+        
         XStr = { "en" : { "titler" : "BIG BEN BONGER",
                           "setup_but_on" : "&lt; SETUP",
                           "setup_but_off" : "SETUP &gt;"
@@ -663,7 +665,7 @@
                };
       
       
-        document.getElementById("titler").innerHTML = XStr.lang.titler;
+        document.getElementById("titler").innerHTML = XPrefix.titler;
 //        document.getElementById("titler").innerHTML = XStr.fr.titler;
         
       }
