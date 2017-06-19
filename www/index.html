@@ -642,8 +642,8 @@
     
       function setLanguage()   {
         navigator.globalization.getPreferredLanguage(
-          function (language) {document.getElementById("pNotes").innerHTML = "language: " + language.value;},
-          function () {document.getElementById("pNotes").innerHTML = "Error getting language";}
+          function (language) {document.getElementById("titler").innerHTML = "language: " + language.value;},
+          function () {document.getElementById("titler").innerHTML = "Error getting language";}
         );      
       }
       
