@@ -29,17 +29,17 @@
                 <div id="setupPanel">
                 
                 <table style="border: none; float: right;">
-                  <tr><td align="left">
-                  <input type="radio" name="whichbuttons" onClick="selectBB()" id="bb_but" checked style="vertical-align: text-bottom">BIG BEN&nbsp;&nbsp;&nbsp;<input type="radio" name="whichbuttons" id="bg_but" onClick="selectBG()" style="vertical-align: text-bottom">MANTLE CLOCK
+                  <tr><td align="left" nowrap="nowrap">
+                  <input type="radio" name="whichbuttons" onClick="selectBB()" id="bb_but" checked style="vertical-align: text-bottom">BIG BEN&nbsp;&nbsp;&nbsp;<input type="radio" name="whichbuttons" id="bg_but" onClick="selectBG()" style="vertical-align: text-bottom"><div id="mantleClk" style="margin: 0; padding: 0; display: inline-block"></div>
                   <br /><span style="color: #0000bb"><hr /></span>
-                  <input type="checkbox" class="checkers" name="no-phone-mute" id="no-phone-mute" onClick="doPhoneMute()"> BONG&nbsp;DURING&nbsp;PHONECALLS
+                  <input type="checkbox" class="checkers" name="no-phone-mute" id="no-phone-mute" onClick="doPhoneMute()"><div id="bongDuringCall" style="margin: 0; padding: 0; display: inline-block"></div>
                   <br /><br />
                  
                   
                   
-                  <input type="checkbox" class="checkers" name="quart" id="Quarter" checked onClick="do1545Option()"> :15 &amp; :45 CHIMES<br />
-                  <input type="checkbox" class="checkers" name="half" id="Half" checked onClick="doHalfHourOption()"> HALF-HOUR CHIMES<br />
-                  <input type="checkbox" class="checkers" name="hhourr" id="Hour-strikes" onClick="doHourStrikeOption()" checked> ON-THE-HOUR STRIKES
+                  <input type="checkbox" class="checkers" name="quart" id="Quarter" checked onClick="do1545Option()"><div id="15_45_Label" style="margin: 0; padding: 0; display: inline-block"></div><br />
+                  <input type="checkbox" class="checkers" name="half" id="Half" checked onClick="doHalfHourOption()"><div id="Half_Label" style="margin: 0; padding: 0; display: inline-block"></div><br />
+                  <input type="checkbox" class="checkers" name="hhourr" id="Hour-strikes" onClick="doHourStrikeOption()" checked><div id="Hour_Label" style="margin: 0; padding: 0; display: inline-block"></div>
                   <br /><br /><img  src="img/juk.png" id="spkr" style="margin: 0; padding: 0; height: 20px; width: 20px; margin-right: 0.8em; margin-top: 0px; margin-bottom: -3px;"  /><input type="button" value="  -  " style="font-size: 1em;  border:none; margin: 0; padding: 0; margin-right: 8px; margin-top: 0px; padding-top: 4px;" onClick="changeVolume('-')" /><progress id="prog" name="prog" value="0.4" max="1.0">
                   </progress><input type="button" value="  +  " style="font-size: 1em;  border:none; margin: 0; padding: 0; margin-left: 0.8em; padding-top: 4px;" onClick="changeVolume('+')" />
                   </td></tr></table>
@@ -96,7 +96,7 @@
       var lang;
       var XStr;
       var setupIsDisplayed = false;
-      var helpText;
+      var helpText, helpTextTitle, mantleClockText, helpDismissText;
       
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -629,8 +629,8 @@
         navigator.notification.alert(
           helpText,  
           "",         
-          'Welcome to the Big Ben Bonger',           
-          'Dismiss'                 
+          helpTextTitle,           
+          helpDismissText                 
         );      
       }
             
@@ -658,21 +658,35 @@
         else if (localStorage["language"] == "fr")   {
           document.getElementById("titler").innerHTML = "BIG BEN FRANCE";
           document.getElementById("setup_but").value = "< OPTIONS";
+          document.getElementById("mantleClk").innerHTML = "HORLOGE MANTELLE";
+          document.getElementById("bongDuringCall").innerHTML = " BONG DURANT LE TÉLÉPHONE"; 
+          document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
+          document.getElementById("Half_Label").innerHTML = "&nbsp;HEURES DE CHAMBRE";
+          document.getElementById("Hour_Label").innerHTML = "&nbsp;STRIKES ON-THE-HOUR";
+
           helpText = "Laissez Big Ben V1.0 vous aider lorsque vous ne voulez pas perdre la trace du temps -- parfait lors de la lecture, du travail, des études ou même des achats -- un rappel subtil toutes les 15 minutes.\n\n";                    
           helpText += "Appuyez sur le bouton [< OPTIONS] pour ajuster les paramètres. Une fois terminé, appuyez de nouveau sur le bouton [OPTIONS >]. Vous pouvez laisser Ben comme ça et il vous montrera le temps et le bong pour vous toute la journée.\n\n";       
           helpText += "Mais vous voudrez probablement faire d'autres choses avec votre téléphone ou votre tablette. Vous pouvez minimiser Big Ben en tapotant l'icône Minimiser carré en haut de l'écran. Big Ben continuera à bong jusqu'à ce que vous quittez l'application.\n\n";       
           helpText += "Pour re-maximiser le Bonger, appuyez sur l'icône Big Ben. Vous pouvez ensuite quitter l'application à l'aide de l'icône \"X\" dans le coin supérieur droit. Merci d'avoir choisi le Big Ben Bonger.\n\n";       
-          helpText += "Dieu sauve la reine.\n\n\numikeapps@outlook.com";                       
+          helpText += "Dieu sauve la reine.\n\n\numikeapps@outlook.com";
+          helpTextTitle = "Bienvenue au Big Ben Bonger";
+          helpDismissText ="RENVOYER";
         }
         else   {      
           document.getElementById("titler").innerHTML = "BIG BEN BONGER";
           document.getElementById("setup_but").value = "< OPTIONS";
+          document.getElementById("mantleClk").innerHTML = "MANTLE CLOCK";
+          document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURING PHONECALL";
+          document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
+          document.getElementById("Half_Label").innerHTML = "&nbsp;HALF HOUR CHIMES";
+          document.getElementById("Hour_Label").innerHTML = "&nbsp;ON-THE-HOUR STRIKES";
           helpText = "Let Big Ben V1.0 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
           helpText += "Tap the [< OPTIONS] button to adjust settings.  When finished, tap the [OPTIONS >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\n";
           helpText += "But most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\n";
           helpText += "To re-maximize the Bonger, tap the Big Ben icon. You can then exit the app using the \"X\" Icon in the upper right corner. Thank you for choosing the Big Ben Bonger.\n\n";
-          helpText += "God Save The Queen.\n\n\numikeapps@outlook.com";  
- 
+          helpText += "God Save The Queen.\n\n\numikeapps@outlook.com";
+          helpTextTitle = "Welcome to the Big Ben Bonger"; 
+          helpDismissText ="DISMISS";
         } 
       }               
       
