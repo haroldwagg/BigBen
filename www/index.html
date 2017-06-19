@@ -640,6 +640,8 @@
       }
         
       function setLanguage()   {
+      var lang;
+      
         navigator.globalization.getPreferredLanguage(
           function (language) { lang = language.value.substring(0, 2); },
           null
