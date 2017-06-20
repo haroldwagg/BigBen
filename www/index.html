@@ -653,12 +653,14 @@
         
     
       function setLanguage()   {
-        navigator.globalization.getPreferredLanguage(
-          function (language) { var myLang = language.value.substring(0, 2);
-                                localStorage["language"] = myLang;                                                                                         
-          },
-          function () {document.getElementById("titler").innerHTML = "Error getting language";}
-        );  
+        for (var i = 0; i < 2; ++i)   {
+          navigator.globalization.getPreferredLanguage(
+            function (language) { var myLang = language.value.substring(0, 2);
+                                  localStorage["language"] = myLang;                                                                                         
+            },
+            function () {document.getElementById("titler").innerHTML = "Error getting language";}
+          );
+        }  
         
         if (localStorage["language"] == "pt")   {          
           document.getElementById("titler").innerHTML = "BIG BEN BRAZIL";
@@ -688,7 +690,7 @@
           document.getElementById("bongDuringCall").innerHTML = " BONG DURANT LE TÉLÉPHONE"; 
           document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
           document.getElementById("Half_Label").innerHTML = "&nbsp;HEURES DE CHAMBRE";
-          document.getElementById("Hour_Label").innerHTML = "&nbsp;STRIKES ON-THE-HOUR";
+          document.getElementById("Hour_Label").innerHTML = "&nbsp;CHIMES HORAIRES";
           document.getElementById("setupPanel").style.width = '0px';
           helpText = "Laissez Big Ben V1.0 vous aider lorsque vous ne voulez pas perdre la trace du temps -- parfait lors de la lecture, du travail, des études ou même des achats -- un rappel subtil toutes les 15 minutes.\n\n";                    
           helpText += "Appuyez sur le bouton [< OPTIONS] pour ajuster les paramètres. Une fois terminé, appuyez de nouveau sur le bouton [OPTIONS >]. Vous pouvez laisser Ben comme ça et il vous montrera le temps et le bong pour vous toute la journée.\n\n";       
