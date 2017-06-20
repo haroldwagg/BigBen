@@ -96,7 +96,7 @@
       var lang;
       var XStr;
       var setupIsDisplayed = false;
-      var helpText, helpTextTitle, mantleClockText, helpDismissText;
+      var helpText, helpTextTitle, mantleClockText, helpDismissText, quitConfirmText;
       
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -515,7 +515,7 @@
         
         cordova.plugins.backgroundMode.setDefaults({
           title: "Big Ben Bonger Background",
-          text: "[Tap the Big Ben Icon to Restore]",
+          text: backgroundNotificationText,
           resume: false,
           hidden: false
         });
@@ -536,7 +536,7 @@
         
         document.addEventListener("backbutton", function (e) {               // Disable Back Button
             e.preventDefault();
-            var q = confirm("Do you want to exit Big Ben Bonger?");
+            var q = confirm(quitConfirmText);
             if (q == true)   {
               doExit();
             } 
@@ -677,6 +677,8 @@
           helpText += "Dieu sauve la reine.\n\n\numikeapps@outlook.com";
           helpTextTitle = "Bienvenue au Big Ben Bonger";
           helpDismissText ="RENVOYER";
+          quitConfirmText = "Voulez-vous quitter Big Ben Bonger?";
+          backgroundNotificationText = "[Appuyez sur l'icône Big Ben pour restaurer]";
         }
         else   {      
           document.getElementById("titler").innerHTML = "BIG BEN BONGER";
@@ -692,7 +694,9 @@
           helpText += "To re-maximize the Bonger, tap the Big Ben icon. You can then exit the app using the \"X\" Icon in the upper right corner. Thank you for choosing the Big Ben Bonger.\n\n";
           helpText += "God Save The Queen.\n\n\numikeapps@outlook.com";
           helpTextTitle = "Welcome to the Big Ben Bonger"; 
-          helpDismissText ="DISMISS";
+          helpDismissText = "DISMISS";
+          quitConfirmText = "Do you want to exit Big Ben Bonger?";
+          backgroundNotificationText = "[Tap the Big Ben Icon to Restore]";
         } 
       }               
       
