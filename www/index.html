@@ -96,7 +96,7 @@
       var lang;
       var XStr;
       var setupIsDisplayed = false;
-      var helpText, helpTextTitle, mantleClockText, helpDismissText, quitConfirmText;
+      var helpText, helpTextTitle, mantleClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText;
       
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -269,7 +269,7 @@
     
         if (! setupIsDisplayed)   {
           setupIsDisplayed = true;
-          document.getElementById("setup_but").value = "OPTIONS >";
+          document.getElementById("setup_but").value = optionsOutText;
           document.getElementById("clock").style.visibility = 'hidden';
           
           var ratio = window.devicePixelRatio || 1;
@@ -305,7 +305,7 @@
         } 
         else   {
           setupIsDisplayed = false;
-          document.getElementById("setup_but").value = "< OPTIONS";
+          document.getElementById("setup_but").value = optionsInText;
           panelStyle.width = '0px';
           setTimeout(function() {document.getElementById("clock").style.visibility = 'visible';}, 2000);          
         }
@@ -676,7 +676,10 @@
           helpTextTitle = "Bem-vindo ao Big Ben Bonger"; 
           helpDismissText = "DISPENSAR";
           quitConfirmText = "Você quer sair do Big Ben Bonger?";
-          backgroundNotificationText = "[Toque no ícone Big Ben para restaurar]";           
+          backgroundNotificationText = "[Toque no ícone Big Ben para restaurar]"; 
+          optionsInText = "< OPÇÕES";
+          optionsOutText = "OPÇÕES >";
+          
         }
         else if (localStorage["language"] == "fr")   {
           document.getElementById("titler").innerHTML = "BIG BEN FRANCE";
@@ -696,6 +699,9 @@
           helpDismissText ="RENVOYER";
           quitConfirmText = "Voulez-vous quitter Big Ben Bonger?";
           backgroundNotificationText = "[Appuyez sur l'icône Big Ben pour restaurer]";
+          optionsInText = "< OPTIONS";
+          optionsOutText = "OPTIONS >";
+
         }
         else   {      
           document.getElementById("titler").innerHTML = "BIG BEN BONGER";
@@ -714,6 +720,8 @@
           helpDismissText = "DISMISS";
           quitConfirmText = "Do you want to exit Big Ben Bonger?";
           backgroundNotificationText = "[Tap the Big Ben Icon to Restore]";
+          optionsInText = "< OPTIONS";
+          optionsOutText = "OPTIONS >";
         } 
       }               
       
