@@ -175,11 +175,11 @@ h1 {
   float: right; 
   margin-right: -78px; 
   text-align: right; 
-  background-color: rgba(255,255,255,0.0); 
+  background-color: rgba(255,255,255,0.3); 
   margin-top: 25px; 
   width: 0px;   
   height: 200px;
-  border-radius: 6px;
+  border-radius: 9px;
  
   transition:           width 1500ms;
   -webkit-transition:   width 1500ms;
