@@ -659,7 +659,21 @@
         
         if (localStorage["language"] == "pt")   {          
           document.getElementById("titler").innerHTML = "BIG BEN BRAZIL";
-          document.getElementById("setup_but").value = "< OPÇÕES";  
+          document.getElementById("setup_but").value = "< OPÇÕES"; 
+          document.getElementById("mantleClk").innerHTML = "RELÓGIO MANTEL";
+          document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURANTE O CHAMADO DE TELEFONE";
+          document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 e :45 CHIMES";
+          document.getElementById("Half_Label").innerHTML = "&nbsp;QUADROS DA HORA";
+          document.getElementById("Hour_Label").innerHTML = "&nbsp;STRIKES ON-THE-HOUR";
+          helpText = "Deixe o Big Ben V1.0 ajudá-lo quando você não quer perder o tempo - perfeito ao ler, trabalhar, estudar ou mesmo fazer compras - um lembrete sutil a cada 15 minutos.\n\n";
+          helpText += "Toque no botão [<OPÇÕES] para ajustar as configurações. Quando terminar, toque o botão [OPÇÕES>] novamente. Você pode deixar Ben assim e ele irá exibir o tempo e o bongo para você o dia todo.\n\n";
+          helpText += "Mas provavelmente você quer fazer outras coisas com seu telefone ou tablet. Você pode minimizar Big Ben tocando no quadrado Minimizar Ícone na parte superior da tela. Big Ben continuará a bong até você sair do aplicativo.\n\n";
+          helpText += "Para voltar a maximizar o Bonger, toque o ícone Big Ben. Você pode então sair do aplicativo usando o ícone \ "X \" no canto superior direito. Obrigado por escolher o Big Ben Bonger.\n\n";
+          helpText += "Deus salve a rainha.\n\n\numikeapps@outlook.com";
+          helpTextTitle = "Bem-vindo ao Big Ben Bonger"; 
+          helpDismissText = "DISPENSAR";
+          quitConfirmText = "Você quer sair do Big Ben Bonger?";
+          backgroundNotificationText = "[Toque no ícone Big Ben para restaurar]";           
         }
         else if (localStorage["language"] == "fr")   {
           document.getElementById("titler").innerHTML = "BIG BEN FRANCE";
