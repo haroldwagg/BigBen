@@ -407,11 +407,13 @@
           QUARTER_MUTE = false;
           THREE_QUARTER_MUTE = false;
           document.getElementById("Quarter").checked = true;
+          localStorage["quarter"] == "checked";
         }
         else   {
           QUARTER_MUTE = true;
           THREE_QUARTER_MUTE = true;
           document.getElementById("Quarter").checked = false;
+          localStorage["quarter"] == "no";
         }
       }     
 
@@ -679,8 +681,6 @@
           document.getElementById("bg_but").checked = true;
         }
         
-//        alert (localStorage["no_phone_mute"] + "\n\n" + document.getElementById("no_phone_mute"));
-        
         if ((localStorage["no_phone_mute"] != "checked") && (localStorage["no_phone_mute"] != "no"))   {
           localStorage["no_phone_mute"] = "no";
         }
@@ -690,6 +690,21 @@
         } 
         else   {
           document.getElementById("no_phone_mute").checked = false;
+        }
+
+        if ((localStorage["quarter"] != "checked") && (localStorage["quarter"] != "no"))   {
+          localStorage["quarter"] = "checked";
+        }
+        
+        if (localStorage["quarter"] == "checked")   {
+          QUARTER_MUTE = false;
+          THREE_QUARTER_MUTE = false;
+          document.getElementById("Quarter").checked = true;
+        }
+        else   {
+          QUARTER_MUTE = true;
+          THREE_QUARTER_MUTE = true;
+          document.getElementById("Quarter").checked = false;       
         }
           
       
@@ -701,9 +716,7 @@
         } 
         else   {
           localStorage["no_phone_mute"] = "no";
-        } 
-      
-      
+        }       
       }
       
     
