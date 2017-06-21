@@ -621,6 +621,8 @@
           }, delay);
         } 
         
+        MASTER_VOLUME = Math.round(MASTER_VOLUME);
+        
         if (dir == "+")   {            
           if (MASTER_VOLUME < 1.0)   {
             MASTER_VOLUME += 0.1;
