@@ -653,6 +653,8 @@
         
     
       function setLanguage()   {
+        localStorage["language"] = ""; 
+      
         for (var i = 0; i < 2; ++i)   {
           navigator.globalization.getPreferredLanguage(
             function (language) { var myLang = language.value.substring(0, 2);
