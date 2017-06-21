@@ -679,20 +679,27 @@
           document.getElementById("bg_but").checked = true;
         }
         
-        if ((localStorage["no_phone_mute"] != true) && (localStorage["no_phone_mute"] != false))   {
-          localStorage["no_phone_mute"] = false;
+        if ((localStorage["no_phone_mute"] != "checked") && (localStorage["no_phone_mute"] != "no"))   {
+          localStorage["no_phone_mute"] = "no";
         }
 
-
-
-        alert ( document.getElementById("no_phone_mute").checked );
-//        document.getElementById("no_phone_mute").checked = true; 
+        if (localStorage["no_phone_mute"] = "checked")   {
+          document.getElementById("no_phone_mute").checked = true;
+        } 
+        else   {
+          document.getElementById("no_phone_mute").checked = false;
+        }
           
       
       }
       
       function doPhoneMute()   {
-         localStorage["no_phone_mute"] = document.getElementById("no_phone_mute").checked;
+        if (document.getElementById("no_phone_mute").checked == true)   {
+          localStorage["no_phone_mute"] = "checked";
+        } 
+        else   {
+          localStorage["no_phone_mute"] = "no";
+        } 
       
       
       }
