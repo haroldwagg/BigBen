@@ -626,7 +626,6 @@
             MASTER_VOLUME += 0.1;
             pBar.value = MASTER_VOLUME;
             my_media_TEST.setVolume(MASTER_VOLUME);
-            localStorage["volume"] = MASTER_VOLUME;
           }
         }
         else   {
@@ -634,10 +633,11 @@
             MASTER_VOLUME -= 0.1;
             pBar.value = MASTER_VOLUME;
             my_media_TEST.setVolume(MASTER_VOLUME);
-            localStorage["volume"] = MASTER_VOLUME;
           }                    
         }
         
+        localStorage["volume"] = MASTER_VOLUME;
+        alert (MASTER_VOLUME);
         CURRENT_VOLUME = MASTER_VOLUME;          
       }
       
