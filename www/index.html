@@ -626,6 +626,7 @@
             MASTER_VOLUME += 0.1;
             pBar.value = MASTER_VOLUME;
             my_media_TEST.setVolume(MASTER_VOLUME);
+            localStorage["volume"] = MASTER_VOLUME;
           }
         }
         else   {
@@ -633,6 +634,7 @@
             MASTER_VOLUME -= 0.1;
             pBar.value = MASTER_VOLUME;
             my_media_TEST.setVolume(MASTER_VOLUME);
+            localStorage["volume"] = MASTER_VOLUME;
           }                    
         }
         
@@ -752,8 +754,23 @@
           document.getElementById("Hour-strikes").checked = false;
         }        
 
-
-
+//
+//  Volume
+//
+        if ((localStorage["volume"] == "undefined") || (localStorage["volume"] == "") || (localStorage["volume"] == null))   {
+          localStorage["volume"] = "0.3";
+        }
+        
+        if (localStorage["volume"] < 0.1)   {
+          localStorage["volume"] = 0.1;
+        }
+        else if (localStorage["volume"] > 1.0)   {
+          localStorage["volume"] = 1.0;
+        }
+        
+        MASTER_VOLUME = localStorage["volume"];
+        CURRENT_VOLUME = localStorage["volume"];
+        document.getElementById("prog").value = localStorage["volume"];
         
       
       }
