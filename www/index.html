@@ -621,7 +621,8 @@
           }, delay);
         } 
         
-        MASTER_VOLUME = Math.round(MASTER_VOLUME);
+        var ttmmpp = Math.round(MASTER_VOLUME * 10);        
+        MASTER_VOLUME /= 10;
         
         if (dir == "+")   {            
           if (MASTER_VOLUME < 1.0)   {
