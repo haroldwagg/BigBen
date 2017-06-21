@@ -395,10 +395,12 @@
         if (DO_STRIKES)   {
           DO_STRIKES = false;
           document.getElementById("Hour-strikes").checked = false;
+          localStorage["hour-strikes"] = "no";
         }
         else   {
           DO_STRIKES = true;
           document.getElementById("Hour-strikes").checked = true;
+          localStorage["hour-strikes"] = "checked";
         }
       }     
       
@@ -421,10 +423,12 @@
         if (HALF_MUTE)   {
           HALF_MUTE = false;
           document.getElementById("Half").checked = true;
+          localStorage["half"] = "checked";
         }
         else   {
           HALF_MUTE = true;
           document.getElementById("Half").checked = false;
+          localStorage["half"] = "no";
         }
       } 
       
@@ -658,6 +662,9 @@
       }
       
       function processSavedSettings()   {
+//
+//  Clock Selection
+//      
         if ((localStorage["ding_selection"] == "") || (localStorage["ding_selection"] == null))   {
           localStorage["ding_selection"] = "bb";
         }
@@ -680,7 +687,10 @@
           document.getElementById("bb_but").checked = false;
           document.getElementById("bg_but").checked = true;
         }
-        
+
+//
+//  Mute during Phonecalls
+//        
         if ((localStorage["no_phone_mute"] != "checked") && (localStorage["no_phone_mute"] != "no"))   {
           localStorage["no_phone_mute"] = "no";
         }
@@ -692,6 +702,9 @@
           document.getElementById("no_phone_mute").checked = false;
         }
 
+//
+//  15 & 45 Chimes
+//
         if ((localStorage["quarter"] != "checked") && (localStorage["quarter"] != "no"))   {
           localStorage["quarter"] = "checked";
         }
@@ -706,7 +719,42 @@
           THREE_QUARTER_MUTE = true;
           document.getElementById("Quarter").checked = false;       
         }
-          
+  
+//
+//  Half-hour Chimes
+//
+        if ((localStorage["half"] != "checked") && (localStorage["half"] != "no"))   {
+          localStorage["half"] = "checked";
+        }
+        
+        if (localStorage["half"] == "checked")   {
+          HALF_MUTE = false;
+          document.getElementById("Half").checked = true;
+       }
+        else   {
+          HALF_MUTE = true;
+          document.getElementById("Half").checked = false;
+        }
+
+//
+//  On-the-hour Strikes
+//
+        if ((localStorage["hour-strikes"] != "checked") && (localStorage["hour-strikes"] != "no"))   {
+          localStorage["hour-strikes"] = "checked";
+        }
+        
+        if (localStorage["hour-strikes"] == "checked")   {
+          DO_STRIKES = true;;
+          document.getElementById("Hour-strikes").checked = true;
+       }
+        else   {
+          DO_STRIKES = false;
+          document.getElementById("Hour-strikes").checked = false;
+        }        
+
+
+
+        
       
       }
       
