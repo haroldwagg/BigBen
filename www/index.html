@@ -678,8 +678,20 @@
           document.getElementById("bb_but").checked = false;
           document.getElementById("bg_but").checked = true;
         }
+        
+        if ((localStorage["no_phone_mute"] == "") || (localStorage["no_phone_mute"] == null))   {
+          localStorage["no_phone_mute"] = false;
+        }
+
+        document.getElementById("no_phone_mute").checked = localStorage["no_phone_mute"];
           
           
+      
+      }
+      
+      function doPhoneMute()   {
+         localStorage["no_phone_mute"] = document.getElementById("no_phone_mute").checked;
+      
       
       }
       
