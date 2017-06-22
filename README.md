@@ -14,12 +14,17 @@ It could be handy to somebody.
 
 IF LEFT IN FOREGROUND, the screen should never sleep and always display.
  
-When exiting Big Ben Bonger with the phone's 'Back' button, this app will go into BACKGROUND MODE
-and will continue to chime regardless of other activity on the phone.
+Press the square 'Minimize' icon to send this app into BACGROUND MODE.
+Big Ben continue to chime regardless of other activity on the phone.
+You can specify whether you want the app to bong when you are on a 
+phonecall. If you set it up this way, you will hear Big Ben bong in
+your earpiece. The person on the other end of the phone will not hear
+Ben at all.
 
-To exit the Bonger completely, you must use the "X" in the top right corner of the app.
-If the app is running in background mode, double-click on the Android Notification that says
-there's a background app running. This will bring Big Ben back to foreground, so you
-can exit the program. Likewise, you can always return Big Ben Bonger to foreground by clicking its
-icon.
+To exit the Bonger completely, you must use the "X" in the top right corner 
+of the app. If the app is running in background mode, click the Big Ben icon. 
+This will bring Big Ben back to foreground, so you can make changes to the
+Settings or exit the app.
+
+Support added for French and Portugese. 
 
