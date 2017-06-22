@@ -85,6 +85,7 @@
       var HOUR_DING          = "bb_hour.mp3";
       var DING_SELECTION;
       var do24Hr = false;
+      var myLang;
       
       var Timeouter;
       var delayRelease;
@@ -107,7 +108,7 @@
         var mins = d.getMinutes();        
         var n;
               
-        if ( do24Hr )  { 
+        if ( myLang == "pt" || myLang == "fr" )  { 
           n = d.getHours(); 
           
           if (n < 10)   {
