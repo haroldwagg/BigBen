@@ -84,6 +84,7 @@
       var THREE_QUARTER_DING = "bb_three-quarter.mp3";
       var HOUR_DING          = "bb_hour.mp3";
       var DING_SELECTION;
+      var do24Hr = false;
       
       var Timeouter;
       var delayRelease;
@@ -104,22 +105,31 @@
       function init()   {
         var d = new Date();
         var mins = d.getMinutes();
-        var n = d.getHours();
-              
-        if (n == 0)   {
-          n = 12;
+        var n;
+        
+        if (! do24Hr)   {
+          n = d.getHours();
+                
+          if (n == 0)   {
+            n = 12;
+          }
+          if (n > 12)   {
+            n -= 12;
+          } 
+          
+          if (n < 10)   {
+            n = "&nbsp;&nbsp;" + n;
+          }
         }
-        if (n > 12)   {
-          n -= 12;
-        } 
+        else   {
+          n = d.getUTCHours();     
+        }
+
         
         if (mins < 10)   {
           mins = "0" + mins;
         } 
         
-        if (n < 10)   {
-          n = "&nbsp;&nbsp;" + n;
-        }
         
         document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins + "&nbsp;";
              
@@ -136,17 +146,24 @@
         var d = new Date();
         var mins = d.getMinutes();
         
-        var n = d.getHours();
+        var n;
               
-        if (n == 0)   {
-          n = 12;
+        if (! do24Hr)   {
+          n = d.getHours();
+                
+          if (n == 0)   {
+            n = 12;
+          }
+          if (n > 12)   {
+            n -= 12;
+          } 
+          
+          if (n < 10)   {
+            n = "&nbsp;&nbsp;" + n;
+          }
         }
-        if (n > 12)   {
-          n -= 12;
-        } 
-        
-        if (n < 10)   {
-          n = "&nbsp;&nbsp;" + n;
+        else   {
+          n = d.getUTCHours();     
         }
 
           
@@ -811,7 +828,7 @@
             backgroundNotificationText = "[Toque no ícone Big Ben para restaurar]"; 
             optionsInText = "< OPÇÕES";
             optionsOutText = "OPÇÕES >";
-            
+            do24Hr = true;
           }
           else if (localStorage["language"] == "fr")   {
             document.getElementById("titler").innerHTML = "BIG BEN FRANCE";
@@ -833,7 +850,7 @@
             backgroundNotificationText = "[Appuyez sur l'icône Big Ben pour restaurer]";
             optionsInText = "< OPTIONS";
             optionsOutText = "OPTIONS >";
-  
+            do24Hr = true;
           }
           else   {      
             document.getElementById("titler").innerHTML = "BIG BEN BONGER";
