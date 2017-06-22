@@ -163,7 +163,11 @@
           }
         }
         else   {
-          n = d.getUTCHours();     
+          n = d.getHours(); 
+          
+          if (n < 10)   {
+            n = "0" + n;
+          }     
         }
 
           
