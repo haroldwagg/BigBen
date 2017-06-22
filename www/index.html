@@ -104,9 +104,9 @@
       
       function init()   {
         var d = new Date();
-        var mins = d.getMinutes();
+        var mins = d.getMinutes();        
         var n;
-        
+              
         if (! do24Hr)   {
           n = d.getHours();
                 
@@ -129,12 +129,10 @@
           }     
         }
 
-        
+          
         if (mins < 10)   {
           mins = "0" + mins;
         } 
-        
-        
         document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins + "&nbsp;";
              
         var secs = d.getSeconds();
@@ -148,8 +146,7 @@
       
       function doMainLoop()   {
         var d = new Date();
-        var mins = d.getMinutes();
-        
+        var mins = d.getMinutes();        
         var n;
               
         if (! do24Hr)   {
@@ -818,7 +815,7 @@
           localStorage["language"] = myLang;
                      
           if (localStorage["language"] == "pt")   {          
-            document.getElementById("titler").innerHTML = "BIG BEN BRAZIL";
+            document.getElementById("titler").innerHTML = "BONGER";
             document.getElementById("setup_but").value = "< OPÇÕES"; 
             document.getElementById("mantleClk").innerHTML = "RELÓGIO MANTEL";
             document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURANTE O CHAMADO DE TELEFONE";
@@ -839,7 +836,7 @@
             do24Hr = true;
           }
           else if (localStorage["language"] == "fr")   {
-            document.getElementById("titler").innerHTML = "BIG BEN FRANCE";
+            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPTIONS";
             document.getElementById("mantleClk").innerHTML = "HORLOGE MANTELLE";
             document.getElementById("bongDuringCall").innerHTML = " BONG DURANT LE TÉLÉPHONE"; 
