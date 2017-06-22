@@ -108,7 +108,7 @@
         var mins = d.getMinutes();        
         var n;
               
-        if ( myLang == "pt" || myLang == "fr" )  { 
+        if ( do24Hr)   {
           n = d.getHours(); 
           
           if (n < 10)   {
@@ -538,7 +538,7 @@
         
         processSavedSettings(); 
                         
-        init();
+//        init();
         
         window.plugins.insomnia.keepAwake();
         
@@ -876,7 +876,46 @@
             backgroundNotificationText = "[Tap the Big Ben Icon to Restore]";
             optionsInText = "< OPTIONS";
             optionsOutText = "OPTIONS >";
-          }     
+          } 
+          
+          var d = new Date();
+          var mins = d.getMinutes();        
+          var n;
+                
+          if ( do24Hr)   {
+            n = d.getHours(); 
+            
+            if (n < 10)   {
+              n = "0" + n;
+            }     
+          }
+          else   {    
+            n = d.getHours();
+                  
+            if (n == 0)   {
+              n = 12;
+            }
+            if (n > 12)   {
+              n -= 12;
+            } 
+            
+            if (n < 10)   {
+              n = "&nbsp;&nbsp;" + n;
+            }
+          }
+            
+          if (mins < 10)   {
+            mins = "0" + mins;
+          } 
+          document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins + "&nbsp;";
+               
+          var secs = d.getSeconds();
+          loopDelay = (60 - secs) * 1000;
+          
+// Fix loop creep (I hope)
+          loopDelay += 1000;        
+         
+          loopThread = setTimeout(doMainLoop, loopDelay);
         },        
         ignoreError2() ); 
 
