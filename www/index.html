@@ -623,16 +623,16 @@
         
         if (dir == "+")   {            
           if (MASTER_VOLUME < 1.0)   {
-            MASTER_VOLUME =  0.0 + MASTER_VOLUME + 0.1;
-            pBar.value = MASTER_VOLUME;
+            MASTER_VOLUME =  parseFloat(MASTER_VOLUME) + 0.1;
+            pBar.value = parseFloat(MASTER_VOLUME);
             my_media_TEST.setVolume(MASTER_VOLUME);
           }
         }
         else   {
           if (MASTER_VOLUME > 0.0)   {
-            MASTER_VOLUME = 0.0 + MASTER_VOLUME - 0.1;
-            pBar.value = MASTER_VOLUME;
-            my_media_TEST.setVolume(MASTER_VOLUME);
+            MASTER_VOLUME = parseFloat(MASTER_VOLUME) - 0.1;
+            pBar.value = parseFloat(MASTER_VOLUME);
+            my_media_TEST.setVolume(0.0 + MASTER_VOLUME);
           }                    
         }
         
@@ -758,7 +758,7 @@
 //  Volume
 //
         if ((localStorage["volume"] == "undefined") || (localStorage["volume"] == "") || (localStorage["volume"] == null))   {
-          localStorage["volume"] = "0.3";
+          localStorage["volume"] = 0.3;
         }
         
         if (localStorage["volume"] < 0.1)   {
@@ -768,9 +768,9 @@
           localStorage["volume"] = 1.0;
         }
         
-        MASTER_VOLUME = localStorage["volume"];
-        CURRENT_VOLUME = localStorage["volume"];
-        document.getElementById("prog").value = localStorage["volume"];
+        MASTER_VOLUME = parseFloat(localStorage["volume"]);
+        CURRENT_VOLUME = parseFloat(localStorage["volume"]);
+        document.getElementById("prog").value = parseFloat(localStorage["volume"]);
         
       
       }
