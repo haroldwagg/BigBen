@@ -811,7 +811,7 @@
         localStorage["language"] = ""; 
       
         navigator.globalization.getPreferredLanguage( function (language)   {
-          var myLang = language.value.substring(0, 2);
+          myLang = language.value.substring(0, 2);
           localStorage["language"] = myLang;
                      
           if (localStorage["language"] == "pt")   { 
