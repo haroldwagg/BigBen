@@ -787,13 +787,13 @@
     
       function setLanguage()   {
         localStorage["language"] = ""; 
-        alert ("HERE");
+//        alert ("HERE");
       
         navigator.globalization.getPreferredLanguage( function (language)   {
-          alert ("START");
+//          alert ("START");
           var myLang = language.value.substring(0, 2);
           localStorage["language"] = myLang;
-          alert (localStorage["language"]);
+//          alert (localStorage["language"]);
                      
           if (localStorage["language"] == "pt")   {          
             document.getElementById("titler").innerHTML = "BIG BEN BRAZIL";
