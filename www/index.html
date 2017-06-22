@@ -788,7 +788,7 @@
       function setLanguage()   {
         localStorage["language"] = ""; 
       
-//        navigator.globalization.getPreferredLanguage( makeStrings(language), ignoreError(err) ); 
+        navigator.globalization.getPreferredLanguage( makeStrings(language), ignoreError2() ); 
 
         function makeStrings (language)   { 
           var myLang = language.value.substring(0, 2);
@@ -865,7 +865,11 @@
       function ignoreError(err){
         ;
       }
-      
+ 
+      function ignoreError2(){
+        ;
+      }
+     
             
       
 
