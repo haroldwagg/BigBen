@@ -787,10 +787,9 @@
     
       function setLanguage()   {
         localStorage["language"] = ""; 
+        alert ("HERE");
       
-        navigator.globalization.getPreferredLanguage( setLanguage.makeStrings(language), ignoreError2() ); 
-
-        function makeStrings (language)   { 
+        navigator.globalization.getPreferredLanguage( function (language)   {
           alert ("START");
           var myLang = language.value.substring(0, 2);
           localStorage["language"] = myLang;
@@ -858,8 +857,10 @@
             backgroundNotificationText = "[Tap the Big Ben Icon to Restore]";
             optionsInText = "< OPTIONS";
             optionsOutText = "OPTIONS >";
-          }
-        } 
+          }     
+        },        
+        ignoreError2() ); 
+
       }               
       
                       
