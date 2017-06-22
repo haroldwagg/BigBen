@@ -297,8 +297,17 @@
           var h = screen.height;
 
           if (h / ratio > 780)   {
-            panelStyle.width = '360px';
-            panelStyle.height = '400px';
+            if (localStorage["language"] == "fr")   {
+              panelStyle.width = '380px';
+            }
+            else if (localStorage["language"] == "pt")   {
+              panelStyle.width = '450px';
+            }
+            else   {
+              panelStyle.width = '360px';
+            }
+  
+            panelStyle.height = '350px';
             document.getElementById("setupPanel").style.paddingTop = "30px";
             document.getElementById("Quarter").style.marginTop = "10px";
             document.getElementById("Half").style.marginTop = "8px";
