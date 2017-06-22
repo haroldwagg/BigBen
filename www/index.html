@@ -107,7 +107,14 @@
         var mins = d.getMinutes();        
         var n;
               
-        if (! do24Hr)   {
+        if ((localStorage["language"] == "pt") || (localStorage["language"] == "fr"))  { 
+          n = d.getHours(); 
+          
+          if (n < 10)   {
+            n = "0" + n;
+          }     
+        }
+        else   {    
           n = d.getHours();
                 
           if (n == 0)   {
@@ -121,14 +128,6 @@
             n = "&nbsp;&nbsp;" + n;
           }
         }
-        else   {
-          n = d.getHours(); 
-          
-          if (n < 10)   {
-            n = "0" + n;
-          }     
-        }
-
           
         if (mins < 10)   {
           mins = "0" + mins;
@@ -815,7 +814,7 @@
           localStorage["language"] = myLang;
                      
           if (localStorage["language"] == "pt")   {          
-            document.getElementById("titler").innerHTML = "BONGER";
+            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPÇÕES"; 
             document.getElementById("mantleClk").innerHTML = "RELÓGIO MANTEL";
             document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURANTE O CHAMADO DE TELEFONE";
