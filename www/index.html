@@ -654,20 +654,19 @@
         
         if (dir == "+")   {            
           if (MASTER_VOLUME < 1.0)   {
-            MASTER_VOLUME =  parseFloat(MASTER_VOLUME) + 0.1;
-            pBar.value = parseFloat(MASTER_VOLUME);
-            my_media_TEST.setVolume(MASTER_VOLUME);
+            MASTER_VOLUME =  MASTER_VOLUME + 0.1;
           }
         }
         else   {
           if (MASTER_VOLUME > 0.0)   {
-            MASTER_VOLUME = parseFloat(MASTER_VOLUME) - 0.1;
-            pBar.value = parseFloat(MASTER_VOLUME);
-            my_media_TEST.setVolume(0.0 + MASTER_VOLUME);
+            MASTER_VOLUME = MASTER_VOLUME - 0.1;
           }                    
         }
         
-        localStorage["volume"] = MASTER_VOLUME;
+        pBar.value = MASTER_VOLUME;
+        my_media_TEST.setVolume(MASTER_VOLUME);
+        
+        localStorage["volume"] = MASTER_VOLUME.toString();
 //        alert (MASTER_VOLUME);
         CURRENT_VOLUME = MASTER_VOLUME;          
       }
@@ -789,21 +788,19 @@
 //  Volume
 //
         if ((localStorage["volume"] == "undefined") || (localStorage["volume"] == "") || (localStorage["volume"] == null))   {
-          localStorage["volume"] = 0.3;
+          localStorage["volume"] = "0.3";
         }
         
-        if (localStorage["volume"] < 0.1)   {
-          localStorage["volume"] = 0.1;
+        if (parseFloat(localStorage["volume"]) < 0.1)   {
+          localStorage["volume"] = "0.1";
         }
-        else if (localStorage["volume"] > 1.0)   {
-          localStorage["volume"] = 1.0;
+        else if (parseFloat(localStorage["volume"]) > 1.0)   {
+          localStorage["volume"] = "1.0";
         }
         
         MASTER_VOLUME = parseFloat(localStorage["volume"]);
-        CURRENT_VOLUME = parseFloat(localStorage["volume"]);
-        document.getElementById("prog").value = parseFloat(localStorage["volume"]);
-        
-      
+        CURRENT_VOLUME = MASTER_VOLUME;
+        document.getElementById("prog").value = CURRENT_VOLUME);     
       }
       
       function doPhoneMute()   {
