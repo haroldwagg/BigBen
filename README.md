@@ -4,7 +4,7 @@ This is a PHONEGAP App.
 
 Plays Westminster Chimes every quarter hour. User can select whether to hear the default
 Big Ben chimes or Mantle Clock chimes.  User can also select which quarter-hour chimes
-to ring.
+to ring. Settings are saved in localStorage.
 
 I use it as a way to keep track of time while I'm programming.
 Keeps me from getting engrossed at the computer -- then surprise, it's midnight.
@@ -26,5 +26,6 @@ of the app. If the app is running in background mode, click the Big Ben icon.
 This will bring Big Ben back to foreground, so you can make changes to the
 Settings or exit the app.
 
-Support added for French and Portugese. 
+Support added for French and Portugese. V1.1
+Quick Fix  V1.1a 
 
