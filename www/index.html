@@ -718,14 +718,17 @@
         THREE_QUARTER_DING = localStorage["ding_selection"] + "_three-quarter.mp3";
         HOUR_DING = localStorage["ding_selection"] + "_hour.mp3";
         DING_SELECTION = localStorage["ding_selection"];
+        
+        var sel = document.getElementById('clocker');
           
         if (localStorage["ding_selection"] == "bb")   {
-          document.getElementById("bb_but").checked = true;
-          document.getElementById("bg_but").checked = false;
+          sel.selectedIndex = 0;
         }
-        else   {  
-          document.getElementById("bb_but").checked = false;
-          document.getElementById("bg_but").checked = true;
+        else if (localStorage["ding_selection"] == "bg")  {  
+          sel.selectedIndex = 1;
+        }
+        else   {
+          sel.selectedIndex = 2;
         }
 //
 //
