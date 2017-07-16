@@ -30,7 +30,15 @@
                 
                 <table style="border: none; float: right;">
                   <tr><td align="left" nowrap="nowrap">
+                     BONG:&nbsp;<select name="clocker" id="clocker">
+                                  <option value="bb">BIG BEN</option>
+                                  <option value="bg">MANTLE CLOCK</option>
+                                  <option value="gf">GRANDFATHER CLOCK</option>
+                                </select>
+<!--                  
                   <input type="radio" name="whichbuttons" onClick="selectBB()" id="bb_but" style="vertical-align: text-bottom">BIG BEN&nbsp;&nbsp;&nbsp;<input type="radio" name="whichbuttons" id="bg_but" onClick="selectBG()" style="vertical-align: text-bottom"><div id="mantleClk" style="margin: 0; padding: 0; display: inline-block"></div>
+-->
+                  
                   <br /><span style="color: #0000bb"><hr /></span>
                   <input type="checkbox" class="checkers" name="no_phone_mute" id="no_phone_mute" onClick="doPhoneMute()"><div id="bongDuringCall" style="margin: 0; padding: 0; display: inline-block"></div>
                   <br /><br />
@@ -557,7 +565,7 @@
           cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
         });
         
-        cordova.plugins.backgroundMode.setDefaults({
+        cordova.plugins.backgroundMode.configure({
           title: "Big Ben Bonger Background",
           text: backgroundNotificationText,
           resume: false,
