@@ -30,10 +30,9 @@
                 
                 <table style="border: none; float: right;">
                   <tr><td align="left" nowrap="nowrap">
-                     BONG:&nbsp;<select name="clocker" id="clocker">
+                     BONG:&nbsp;<select name="clocker" id="clocker" onChange="changeClock()">
                                   <option value="bb">BIG BEN</option>
-                                  <option value="bg">MANTLE CLOCK</option>
-                                  <option value="gf">GRANDFATHER CLOCK</option>
+                                  
                                 </select>
 <!--                  
                   <input type="radio" name="whichbuttons" onClick="selectBB()" id="bb_but" style="vertical-align: text-bottom">BIG BEN&nbsp;&nbsp;&nbsp;<input type="radio" name="whichbuttons" id="bg_but" onClick="selectBG()" style="vertical-align: text-bottom"><div id="mantleClk" style="margin: 0; padding: 0; display: inline-block"></div>
@@ -106,7 +105,7 @@
       var lang;
       var XStr;
       var setupIsDisplayed = false;
-      var helpText, helpTextTitle, mantleClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText;
+      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText;
       
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -206,7 +205,7 @@
         if (MASTER_MUTE)   {
           if (document.getElementById("no_phone_mute").checked == true)   {
             MASTER_MUTE = false;
-            CURRENT_VOLUME = MASTER_VOLUME / 2; 
+            CURRENT_VOLUME = 0.1; 
             if (CURRENT_VOLUME < 0.1)   {
               CURRENT_VOLUME = 0.1;
             } 
@@ -235,7 +234,7 @@
             }
             
             var deela;          
-            if (DING_SELECTION == "bb")   {
+            if ((DING_SELECTION == "bb") || (DING_SELECTION == "gf"))   {
               deela = 15800;
             }
             else   {
@@ -255,7 +254,7 @@
               
               var inserter;
                             
-              inserter = (DING_SELECTION == "bb") ? "bb_" : "bg_";
+              inserter = localStorage["ding_selection"] + "_";
               
               var dingerFile = this.root + "audio/" + inserter + n + ".mp3";
               my_media2 = new Media(dingerFile,
@@ -378,12 +377,7 @@
         
         my_media_WHICH.play();
         my_media_WHICH.setVolume(MASTER_VOLUME);
-        
-        QUARTER_DING       = "bb_quarter.mp3";
-        HALF_DING          = "bb_half.mp3";
-        THREE_QUARTER_DING = "bb_three-quarter.mp3";
-        HOUR_DING          = "bb_hour.mp3";
-                  
+                         
         Timeouter = setTimeout(function()   {
             my_media_WHICH.stop(); 
             my_media_WHICH.release();
@@ -418,16 +412,47 @@
         my_media_WHICH.play();
         my_media_WHICH.setVolume(MASTER_VOLUME);
         
-        QUARTER_DING       = "bg_quarter.mp3";
-        HALF_DING          = "bg_half.mp3";
-        THREE_QUARTER_DING = "bg_three-quarter.mp3";
-        HOUR_DING          = "bg_hour.mp3";
+        Timeouter = setTimeout(function()   { 
+            my_media_WHICH.release();
+            my_media_WHICH = "NOT_RUNNING";
+          }, 20000);        
+      }
+      
+      function selectGF()   {
+        DING_SELECTION     = "gf";
+        localStorage["ding_selection"] = "gf";
+        var dingerFile = this.root + "audio/" + "gf_quarter.mp3";
+               
+        if(my_media_WHICH != "NOT_RUNNING")   {
+          clearTimeout(Timeouter);
+          my_media_WHICH.stop();
+          my_media_WHICH.release();
+          my_media_WHICH = "NOT_RUNNING";
+        }
+        
+        if(my_media_TEST != "NOT_RUNNING")   {
+          clearTimeout(delayRelease);
+          my_media_TEST.stop();
+          my_media_TEST.release();
+          my_media_TEST = "NOT_RUNNING";
+        }        
+          
+        my_media_WHICH = new Media(dingerFile,
+           function () { console.log("playAudio():Audio Success"); },
+           ignoreError()
+        );
+        
+        my_media_WHICH.play();
+        my_media_WHICH.setVolume(MASTER_VOLUME);
 
         Timeouter = setTimeout(function()   { 
             my_media_WHICH.release();
             my_media_WHICH = "NOT_RUNNING";
           }, 20000);        
       }
+      
+
+      
 
       function doHourStrikeOption()   {
         if (DO_STRIKES)   {
@@ -563,6 +588,13 @@
       
         cordova.plugins.backgroundMode.on('activate', function() {
           cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+        });
+
+        cordova.plugins.backgroundMode.setDefaults({
+          title: "Big Ben Bonger Background",
+          text: backgroundNotificationText,
+          resume: false,
+          hidden: false
         });
         
         cordova.plugins.backgroundMode.configure({
@@ -709,7 +741,7 @@
           localStorage["ding_selection"] = "bb";
         }
         
-        if ((localStorage["ding_selection"] != "bb") && (localStorage["ding_selection"] != "bg"))   {
+        if ((localStorage["ding_selection"] != "bb") && (localStorage["ding_selection"] != "bg") && (localStorage["ding_selection"] != "gf"))   {
           localStorage["ding_selection"] = "bb";
         }  
         
@@ -825,6 +857,7 @@
       
     
       function setLanguage()   {
+        
         localStorage["language"] = ""; 
       
         navigator.globalization.getPreferredLanguage( function (language)   {
@@ -835,7 +868,8 @@
             do24Hr = true;         
             document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPÇÕES"; 
-            document.getElementById("mantleClk").innerHTML = "RELÓGIO MANTEL";
+            mantleClockText = "RELÓGIO MANTEL";
+            grandfatherClockText = "RELÓGIO AVô";
             document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURANTE O CHAMADO DE TELEFONE";
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 e :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;MEIA HORA";
@@ -856,7 +890,8 @@
             do24Hr = true;
             document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPTIONS";
-            document.getElementById("mantleClk").innerHTML = "HORLOGE MANTELLE";
+            mantleClockText = "HORLOGE MANTELLE";
+            grandfatherClockText = "HORLOGE GRAND-PÈRE";
             document.getElementById("bongDuringCall").innerHTML = " BONG DURANT LE TÉLÉPHONE"; 
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;DEMI-PASSÉ";
@@ -874,14 +909,15 @@
             optionsInText = "< OPTIONS";
             optionsOutText = "OPTIONS >";
           }
-          else   {      
+          else   {               
             document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPTIONS";
-            document.getElementById("mantleClk").innerHTML = "MANTLE CLOCK";
+            mantleClockText = "MANTLE CLOCK";
+            grandfatherClockText = "GRANDFATHER CLOCK";
             document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURING PHONECALL";
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;HALF HOUR CHIMES";
-            document.getElementById("Hour_Label").innerHTML = "&nbsp;ON-THE-HOUR STRIKES";
+            document.getElementById("Hour_Label").innerHTML = "&nbsp;ON-THE-HOUR STRIKES";             
             helpText = "Let Big Ben V1.1 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
             helpText += "Tap the [< OPTIONS] button to adjust settings. Your settings are always saved.  When finished, tap the [OPTIONS >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\n";
             helpText += "But most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\n";
@@ -894,12 +930,52 @@
             optionsInText = "< OPTIONS";
             optionsOutText = "OPTIONS >";
           } 
+
+//
+//  Add Mantle and Grandfather Clock options after Localization
+//          
+          var x = document.getElementById("clocker");
+          var c = document.createElement("option");
+          c.text = mantleClockText;
+          c.value = "bg";
+          x.options.add(c, 1);
+
+          var d = document.createElement("option");
+          d.text = grandfatherClockText;
+          d.value = "gf";
+          x.options.add(d, 2);
           
           init();
         },        
         ignoreError2() ); 
 
-      }               
+      } 
+      
+      function changeClock()   {
+        var xx = document.getElementById("clocker");
+        var theValue = xx.options[xx.selectedIndex].value;
+        localStorage["ding_selection"] = theValue;
+        
+//        alert("The value of your clock is " + theValue);
+
+        if (theValue == "bb")   {
+          selectBB();
+        }
+        else if (theValue == "bg")   {
+          selectBG();
+        }
+        else   {
+          selectGF();
+        }
+        
+        QUARTER_DING = localStorage["ding_selection"] + "_quarter.mp3";
+        HALF_DING  = localStorage["ding_selection"] + "_half.mp3";
+        THREE_QUARTER_DING = localStorage["ding_selection"] + "_three-quarter.mp3";
+        HOUR_DING = localStorage["ding_selection"] + "_hour.mp3";
+        DING_SELECTION = localStorage["ding_selection"];
+
+      
+      }              
       
                       
 
