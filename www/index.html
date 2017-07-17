@@ -754,13 +754,13 @@
         var sel = document.getElementById('clocker');
           
         if (localStorage["ding_selection"] == "bb")   {
-          sel.selectedIndex = 0;
+          sel.options[0].selected = true;
         }
         else if (localStorage["ding_selection"] == "bg")  {  
-          sel.selectedIndex = 1;
+          sel.options[1].selected = true;
         }
         else   {
-          sel.selectedIndex = 2;
+          sel.options[2].selected = true;
         }
 //
 //
