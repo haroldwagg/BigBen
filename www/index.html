@@ -743,7 +743,9 @@
         
         if ((localStorage["ding_selection"] != "bb") && (localStorage["ding_selection"] != "bg") && (localStorage["ding_selection"] != "gf"))   {
           localStorage["ding_selection"] = "bb";
-        }  
+        } 
+        
+        alert ("My dinger is going to be " +  localStorage["ding_selection"]);
         
         QUARTER_DING = localStorage["ding_selection"] + "_quarter.mp3";
         HALF_DING  = localStorage["ding_selection"] + "_half.mp3";
