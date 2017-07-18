@@ -30,10 +30,7 @@
                 
                 <table style="border: none; float: right;">
                   <tr><td align="left" nowrap="nowrap">
-                     BONG:&nbsp;<select name="clocker" id="clocker" onChange="changeClock()">
-                                  <option value="bb">BIG BEN</option>
-                                  
-                                </select>
+                     BONG:&nbsp;<select name="clocker" id="clocker" onChange="changeClock()"></select>
 <!--                  
                   <input type="radio" name="whichbuttons" onClick="selectBB()" id="bb_but" style="vertical-align: text-bottom">BIG BEN&nbsp;&nbsp;&nbsp;<input type="radio" name="whichbuttons" id="bg_but" onClick="selectBG()" style="vertical-align: text-bottom"><div id="mantleClk" style="margin: 0; padding: 0; display: inline-block"></div>
 -->
@@ -751,30 +748,31 @@
         HOUR_DING = localStorage["ding_selection"] + "_hour.mp3";
         DING_SELECTION = localStorage["ding_selection"];
 
-       alert ("My dinger is going to be " +  localStorage["ding_selection"]);
-               
-        var sel = document.getElementById('clocker');
-          
-        if (localStorage["ding_selection"] == "bb")   {
-alert ("In BB Section");
-          sel.options[0].selected = true;
-alert ("Out of BB Section");
-        }
-        else if (localStorage["ding_selection"] == "bg")  { 
-alert ("In BG Section");         
-          sel.options[1].selected = true;
-alert ("Out of BG Section");          
-        }
-        else   {
-alert ("In GF Section");        
-          sel.options[2].selected = true;
-alert ("Out of GF Section");          
-        }
-        
-        alert ("MyTwo");
-        
+//       alert ("My dinger is going to be " +  localStorage["ding_selection"]);
+//               
+//        var sel = document.getElementById('clocker');
+//          
+//        if (localStorage["ding_selection"] == "bb")   {
+//  alert ("In BB Section");
+//          sel.options[0].selected = true;
+//  alert ("Out of BB Section");
+//        }
+//        else if (localStorage["ding_selection"] == "bg")  { 
+//  alert ("In BG Section");         
+//          sel.options[1].selected = true;
+//  alert ("Out of BG Section");          
+//        }
+//        else   {
+//  alert ("In GF Section");        
+//          sel.options[2].selected = true;
+//  alert ("Out of GF Section");          
+//        }
+//        
+//        alert ("MyTwo");
+//        
 //        document.getElementById("clocker").value = localStorage["ding_selection"];
 //
+
 //
 //  Mute during Phonecalls
 //        
@@ -946,17 +944,38 @@ alert ("Out of GF Section");
           } 
 
 //
-//  Add Mantle and Grandfather Clock options after Localization
+//  Add Select options
 //          
           var x = document.getElementById("clocker");
+          
+          var b = document.createElement("option");
+          b.text = "BIG BEN BONGER";
+          b.value = "bb";
+          
+          if ((localStorage["ding_selection"] != "bg") && (localStorage["ding_selection"] != "gf"))  {
+            b.selected = true;
+          }
+
+          x.options.add(b, o);
+          
           var c = document.createElement("option");
           c.text = mantleClockText;
           c.value = "bg";
+          
+          if (localStorage["ding_selection"] == "bg")   {
+            c.selected = true;
+          }
+          
           x.options.add(c, 1);
 
           var d = document.createElement("option");
           d.text = grandfatherClockText;
           d.value = "gf";
+          
+          if (localStorage["ding_selection"] == "gf")   {
+            d.selected = true;
+          }
+          
           x.options.add(d, 2);
           
           init();
