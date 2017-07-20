@@ -886,7 +886,7 @@
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 e :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;MEIA HORA";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;CHIMES HORAIS";
-            helpText = "Deixe o Big Ben V1.1 ajudá-lo quando você não quer perder o tempo - perfeito ao ler, trabalhar, estudar ou mesmo fazer compras - um lembrete sutil a cada 15 minutos.\n\n";
+            helpText = "Deixe o Big Ben V1.2 ajudá-lo quando você não quer perder o tempo - perfeito ao ler, trabalhar, estudar ou mesmo fazer compras - um lembrete sutil a cada 15 minutos.\n\n";
             helpText += "Toque no botão [<OPÇÕES] para ajustar as configurações. Suas configurações são sempre salvas. Quando terminar, toque o botão [OPÇÕES>] novamente. Você pode deixar Ben assim e ele irá exibir o tempo e o bongo para você o dia todo.\n\n";
             helpText += "Mas provavelmente você quer fazer outras coisas com seu telefone ou tablet. Você pode minimizar Big Ben tocando no quadrado Minimizar Ícone na parte superior da tela. Big Ben continuará a bong até você sair do aplicativo.\n\n";
             helpText += "Para voltar a maximizar o Bonger, toque o ícone Big Ben. Você pode então sair do aplicativo usando o ícone \"X\" no canto superior direito. Obrigado por escolher o Big Ben Bonger.\n\n";
@@ -894,7 +894,7 @@
             helpTextTitle = "Bem-vindo ao Big Ben Bonger"; 
             helpDismissText = "DISPENSAR";
             quitConfirmText = "Você quer sair do Big Ben Bonger?";
-            backgroundNotificationText = "[Toque no ícone Big Ben para restaurar]"; 
+            backgroundNotificationText = "Toque no ícone Big Ben para restaurar"; 
             optionsInText = "< OPÇÕES";
             optionsOutText = "OPÇÕES >";
           }
@@ -908,8 +908,7 @@
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;DEMI-PASSÉ";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;CHIMES HORAIRES";
-            document.getElementById("setupPanel").style.width = '0px';
-            helpText = "Laissez Big Ben V1.1 vous aider lorsque vous ne voulez pas perdre la trace du temps -- parfait lors de la lecture, du travail, des études ou même des achats -- un rappel subtil toutes les 15 minutes.\n\n";                    
+            helpText = "Laissez Big Ben V1.2 vous aider lorsque vous ne voulez pas perdre la trace du temps -- parfait lors de la lecture, du travail, des études ou même des achats -- un rappel subtil toutes les 15 minutes.\n\n";                    
             helpText += "Appuyez sur le bouton [< OPTIONS] pour ajuster les paramètres. Vos paramètres sont toujours sauvegardés. Une fois terminé, appuyez de nouveau sur le bouton [OPTIONS >]. Vous pouvez laisser Ben comme ça et il vous montrera le temps et le bong pour vous toute la journée.\n\n";       
             helpText += "Mais vous voudrez probablement faire d'autres choses avec votre téléphone ou votre tablette. Vous pouvez minimiser Big Ben en tapotant l'icône Minimiser carré en haut de l'écran. Big Ben continuera à bong jusqu'à ce que vous quittez l'application.\n\n";       
             helpText += "Pour re-maximiser le Bonger, appuyez sur l'icône Big Ben. Vous pouvez ensuite quitter l'application à l'aide de l'icône \"X\" dans le coin supérieur droit. Merci d'avoir choisi le Big Ben Bonger.\n\n";       
@@ -917,20 +916,43 @@
             helpTextTitle = "Bienvenue au Big Ben Bonger";
             helpDismissText ="RENVOYER";
             quitConfirmText = "Voulez-vous quitter Big Ben Bonger?";
-            backgroundNotificationText = "[Appuyez sur l'icône Big Ben pour restaurer]";
+            backgroundNotificationText = "Appuyez sur l'icône Big Ben pour restaurer";
             optionsInText = "< OPTIONS";
             optionsOutText = "OPTIONS >";
           }
+          
+          else if (localStorage["language"] == "de")   {
+            do24Hr = true;
+            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
+            document.getElementById("setup_but").value = "< OPTIONEN";
+            mantleClockText = "UHR MANTEL";
+            grandfatherClockText = "UHR GROßVATER";
+            document.getElementById("bongDuringCall").innerHTML = " BONG WÄHREND ANRUF"; 
+            document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 GLOCKENSPIEL";
+            document.getElementById("Half_Label").innerHTML = "&nbsp;HALBE STUNDE GLOCKENSPIEL";
+            document.getElementById("Hour_Label").innerHTML = "&nbsp;STÜNDLICH GLOCKENSPIEL";
+            helpText = "Lassen Sie Big Ben V1.2 Ihnen helfen, wenn Sie nicht wollen, Zeit zu verlieren - ideal zum Lesen, Arbeiten, Studieren oder sogar beim Einkaufen - Eine subtile Erinnerung alle 15 Minuten.\n\n";                    
+            helpText += "Tippen Sie auf die Schaltfläche [<OPTIONS], um die Einstellungen anzupassen. Ihre Einstellungen werden immer gespeichert. Wenn Sie fertig sind, tippen Sie erneut auf die Schaltfläche [OPTIONEN>]. Du kannst Ben so verlassen und er wird die Zeit und die Bong für dich den ganzen Tag zeigen.\n\n";       
+            helpText += "Aber am ehesten werden Sie wollen, um andere Dinge mit Ihrem Telefon oder Tablette zu tun. Sie können Big Ben minimieren, indem Sie das Minimize Icon am oberen Bildschirmrand tippen. Big Ben wird weiterhin bong, bis du die App verlässt.\n\n";       
+            helpText += "Neu - maximieren Sie die bonger, der Big Ben, tippen Sie auf das Symbol. Sie können dann die Ausfahrt mit dem \"X\"-Symbol in der oberen rechten Ecke app. Vielen Dank, dass Sie sich für den Big Ben Bonger.\n\n";       
+            helpText += "Gott schütze die Königin.\n\n\numikeapps@outlook.com";
+            helpTextTitle = "Willkommen bei den Big Ben Bonger";
+            helpDismissText ="SCHLIEßEB";
+            quitConfirmText = "Willst du Big Ben Bonger verlassen?";
+            backgroundNotificationText = "Tippen Sie auf das Big Ben Icon, um es wiederherzustellen";
+            optionsInText = "< OPTIONEN";
+            optionsOutText = "OPTIONEN >";
+          }         
           else   {               
             document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPTIONS";
             mantleClockText = "MANTLE CLOCK";
             grandfatherClockText = "GRANDFATHER CLOCK";
-            document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURING PHONECALL";
+            document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURING PHONECALLS";
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;HALF HOUR CHIMES";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;ON-THE-HOUR STRIKES";             
-            helpText = "Let Big Ben V1.1 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
+            helpText = "Let Big Ben V1.2 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
             helpText += "Tap the [< OPTIONS] button to adjust settings. Your settings are always saved.  When finished, tap the [OPTIONS >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\n";
             helpText += "But most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\n";
             helpText += "To re-maximize the Bonger, tap the Big Ben icon. You can then exit the app using the \"X\" Icon in the upper right corner. Thank you for choosing the Big Ben Bonger.\n\n";
@@ -938,7 +960,7 @@
             helpTextTitle = "Welcome to the Big Ben Bonger"; 
             helpDismissText = "DISMISS";
             quitConfirmText = "Do you want to exit Big Ben Bonger?";
-            backgroundNotificationText = "[Tap the Big Ben Icon to Restore]";
+            backgroundNotificationText = "Tap the Big Ben Icon to Restore";
             optionsInText = "< OPTIONS";
             optionsOutText = "OPTIONS >";
           } 
@@ -949,7 +971,7 @@
           var x = document.getElementById("clocker");
           
           var b = document.createElement("option");
-          b.text = "BIG BEN BONGER";
+          b.text = "BIG BEN";
           b.value = "bb";
           
           if ((localStorage["ding_selection"] != "bg") && (localStorage["ding_selection"] != "gf"))  {
