@@ -110,18 +110,23 @@
       function init()   {
         var d = new Date();
         var mins = d.getMinutes();        
-        var n;
+        var n = d.getHours();
+        var delimiter = ":";
               
         if ( do24Hr)   {
-          n = d.getHours(); 
-          
-          if (n < 10)   {
-            n = "0" + n;
-          }     
+          if (localStorage["language"] == "de")   {
+            delimiter = ".";
+            if (n < 10)   {
+              n = "&nbsp;&nbsp;" + n;
+            }
+          }
+          else   {
+            if (n < 10)   {
+              n = "0" + n;
+            }
+          }
         }
-        else   {    
-          n = d.getHours();
-                
+        else   {                    
           if (n == 0)   {
             n = 12;
           }
@@ -137,7 +142,7 @@
         if (mins < 10)   {
           mins = "0" + mins;
         } 
-        document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins + "&nbsp;";
+        document.getElementById("clock").innerHTML = "&nbsp;" + n + delimiter + mins + "&nbsp;";
              
         var secs = d.getSeconds();
         loopDelay = (60 - secs) * 1000;
@@ -151,18 +156,23 @@
       function doMainLoop()   {
         var d = new Date();
         var mins = d.getMinutes();        
-        var n;
+        var n = d.getHours();
+        var delimiter = ":"; 
               
         if ( do24Hr)   {
-          n = d.getHours(); 
-          
-          if (n < 10)   {
-            n = "0" + n;
-          }     
+          if (localStorage["language"] == "de")   {
+            delimiter = ".";
+            if (n < 10)   {
+              n = "&nbsp;&nbsp;" + n;
+            }
+          }
+          else   {
+            if (n < 10)   {
+              n = "0" + n;
+            }
+          }
         }
         else   {    
-          n = d.getHours();
-                
           if (n == 0)   {
             n = 12;
           }
@@ -179,7 +189,7 @@
           mins = "0" + mins;
         } 
         
-        document.getElementById("clock").innerHTML = "&nbsp;" + n + ":" + mins + "&nbsp;";
+        document.getElementById("clock").innerHTML = "&nbsp;" + n + delimiter + mins + "&nbsp;";
                  
         if ((mins % 15) == 0)   {
           playBen(mins);
@@ -787,7 +797,7 @@
           document.getElementById("no_phone_mute").checked = false;
         }
         
-        alert ("DING: " + localStorage["ding_selection"] + "\n\nMUTE: " + localStorage["no_phone_mute"]);
+//        alert ("DING: " + localStorage["ding_selection"] + "\n\nMUTE: " + localStorage["no_phone_mute"]);
 
 //
 //  15 & 45 Chimes
@@ -919,8 +929,7 @@
             backgroundNotificationText = "Appuyez sur l'icône Big Ben pour restaurer";
             optionsInText = "< OPTIONS";
             optionsOutText = "OPTIONS >";
-          }
-          
+          }          
           else if (localStorage["language"] == "de")   {
             do24Hr = true;
             document.getElementById("titler").innerHTML = "BIG BEN BONGER";
