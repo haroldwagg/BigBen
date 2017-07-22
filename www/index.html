@@ -30,7 +30,7 @@
                 
                 <table style="border: none; float: right;">
                   <tr><td align="left" nowrap="nowrap">
-                     BONG:&nbsp;<select name="clocker" id="clocker" onChange="changeClock()"></select>
+                     BONG:&nbsp;<select name="clocker" id="clocker" onChange="changeClock()" style="font-size: 1.1em"></select>
 <!--                  
                   <input type="radio" name="whichbuttons" onClick="selectBB()" id="bb_but" style="vertical-align: text-bottom">BIG BEN&nbsp;&nbsp;&nbsp;<input type="radio" name="whichbuttons" id="bg_but" onClick="selectBG()" style="vertical-align: text-bottom"><div id="mantleClk" style="margin: 0; padding: 0; display: inline-block"></div>
 -->
@@ -575,7 +575,7 @@
 //          document.getElementById("bg_but").style.width = "30px";
 //          document.getElementById("bg_but").style.height = "30px";
           document.getElementById("setupPanel").style.marginTop = "60px"; 
-          document.getElementById("clocker").style.fontSize = "1.3em";         
+//          document.getElementById("clocker").style.fontSize = "1.3em";         
         }
         else   {
           document.getElementById("ximage").style.width = "40px";
@@ -870,7 +870,7 @@
             document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPÇÕES"; 
             mantleClockText = "RELÓGIO MANTEL";
-            grandfatherClockText = "RELÓGIO AVô";
+            grandfatherClockText = "RELÓGIO AVÔ";
             document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURANTE O CHAMADO DE TELEFONE";
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 e :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;MEIA HORA";
@@ -915,14 +915,14 @@
             document.getElementById("setup_but").value = "< OPTIONEN";
             mantleClockText = "UHR MANTEL";
             grandfatherClockText = "UHR GROßVATER";
-            document.getElementById("bongDuringCall").innerHTML = " BONG WÄHREND ANRUF"; 
+            document.getElementById("bongDuringCall").innerHTML = " BONG WÄHREND DER TELEFONATE"; 
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 GLOCKENSPIEL";
             document.getElementById("Half_Label").innerHTML = "&nbsp;HALBE STUNDE GLOCKENSPIEL";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;STÜNDLICH GLOCKENSPIEL";
             helpText = "Lassen Sie Big Ben V1.2 Ihnen helfen, wenn Sie nicht wollen, Zeit zu verlieren - ideal zum Lesen, Arbeiten, Studieren oder sogar beim Einkaufen - Eine subtile Erinnerung alle 15 Minuten.\n\n";                    
             helpText += "Tippen Sie auf die Schaltfläche [<OPTIONS], um die Einstellungen anzupassen. Ihre Einstellungen werden immer gespeichert. Wenn Sie fertig sind, tippen Sie erneut auf die Schaltfläche [OPTIONEN>]. Du kannst Ben so verlassen und er wird die Zeit und die Bong für dich den ganzen Tag zeigen.\n\n";       
             helpText += "Aber am ehesten werden Sie wollen, um andere Dinge mit Ihrem Telefon oder Tablette zu tun. Sie können Big Ben minimieren, indem Sie das Minimize Icon am oberen Bildschirmrand tippen. Big Ben wird weiterhin bong, bis du die App verlässt.\n\n";       
-            helpText += "Neu - maximieren Sie die bonger, der Big Ben, tippen Sie auf das Symbol. Sie können dann die Ausfahrt mit dem \"X\"-Symbol in der oberen rechten Ecke app. Vielen Dank, dass Sie sich für den Big Ben Bonger.\n\n";       
+            helpText += "Um die Größe zu maximieren, tippen Sie auf das Big Ben Symbol. Sie können dann mit dem \"X\" Symbol in der oberen rechten Ecke der App enden. Vielen Dank für die Wahl der Big Ben Bonger.\n\n";       
             helpText += "Gott schütze die Königin.\n\n\numikeapps@outlook.com";
             helpTextTitle = "Willkommen bei den Big Ben Bonger";
             helpDismissText ="SCHLIEßEB";
