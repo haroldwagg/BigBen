@@ -148,7 +148,11 @@
         loopDelay = (60 - secs) * 1000;
         
 // Fix loop creep (I hope)
-        loopDelay += 1000;        
+        loopDelay += 1000;   
+        
+        if (cordova.plugins.backgroundMode.isActive())   {
+          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText  });
+        }     
        
         loopThread = setTimeout(doMainLoop, loopDelay);
       }
@@ -613,14 +617,7 @@
           resume: false,
           hidden: false
         });
-        
-        cordova.plugins.backgroundMode.configure({
-          title: "Big Ben Bonger Background",
-          text: backgroundNotificationText,
-          resume: false,
-          hidden: false
-        });
-                
+                        
         PhoneCallTrap.onCall(function(state) {
           switch (state) {
             case "RINGING":
