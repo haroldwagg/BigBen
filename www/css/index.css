@@ -34,10 +34,9 @@ body {
     text-transform:uppercase;
     width:100%;
     background-repeat: no-repeat;
-    background-size: cover;
     background-attachment: fixed;
-    background-color: #4b459f;
-
+    background-color: #4b459f;                  
+    background-position: left top;
 }
 
 /* Portrait layout (default) */
@@ -175,7 +174,7 @@ h1 {
   float: right; 
   margin-right: -78px; 
   text-align: right; 
-  background-color: rgba(255,255,255,0.4); 
+  background-color: rgba(255,255,255,0.95); 
   margin-top: 25px; 
   width: 0px;   
   height: 200px;

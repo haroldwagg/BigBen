@@ -15,21 +15,20 @@
 </head>                                        
 
 <body>
+<!--        <div id="versioner" style="color: white; margin-left: 5px; margin-top: 5px;" onClick="showScreenSize()">&nbsp;v 1.0</div>  -->
+        <div id="iconbar" style="overflow: hidden; margin-bottom: 0px;">
+          <img id="ximage" name="ximage" src="x.png" width="38" height="38" style="float: right; border: none; padding-top: 3px; padding-right: 5px;" onClick="doExit()" />
+          <img id="minimage" name="minimage" src="img/min.png" width="40" height="40" style="float: right; border: none; margin-top: 6px;" onClick="doGoToBG()" />
+        </div>
+       <br /><h1 id="titler"></h1>   
 
-  <div id="cvas" style="width: 310px; height: 321px; position: absolute; top: 0; left: 0;">
-      <canvas id="myCanvas" width="310" height="321" style="border: none;">
-      </canvas>
-  </div>
-                <br /><br /><br />
+                <br />
                 <div id="setupButtonDiv" style="float: right">
-                <input type="button" class="rounderCorners" id="setup_but" onClick="doSetUp()" style="margin-right: 10px; border: solid 5px #0000aa; margin-top: 230px;" />
- 
-<img src="img/bb_minute_hand.png" id="mh" style="display:none" /> 
-
+                <input type="button" class="rounderCorners" id="setup_but" onClick="doSetUp()" style="margin-right: 10px;" />
                 </div>
-                <div id="setupPanel">         
+                <div id="setupPanel">
                 
-                <table id="setupTable" style="border: none; float: right; font-size: 12px;">
+                <table style="border: none; float: right;">
                   <tr><td align="left" nowrap="nowrap">
                      BONG:&nbsp;<select name="clocker" id="clocker" onChange="changeClock()" style="font-size: 1.1em"></select>
 <!--                  
@@ -50,18 +49,13 @@
                   </td></tr></table>
                 
                 </div>
-
-<!--                <div id="clock"> </div>  -->
-<!--                
+                <div id="clock">
+                </div>
+                
                 <div id="helpDiv">
-                  <a href="#" onClick="doHelp()"><img src="img/help.png" width="30" height="30" id="helpIcon" style="margin-left: -3px;" /></a>
+                  <a href="#" onClick="doHelp()"><img src="img/help.png" width="30" height="30" id="helpIcon" style="margin-left: 6px;" /></a>
                 </div>
--->                
-                <div id="bottomNavBar" style="background-color: black; margin: 0; padding: 0; height: 54px; position: fixed; bottom: 0%; width: 100%">
-                  <img src="img/help.png" width="30" height="30" id="helpIcon" onClick="doHelp()" style="margin-left: 8px; margin-top: 5px;" />
-                  <img id="ximage" name="ximage" src="x.png" width="45" height="45" style="float: right; border: none;  padding: 0; margin-top: 5px; margin-right: 8px;" onClick="doExit()" />
-                  <img id="minimage" name="minimage" src="img/min.png" width="45" height="45" style="float: right; border: none; margin-top: 5px;" onClick="doGoToBG()" />
-                </div>
+
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -83,7 +77,6 @@
       var loopThread;
       var QUARTER_HOUR_SYNC = false;
       var ORIENT;
-      var SIZE;
       var lastVolumePush = "Neither";
       var my_media_TEST = "NOT_RUNNING";
       var my_media_WHICH = "NOT_RUNNING";
@@ -106,7 +99,6 @@
       var startTimeArray = [];
       var nextUp = 0;
       
-      var ctx;
       var lang;
       var XStr;
       var setupIsDisplayed = false;
@@ -114,12 +106,6 @@
       
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
-      
-      var minuteHand = document.getElementById("mh");
-      var minuteHandArray = [ [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [67, -70], [82, -78], [92, -88], [102, -100], [110, -110],              // 0 - 9
-          [116, -123], [124, -138], [128, -150], [130, -166], [131, -184], [129,-195], [128, -213], [124, -225], [119, -240], [111, -254],    // 10 - 19
-          [106, -265], [96, -277], [85, -287], [73, -296], [61, -304], [46, -310], [35, -317], [19, -321], [5, -325], [-10, -325]  ];           // 20 - 29
-                            
       
       function init()   {
         var d = new Date();
@@ -156,7 +142,7 @@
         if (mins < 10)   {
           mins = "0" + mins;
         } 
-//        document.getElementById("clock").innerHTML = "&nbsp;" + n + delimiter + mins + "&nbsp;";
+        document.getElementById("clock").innerHTML = "&nbsp;" + n + delimiter + mins + "&nbsp;";
              
         var secs = d.getSeconds();
         loopDelay = (60 - secs) * 1000;
@@ -164,12 +150,9 @@
 // Fix loop creep (I hope)
         loopDelay += 1000;   
         
-        doTimeDisplay(mins);    
-        
-        
         if (cordova.plugins.backgroundMode.isActive())   {
           cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText  });
-        } 
+        }     
        
         loopThread = setTimeout(doMainLoop, loopDelay);
       }
@@ -210,14 +193,13 @@
           mins = "0" + mins;
         } 
         
-//        document.getElementById("clock").innerHTML = "&nbsp;" + n + delimiter + mins + "&nbsp;";
+        document.getElementById("clock").innerHTML = "&nbsp;" + n + delimiter + mins + "&nbsp;";
                  
         if ((mins % 15) == 0)   {
           playBen(mins);
           init();        
         }
         else   {
-          doTimeDisplay(mins);
           loopDelay = 60000;
           loopThread = setTimeout(doMainLoop, loopDelay); 
         }     
@@ -323,28 +305,6 @@
         }
       }
       
-      function doTimeDisplay(minte)   {
-
-        var canvas = document.getElementById("myCanvas");
-        
-        if (! canvas.getContext)   {
-          alert ('Put in static pic');
-          return;
-        } 
-
-        ctx = canvas.getContext('2d');
-        
-        ctx.translate(104, -17)
-//        ctx.drawImage(minuteHand, 0, -44);
-
-        ctx.clearRect(0, 0, ctx.width, ctx.height);
- 
-        ctx.rotate(minte * 6 * Math.PI / 180);       
-        ctx.drawImage(minuteHand, minuteHandArray[minte][0],  minuteHandArray[minte][1]);
-  
-//        ctx.drawImage(minuteHand, 96, -277);       
-      }
-      
       function doSetUp()   {
         var panelStyle = document.getElementById("setupPanel").style;
         var theCheckboxes = document.getElementsByClassName("checkers");
@@ -352,7 +312,7 @@
         if (! setupIsDisplayed)   {
           setupIsDisplayed = true;
           document.getElementById("setup_but").value = optionsOutText;
-//          document.getElementById("clock").style.visibility = 'hidden';
+          document.getElementById("clock").style.visibility = 'hidden';
           
           var ratio = window.devicePixelRatio || 1;
           var h = screen.height;
@@ -404,7 +364,7 @@
           setupIsDisplayed = false;
           document.getElementById("setup_but").value = optionsInText;
           panelStyle.width = '0px';
-//          setTimeout(function() {document.getElementById("clock").style.visibility = 'visible';}, 2000);          
+          setTimeout(function() {document.getElementById("clock").style.visibility = 'visible';}, 2000);          
         }
         
         clearTimeout(loopThread);
@@ -562,33 +522,26 @@
 
         if (h / ratio > 780)   {
           body.style.fontSize = "20px";
-          SIZE = "big";
         }
         else   {
           body.style.fontSize = "12px";
-          SIZE = "small";
         }
          
-        if (screen.height > screen.width) {   
-          if (SIZE == "small")   {
-            body.style.backgroundImage = 'url(img/bg_pt_sm.png)';
-          }
-          else   {             
-            body.style.backgroundImage = 'url(img/bg1.png)';
-          }
-//          document.getElementById("titler").style.marginRight = "10px";
+        if (screen.height > screen.width) {                
+          body.style.backgroundImage = 'url(img/bg1.png)';
+          document.getElementById("titler").style.marginRight = "10px";
           document.getElementById("setup_but").style.marginRight = "10px";
-          document.getElementById("setup_but").style.backgroundColor = "#e8e8ff";
-//          document.getElementById("clock").style.marginTop = "60%";
+          document.getElementById("setup_but").style.backgroundColor = "#d5c6fa";
+          document.getElementById("clock").style.marginTop = "60%";
           
           ORIENT = 'portrait';
         }
         else   {
           body.style.backgroundImage = 'url(img/bg2.png)';
-//          document.getElementById("titler").style.marginRight = "20px";
+          document.getElementById("titler").style.marginRight = "20px";
           document.getElementById("setup_but").style.marginRight = "20px";
-          document.getElementById("setup_but").style.backgroundColor = "#e8e8ff";
-//          document.getElementById("clock").style.marginTop = "20%";
+          document.getElementById("setup_but").style.backgroundColor = "#aab6f2";
+          document.getElementById("clock").style.marginTop = "20%";
           
           ORIENT = 'landscape';
         }
@@ -616,7 +569,7 @@
           document.getElementById("ximage").style.height = "55px";
           document.getElementById("minimage").style.width = "50px";
           document.getElementById("minimage").style.height = "50px";
-//          document.getElementById("minimage").style.marginRight = "125px";
+          document.getElementById("minimage").style.marginRight = "125px";
           document.getElementById("helpIcon").style.width = "55px";
           document.getElementById("helpIcon").style.height = "55px";
           document.getElementById("no_phone_mute").style.width = "35px";
@@ -635,16 +588,14 @@
 //          document.getElementById("clocker").style.fontSize = "1.3em";         
         }
         else   {
-          document.getElementById("ximage").style.width = "45px";
-          document.getElementById("ximage").style.height = "45px";
-          document.getElementById("minimage").style.width = "42px";
-          document.getElementById("minimage").style.height = "42px";
-          document.getElementById("minimage").style.marginTop = "5px";
-          document.getElementById("minimage").style.marginRight = "100px";
-          document.getElementById("helpIcon").style.width = "45px";
-          document.getElementById("helpIcon").style.height = "45px";
-          document.getElementById("setupPanel").style.marginTop = "260px"; 
-        }  
+          document.getElementById("ximage").style.width = "40px";
+          document.getElementById("ximage").style.height = "40px";
+          document.getElementById("minimage").style.width = "38px";
+          document.getElementById("minimage").style.height = "38px";
+          document.getElementById("minimage").style.marginRight = "75px";
+          document.getElementById("helpIcon").style.width = "40px";
+          document.getElementById("helpIcon").style.height = "40px";
+        } 
         
         setLanguage();
         
@@ -919,7 +870,7 @@
                      
           if (localStorage["language"] == "pt")   { 
             do24Hr = true;         
-//            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
+            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPÇÕES"; 
             mantleClockText = "RELÓGIO MANTEL";
             grandfatherClockText = "RELÓGIO AVÔ";
@@ -927,7 +878,7 @@
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 e :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;MEIA HORA";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;CHIMES HORAIS";
-            helpText = "Deixe o Big Ben V1.3 ajudá-lo quando você não quer perder o tempo - perfeito ao ler, trabalhar, estudar ou mesmo fazer compras - um lembrete sutil a cada 15 minutos.\n\n";
+            helpText = "Deixe o Big Ben V1.2 ajudá-lo quando você não quer perder o tempo - perfeito ao ler, trabalhar, estudar ou mesmo fazer compras - um lembrete sutil a cada 15 minutos.\n\n";
             helpText += "Toque no botão [<OPÇÕES] para ajustar as configurações. Suas configurações são sempre salvas. Quando terminar, toque o botão [OPÇÕES>] novamente. Você pode deixar Ben assim e ele irá exibir o tempo e o bongo para você o dia todo.\n\n";
             helpText += "Mas provavelmente você quer fazer outras coisas com seu telefone ou tablet. Você pode minimizar Big Ben tocando no quadrado Minimizar Ícone na parte superior da tela. Big Ben continuará a bong até você sair do aplicativo.\n\n";
             helpText += "Para voltar a maximizar o Bonger, toque o ícone Big Ben. Você pode então sair do aplicativo usando o ícone \"X\" no canto superior direito. Obrigado por escolher o Big Ben Bonger.\n\n";
@@ -941,7 +892,7 @@
           }
           else if (localStorage["language"] == "fr")   {
             do24Hr = true;
-//            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
+            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPTIONS";
             mantleClockText = "HORLOGE MANTELLE";
             grandfatherClockText = "HORLOGE GRAND-PÈRE";
@@ -949,7 +900,7 @@
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;DEMI-PASSÉ";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;CHIMES HORAIRES";
-            helpText = "Laissez Big Ben V1.3 vous aider lorsque vous ne voulez pas perdre la trace du temps -- parfait lors de la lecture, du travail, des études ou même des achats -- un rappel subtil toutes les 15 minutes.\n\n";                    
+            helpText = "Laissez Big Ben V1.2 vous aider lorsque vous ne voulez pas perdre la trace du temps -- parfait lors de la lecture, du travail, des études ou même des achats -- un rappel subtil toutes les 15 minutes.\n\n";                    
             helpText += "Appuyez sur le bouton [< OPTIONS] pour ajuster les paramètres. Vos paramètres sont toujours sauvegardés. Une fois terminé, appuyez de nouveau sur le bouton [OPTIONS >]. Vous pouvez laisser Ben comme ça et il vous montrera le temps et le bong pour vous toute la journée.\n\n";       
             helpText += "Mais vous voudrez probablement faire d'autres choses avec votre téléphone ou votre tablette. Vous pouvez minimiser Big Ben en tapotant l'icône Minimiser carré en haut de l'écran. Big Ben continuera à bong jusqu'à ce que vous quittez l'application.\n\n";       
             helpText += "Pour re-maximiser le Bonger, appuyez sur l'icône Big Ben. Vous pouvez ensuite quitter l'application à l'aide de l'icône \"X\" dans le coin supérieur droit. Merci d'avoir choisi le Big Ben Bonger.\n\n";       
@@ -963,7 +914,7 @@
           }          
           else if (localStorage["language"] == "de")   {
             do24Hr = true;
-//            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
+            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPTIONEN";
             mantleClockText = "UHR MANTEL";
             grandfatherClockText = "UHR GROßVATER";
@@ -971,7 +922,7 @@
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 GLOCKENSPIEL";
             document.getElementById("Half_Label").innerHTML = "&nbsp;HALBE STUNDE GLOCKENSPIEL";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;STÜNDLICH GLOCKENSPIEL";
-            helpText = "Lassen Sie Big Ben V1.3 Ihnen helfen, wenn Sie nicht wollen, Zeit zu verlieren - ideal zum Lesen, Arbeiten, Studieren oder sogar beim Einkaufen - Eine subtile Erinnerung alle 15 Minuten.\n\n";                    
+            helpText = "Lassen Sie Big Ben V1.2 Ihnen helfen, wenn Sie nicht wollen, Zeit zu verlieren - ideal zum Lesen, Arbeiten, Studieren oder sogar beim Einkaufen - Eine subtile Erinnerung alle 15 Minuten.\n\n";                    
             helpText += "Tippen Sie auf die Schaltfläche [<OPTIONS], um die Einstellungen anzupassen. Ihre Einstellungen werden immer gespeichert. Wenn Sie fertig sind, tippen Sie erneut auf die Schaltfläche [OPTIONEN>]. Du kannst Ben so verlassen und er wird die Zeit und die Bong für dich den ganzen Tag zeigen.\n\n";       
             helpText += "Aber am ehesten werden Sie wollen, um andere Dinge mit Ihrem Telefon oder Tablette zu tun. Sie können Big Ben minimieren, indem Sie das Minimize Icon am oberen Bildschirmrand tippen. Big Ben wird weiterhin bong, bis du die App verlässt.\n\n";       
             helpText += "Um die Größe zu maximieren, tippen Sie auf das Big Ben Symbol. Sie können dann mit dem \"X\" Symbol in der oberen rechten Ecke der App enden. Vielen Dank für die Wahl der Big Ben Bonger.\n\n";       
@@ -984,7 +935,7 @@
             optionsOutText = "OPTIONEN >";
           }         
           else   {               
-//            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
+            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "< OPTIONS";
             mantleClockText = "MANTLE CLOCK";
             grandfatherClockText = "GRANDFATHER CLOCK";
@@ -992,7 +943,7 @@
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;HALF HOUR CHIMES";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;ON-THE-HOUR STRIKES";             
-            helpText = "Let Big Ben V1.3 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
+            helpText = "Let Big Ben V1.2 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
             helpText += "Tap the [< OPTIONS] button to adjust settings. Your settings are always saved.  When finished, tap the [OPTIONS >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\n";
             helpText += "But most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square Minimize Icon at the top of the screen. Big Ben will continue to bong until you exit the app.\n\n";
             helpText += "To re-maximize the Bonger, tap the Big Ben icon. You can then exit the app using the \"X\" Icon in the upper right corner. Thank you for choosing the Big Ben Bonger.\n\n";
