@@ -115,6 +115,8 @@
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
       
+      var canvas;
+      var ctx;
       var minuteHand = document.getElementById("mh");
       var minuteHandArray = [ [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [67, -70], [82, -78], [92, -88], [102, -100], [110, -110],              // 0 - 9
           [116, -123], [124, -138], [128, -150], [130, -166], [131, -184], [129,-195], [128, -213], [124, -225], [119, -240], [111, -254],    // 10 - 19
@@ -323,19 +325,23 @@
         }
       }
       
-      function doTimeDisplay(minte)   {
-
-        var canvas = document.getElementById("myCanvas");
-        var handPosition;
+      function initializeCanvas()   {
+        canvas = document.getElementById("myCanvas");
         
         if (! canvas.getContext)   {
           alert ('Put in static pic');
           return;
         } 
 
-        ctx = canvas.getContext('2d');  
+        ctx = canvas.getContext('2d'); 
+        ctx.translate(104, -17);      
+      
+      }
+      
+      function doTimeDisplay(minte)   {
+        var handPosition;
         
-//        ctx.translate(104, -17)
+        
 //        ctx.drawImage(minuteHand, 0, -44);
 
         ctx.clearRect(0, 0, ctx.width, ctx.height);
@@ -345,7 +351,6 @@
         ctx.rotate(handPosition);       
         ctx.drawImage(minuteHand, minuteHandArray[minte][0],  minuteHandArray[minte][1]);
         ctx.rotate(handPosition * -1);
-        ctx.translate(0, 0);
   
 //        alert("0 = " +  minuteHandArray[15][0] + "  1 = " + minuteHandArray[15][1]);
 //        ctx.drawImage(minuteHand, 96, -277);       
@@ -1046,6 +1051,7 @@
           
           x.options.add(d, 2);
           
+          initializeCanvas();
           init();
         },        
         ignoreError2() ); 
