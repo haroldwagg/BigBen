@@ -326,22 +326,27 @@
       function doTimeDisplay(minte)   {
 
         var canvas = document.getElementById("myCanvas");
+        var handPosition;
         
         if (! canvas.getContext)   {
           alert ('Put in static pic');
           return;
         } 
 
-        ctx = canvas.getContext('2d');
+        ctx = canvas.getContext('2d');  
         
         ctx.translate(104, -17)
 //        ctx.drawImage(minuteHand, 0, -44);
 
         ctx.clearRect(0, 0, ctx.width, ctx.height);
  
-        ctx.rotate(minte * 6 * Math.PI / 180);       
+        
+        handPosition = minte * 6 * Math.PI / 180;
+        ctx.rotate(handPosition);       
         ctx.drawImage(minuteHand, minuteHandArray[minte][0],  minuteHandArray[minte][1]);
+        ctx.rotate(handPosition * -1);
   
+//        alert("0 = " +  minuteHandArray[15][0] + "  1 = " + minuteHandArray[15][1]);
 //        ctx.drawImage(minuteHand, 96, -277);       
       }
       
