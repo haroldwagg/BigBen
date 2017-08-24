@@ -340,15 +340,15 @@
       
       function doTimeDisplay(minte)   {
         var handPosition;
-        
+        var m = parseInt(minte);
         
 //        ctx.drawImage(minuteHand, 0, -44);
 
         ctx.clearRect(-104, 17, canvas.width, canvas.height);
 
-        handPosition = minte * 6 * Math.PI / 180;
+        handPosition = m * 6 * Math.PI / 180;
         ctx.rotate(handPosition);       
-        ctx.drawImage(minuteHand, minuteHandArray[minte][0],  minuteHandArray[minte][1]);
+        ctx.drawImage(minuteHand, minuteHandArray[m][0],  minuteHandArray[m][1]);
         ctx.rotate(handPosition * -1);
   
 //        alert("0 = " +  minuteHandArray[15][0] + "  1 = " + minuteHandArray[15][1]);
