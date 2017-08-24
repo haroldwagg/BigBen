@@ -343,9 +343,9 @@
         
         
 //        ctx.drawImage(minuteHand, 0, -44);
-
+        ctx.translate(0, 0);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
+        ctx.translate(104, -17);
         handPosition = minte * 6 * Math.PI / 180;
         ctx.rotate(handPosition);       
         ctx.drawImage(minuteHand, minuteHandArray[minte][0],  minuteHandArray[minte][1]);
