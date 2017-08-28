@@ -17,20 +17,20 @@
 <body>
 
   <div id="cvas" style="width: 310px; height: 321px; position: absolute; top: 0; left: 0;">
-      <canvas id="myCanvas" width="310" height="321" style="border: none;">
+      <canvas id="myCanvas" width="310" height="321" style="border: none; position:absolute; left: 0; top: 0;">
       </canvas>
   </div>
-                <br /><br /><br />
-                <div id="setupButtonDiv" style="float: right">
-                <input type="button" class="rounderCorners" id="setup_but" onClick="doSetUp()" style="margin-right: 10px; border: solid 5px #0000aa; margin-top: 230px;" />
+                
+                <div id="setupButtonDiv" style="float: right;">
+                <input type="button" class="rounderCorners" id="setup_but" onClick="doSetUp()" style="margin-right: 10px; border: solid 5px #0000aa; margin-top: 230px;  z-index: 100;position:relative" />
  
 <img src="img/bb_minute_hand.png" id="mh" style="display:none" /> 
 <img src="img/bb_hour_hand.png" id="hh" style="display:none" /> 
 
                 </div>
-                <div id="setupPanel">         
+                <div id="setupPanel" style="background-color: rgba(255, 255, 255, 0.95); float: left; margin-left: 8px; z-index: 100;position:relative">         
                 
-                <table id="setupTable" style="border: none; float: right; font-size: 12px;">
+                <table id="setupTable" style="border: none; float: left; font-size: 12px;">
                   <tr><td align="left" nowrap="nowrap">
                      BONG:&nbsp;<select name="clocker" id="clocker" onChange="changeClock()" style="font-size: 1.1em"></select>
 <!--                  
@@ -337,8 +337,7 @@
           return;
         } 
 
-        ctx = canvas.getContext('2d'); 
-//        ctx.translate(104, -17);      
+        ctx = canvas.getContext('2d');      
         ctx.translate(116, 127); 
       }
       
@@ -351,11 +350,8 @@
 
         handPosition = m * 6 * Math.PI / 180;
         ctx.rotate(handPosition);       
-//        ctx.drawImage(minuteHand, minuteHandArray[m][0],  minuteHandArray[m][1]);
         ctx.drawImage(minuteHand, -13,  -182);
         ctx.rotate(handPosition * -1);
-
-//        ctx.drawImage(hourHand, 0, 83);
         
         hrs %= 12;
        
@@ -605,16 +601,18 @@
 //          document.getElementById("titler").style.marginRight = "10px";
           document.getElementById("setup_but").style.marginRight = "10px";
           document.getElementById("setup_but").style.backgroundColor = "#e8e8ff";
-//          document.getElementById("clock").style.marginTop = "60%";
-          
+          document.getElementById("setupButtonDiv").style.marginTop = "0px";
+          document.getElementById("setupPanel").style.marginTop = "270px";
           ORIENT = 'portrait';
         }
         else   {
-          body.style.backgroundImage = 'url(img/bg2.png)';
+          body.style.backgroundImage = 'url(img/bg_lscape_sm.png)';
 //          document.getElementById("titler").style.marginRight = "20px";
           document.getElementById("setup_but").style.marginRight = "20px";
           document.getElementById("setup_but").style.backgroundColor = "#e8e8ff";
-//          document.getElementById("clock").style.marginTop = "20%";
+          document.getElementById("setupButtonDiv").style.marginTop = "-140px";
+          document.getElementById("setupPanel").style.marginTop = "75px";
+          
           
           ORIENT = 'landscape';
         }
