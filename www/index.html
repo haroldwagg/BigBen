@@ -597,23 +597,27 @@
             body.style.backgroundImage = 'url(img/bg_pt_sm.png)';
           }
           else   {             
-            body.style.backgroundImage = 'url(img/bg1.png)';
+            body.style.backgroundImage = 'url(img/bg_pt_lg.png)';
           }
-//          document.getElementById("titler").style.marginRight = "10px";
+
           document.getElementById("setup_but").style.marginRight = "10px";
           document.getElementById("setup_but").style.backgroundColor = "#e8e8ff";
           document.getElementById("setupButtonDiv").style.marginTop = "0px";
-//          document.getElementById("setupPanel").style.marginTop = "270px";
+
           ORIENT = 'portrait';
         }
         else   {
-          body.style.backgroundImage = 'url(img/bg_lscape_sm.png)';
-//          document.getElementById("titler").style.marginRight = "20px";
+          if (SIZE == "small")   {
+            body.style.backgroundImage = 'url(img/bg_lscape_sm.png)';
+          }
+          else   {             
+            body.style.backgroundImage = 'url(img/bg_lscape_lg.png)';
+          }
+        
+
           document.getElementById("setup_but").style.marginRight = "20px";
           document.getElementById("setup_but").style.backgroundColor = "#e8e8ff";
-          document.getElementById("setupButtonDiv").style.marginTop = "-140px";
-//          document.getElementById("setupPanel").style.marginTop = "75px";
-          
+          document.getElementById("setupButtonDiv").style.marginTop = "-140px";          
           
           ORIENT = 'landscape';
         }
