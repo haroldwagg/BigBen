@@ -403,7 +403,6 @@
             }
   
             panelStyle.height = '350px';
-//            document.getElementById("setupPanel").style.paddingTop = "30px";
             document.getElementById("Quarter").style.marginTop = "10px";
             document.getElementById("Half").style.marginTop = "8px";
             document.getElementById("Hour-strikes").style.marginTop = "8px";
@@ -426,7 +425,6 @@
             }
               
             panelStyle.height = '215px';
-//            document.getElementById("setupPanel").style.paddingTop = "2px";
             document.getElementById("spkr").style.width = "22px";
             document.getElementById("spkr").style.height = "22px";
           }          
@@ -434,8 +432,7 @@
         else   {
           setupIsDisplayed = false;
           document.getElementById("setup_but").value = optionsInText;
-          panelStyle.width = '0px';
-//          setTimeout(function() {document.getElementById("clock").style.visibility = 'visible';}, 2000);          
+          panelStyle.width = '0px';          
         }
         
         clearTimeout(loopThread);
@@ -622,7 +619,6 @@
             body.style.backgroundImage = 'url(img/bg_lscape_lg.png)';
           }
         
-
           document.getElementById("setup_but").style.marginRight = "20px";
           document.getElementById("setup_but").style.backgroundColor = "#e8e8ff";
           document.getElementById("setupButtonDiv").style.marginTop = "-140px";          
@@ -631,7 +627,7 @@
         }
       }
       
-      doOnOrientationChange()
+      doOnOrientationChange();
       window.addEventListener('orientationchange', doOnOrientationChange);
 
       document.addEventListener("deviceready", starter, false);
@@ -665,7 +661,6 @@
           document.getElementById("ximage").style.height = "55px";
           document.getElementById("minimage").style.width = "50px";
           document.getElementById("minimage").style.height = "50px";
-//          document.getElementById("minimage").style.marginRight = "125px";
           document.getElementById("helpIcon").style.width = "55px";
           document.getElementById("helpIcon").style.height = "55px";
           document.getElementById("no_phone_mute").style.width = "35px";
@@ -676,12 +671,6 @@
           document.getElementById("Half").style.height = "35px";
           document.getElementById("Hour-strikes").style.width = "35px";
           document.getElementById("Hour-strikes").style.height = "35px";
-//          document.getElementById("bb_but").style.width = "30px";
-//          document.getElementById("bb_but").style.height = "30px";
-//          document.getElementById("bg_but").style.width = "30px";
-//          document.getElementById("bg_but").style.height = "30px";
-//          document.getElementById("setupPanel").style.marginTop = "60px"; 
-//          document.getElementById("clocker").style.fontSize = "1.3em";         
         }
         else   {
           document.getElementById("ximage").style.width = "45px";
@@ -691,8 +680,7 @@
           document.getElementById("minimage").style.marginTop = "5px";
           document.getElementById("minimage").style.marginRight = "100px";
           document.getElementById("helpIcon").style.width = "45px";
-          document.getElementById("helpIcon").style.height = "45px";
-//          document.getElementById("setupPanel").style.marginTop = "260px"; 
+          document.getElementById("helpIcon").style.height = "45px"; 
         }  
         
         setLanguage();
