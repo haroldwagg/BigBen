@@ -126,7 +126,8 @@
           [-25, -323], [-40, -320], [-55, -317], [-69, -312], [-82, -306], [-94, -303], [-106, -288], [-118, -278], [-125, -268], [-134, -258],         // 30 - 39     
           [-140, -247], [-145, -230], [-149, -215], [-152, -200], [-155, -185], [-156, -174], [-153, -159], [-150, -145], [-144, -130], [-138, -116],   // 40 - 49
           [-130, -104], [-121, -92], [-111, -81], [-99, -71], [-86, -63], [-72, -55], [-59, -53], [-45, -48], [-30, -46], [-15, -45] ];                 // 50 - 59      
-      var hourHand = document.getElementById("hh");                                                                                               
+      var hourHand = document.getElementById("hh"); 
+      var bigHourHand, bigMinuteHand;                                                                                              
       
       function init()   {
         var d = new Date();
@@ -333,13 +334,19 @@
       function initializeCanvas()   {
         canvas = document.getElementById("myCanvas");
         
-        if (! canvas.getContext)   {
-          alert ('Put in static pic');
-          return;
-        } 
+//        if (! canvas.getContext)   {
+//          alert ('Put in static pic');
+//          return;
+//        } 
 
-        ctx = canvas.getContext('2d');      
-        ctx.translate(116, 127); 
+        ctx = canvas.getContext('2d');  
+        
+        if (SIZE == "small")   {    
+          ctx.translate(116, 127); 
+        }
+        else   {
+          ctx.translate(232, 254); 
+        }
       }
       
       function doTimeDisplay(hrs, minte)   {
@@ -582,7 +589,7 @@
         var body = document.getElementsByTagName('body')[0];
         var ratio = window.devicePixelRatio || 1;
         var h = screen.height;
-
+        
         if (h / ratio > 780)   {
           body.style.fontSize = "20px";
           SIZE = "big";
@@ -639,8 +646,18 @@
         
         var ratio = window.devicePixelRatio || 1;
         var h = screen.height;
-
+        
         if (h / ratio > 780)   {
+          body.style.fontSize = "22px";
+          SIZE = "big";
+        }
+        else   {
+          body.style.fontSize = "12px";
+          SIZE = "small";
+        }
+
+
+        if (SIZE == "big")   {
           document.getElementById("ximage").style.width = "55px";
           document.getElementById("ximage").style.height = "55px";
           document.getElementById("minimage").style.width = "50px";
@@ -678,9 +695,7 @@
         setLanguage();
         
         processSavedSettings(); 
-                        
-//        init();
-        
+
         window.plugins.insomnia.keepAwake();
         
         cordova.plugins.backgroundMode.setEnabled(true);
