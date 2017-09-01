@@ -345,7 +345,8 @@
           ctx.translate(116, 127); 
         }
         else   {
-          ctx.translate(232, 254); 
+          ctx.translate(232, 254);
+          document.getElementById("myCanvas").style.backgroundColor = "yellow"; 
         }
       }
       
@@ -650,6 +651,8 @@
         if (h / ratio > 780)   {
           body.style.fontSize = "22px";
           SIZE = "big";
+          document.getElementById("myCanvas").style.width = "620px";
+          document.getElementById("myCanvas").style.height = "642px";          
         }
         else   {
           body.style.fontSize = "12px";
