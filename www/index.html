@@ -345,8 +345,7 @@
           ctx.translate(116, 127); 
         }
         else   {
-          ctx.translate(232, 254);
-          document.getElementById("myCanvas").style.backgroundColor = "yellow"; 
+          ctx.translate(232, 254); 
         }
       }
       
@@ -355,18 +354,37 @@
         var m = parseInt(minte);
         var hourHandPosition;
         
-        ctx.clearRect(-116, -127, canvas.width, canvas.height);
+        if (SIZE == "small")   { 
+          ctx.clearRect(-116, -127, canvas.width, canvas.height);
+        }
+        else   {
+          ctx.clearRect(-232, -254, canvas.width, canvas.height);
+        }
 
         handPosition = m * 6 * Math.PI / 180;
-        ctx.rotate(handPosition);       
-        ctx.drawImage(minuteHand, -13,  -182);
+        ctx.rotate(handPosition);  
+        
+        if (SIZE == "small")   {      
+          ctx.drawImage(minuteHand, -13,  -182);
+        }
+        else   {
+          ctx.drawImage(minuteHand, -213,  -382);
+        }
+        
         ctx.rotate(handPosition * -1);
         
         hrs %= 12;
        
         hourHandPosition = ((hrs * 6 * 5) * Math.PI / 180) + ((m * 6 * Math.PI / 180) / 12);
         ctx.rotate(hourHandPosition); 
-        ctx.drawImage(hourHand, -16, -100); 
+        
+        if (SIZE == "small")   {          
+          ctx.drawImage(hourHand, -16, -100); 
+        }
+        else   {  
+          ctx.drawImage(hourHand, -216, -300); 
+        }
+          
         ctx.rotate(hourHandPosition * -1); 
   
 //        ctx.drawImage(minuteHand, 0, -44);
