@@ -589,7 +589,7 @@
         var h = screen.height;
         
         if (h / ratio > 780)   {
-          body.style.fontSize = "20px";
+          body.style.fontSize = "22px";
           SIZE = "big";
         }
         else   {
@@ -641,6 +641,7 @@
 
       function starter()   { 
         
+        var body = document.getElementsByTagName('body')[0];
         var ratio = window.devicePixelRatio || 1;
         var h = screen.height;
         
