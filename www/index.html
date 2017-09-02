@@ -59,7 +59,7 @@
                   <a href="#" onClick="doHelp()"><img src="img/help.png" width="30" height="30" id="helpIcon" style="margin-left: -3px;" /></a>
                 </div>
 -->                
-                <div id="bottomNavBar" style="background-color: black; margin: 0; padding: 0; height: 54px; position: fixed; bottom: 2%; width: 100%; overflow:visible;">
+                <div id="bottomNavBar" style="background-color: black; margin: 0; padding: 0; height: 54px; position: fixed; bottom: 2%; width: 100%; overflow:visible; clear: both;">
                   <img src="img/help.png" width="30" height="30" id="helpIcon" onClick="doHelp()" style="margin-left: 8px; margin-top: 5px;" />
                   <img id="ximage" name="ximage" src="x.png" width="45" height="45" style="float: right; border: none;  padding: 0; margin-top: 5px; margin-right: 8px;" onClick="doExit()" />
                   <img id="minimage" name="minimage" src="img/min.png" width="45" height="45" style="float: right; border: none; margin-top: 5px;" onClick="doGoToBG()" />
@@ -368,7 +368,7 @@
           ctx.drawImage(minuteHand, -13,  -182);
         }
         else   {
-          ctx.drawImage(minuteHand, -63,  -182);
+          ctx.drawImage(minuteHand, -63,  -230);
         }
         
         ctx.rotate(handPosition * -1);
