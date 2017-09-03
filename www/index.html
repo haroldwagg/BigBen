@@ -363,7 +363,7 @@
           ctx.clearRect(-116, -127, canvas.width, canvas.height);
         }
 
-
+/*
         handPosition = m * 6 * Math.PI / 180;
         
 //        handPosition = 15 * 6 * Math.PI / 180;
@@ -374,7 +374,7 @@
           ctx.drawImage(minuteHand, -13,  -182);
         }
         else   {
-          ctx.drawImage(minuteHand, -12,  -183, 24, 227);
+//          ctx.drawImage(minuteHand, -12,  -183, 24, 227);
         }
         
         ctx.rotate(handPosition * -1);
@@ -383,17 +383,18 @@
        
         hourHandPosition = ((hrs * 6 * 5) * Math.PI / 180) + ((m * 6 * Math.PI / 180) / 12);
         ctx.rotate(hourHandPosition); 
+*/
         
         if (SIZE == "small")   {          
           ctx.drawImage(hourHand, -16, -100); 
         }
         else   {  
-//          ctx.drawImage(hourHand, -16, -200); 
+          ctx.drawImage(hourHand, -16, -200); 
 
 
         }
           
-        ctx.rotate(hourHandPosition * -1); 
+//        ctx.rotate(hourHandPosition * -1); 
 
   
 //        ctx.drawImage(minuteHand, -9, -150, 21, 188);
