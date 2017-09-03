@@ -360,11 +360,10 @@
           ctx.clearRect(-116, -127, canvas.width, canvas.height);
         }
         else   {
-//          ctx.clearRect(-232, -254, canvas.width, canvas.height);
           ctx.clearRect(-116, -127, canvas.width, canvas.height);
         }
 
-/*
+
         handPosition = m * 6 * Math.PI / 180;
         ctx.rotate(handPosition);  
         
@@ -372,7 +371,7 @@
           ctx.drawImage(minuteHand, -13,  -182);
         }
         else   {
-          ctx.drawImage(minuteHand, 15,  -110);
+          ctx.drawImage(minuteHand, -9,  -150, 21, 188);
         }
         
         ctx.rotate(handPosition * -1);
@@ -392,9 +391,9 @@
         }
           
         ctx.rotate(hourHandPosition * -1); 
-*/
+
   
-        ctx.drawImage(minuteHand, -9, -150, 21, 188);
+//        ctx.drawImage(minuteHand, -9, -150, 21, 188);
         
 //        handPosition = 5 * 6 * Math.PI / 180;
 //        ctx.rotate(handPosition);       
