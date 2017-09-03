@@ -347,7 +347,7 @@
         }
         else   {
 //          ctx.translate(216, 77); 
-          ctx.translate(117, 137); 
+          ctx.translate(116, 127); 
         }
       }
       
@@ -361,9 +361,10 @@
         }
         else   {
 //          ctx.clearRect(-232, -254, canvas.width, canvas.height);
-//          ctx.clearRect(-232, -254, canvas.width, canvas.height);
+          ctx.clearRect(-116, -127, canvas.width, canvas.height);
         }
 
+/*
         handPosition = m * 6 * Math.PI / 180;
         ctx.rotate(handPosition);  
         
@@ -391,9 +392,9 @@
         }
           
         ctx.rotate(hourHandPosition * -1); 
-
+*/
   
-//        ctx.drawImage(minuteHand, -127, -278, 21, 188);
+        ctx.drawImage(minuteHand, 0, -178, 21, 188);
         
 //        handPosition = 5 * 6 * Math.PI / 180;
 //        ctx.rotate(handPosition);       
