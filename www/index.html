@@ -127,7 +127,8 @@
           [-25, -323], [-40, -320], [-55, -317], [-69, -312], [-82, -306], [-94, -303], [-106, -288], [-118, -278], [-125, -268], [-134, -258],         // 30 - 39     
           [-140, -247], [-145, -230], [-149, -215], [-152, -200], [-155, -185], [-156, -174], [-153, -159], [-150, -145], [-144, -130], [-138, -116],   // 40 - 49
           [-130, -104], [-121, -92], [-111, -81], [-99, -71], [-86, -63], [-72, -55], [-59, -53], [-45, -48], [-30, -46], [-15, -45] ];                 // 50 - 59      
-      var hourHand;                                                                                               
+      var hourHand; 
+      var xcounter = 0;                                                                                              
       
       function init()   {
         var d = new Date();
@@ -349,8 +350,15 @@
         else   {
           ctx.translate(116, 127); 
           minuteHand = new Image();
+          minuteHand.onload = function() {
+            xcounter++;
+          };          
           minuteHand.src = 'img/bigMinuteHand.png';
+          
           hourHand = new Image();
+          hourHand.onload = function() {
+            xcounter++;
+          };
           hourHand.src = 'img/bigHourHand.png';
         }
       }
@@ -393,13 +401,21 @@
         }
           
         ctx.rotate(hourHandPosition * -1); 
+        
+        if (SIZE != "small")   { 
+          if (xcounter < 2)   {
+            doTimeDisplay(hrs, minte);
+          }
+        }     
+
 
   
 //        ctx.drawImage(minuteHand, -9, -150, 21, 188);
         
 //        handPosition = 5 * 6 * Math.PI / 180;
 //        ctx.rotate(handPosition);       
-//        ctx.drawImage(minuteHand, 67, -70);       
+//        ctx.drawImage(minuteHand, 67, -70);  
+
       }
       
       function doSetUp()   {
@@ -409,7 +425,6 @@
         if (! setupIsDisplayed)   {
           setupIsDisplayed = true;
           document.getElementById("setup_but").value = optionsOutText;
-//          document.getElementById("clock").style.visibility = 'hidden';
           
           var ratio = window.devicePixelRatio || 1;
           var h = screen.height;
