@@ -351,7 +351,7 @@
           minuteHand = new Image();
           minuteHand.src = 'img/bigMinuteHand.png';
           hourHand = new Image();
-          minuteHand.src = 'img/bigHourHand.png';
+          hourHand.src = 'img/bigHourHand.png';
         }
       }
       
@@ -375,7 +375,7 @@
           ctx.drawImage(minuteHand, -13,  -182);
         }
         else   {
-          ctx.drawImage(minuteHand, -12,  -183, 24, 227);
+          ctx.drawImage(minuteHand, -12,  -183);
         }
         
         ctx.rotate(handPosition * -1);
@@ -389,7 +389,7 @@
           ctx.drawImage(hourHand, -16, -100); 
         }
         else   {  
-          ctx.drawImage(hourHand, -18, -102, 38, 141); 
+          ctx.drawImage(hourHand, -18, -102); 
         }
           
         ctx.rotate(hourHandPosition * -1); 
