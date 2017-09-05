@@ -120,15 +120,14 @@
       
       var canvas;
       var ctx;
-      var minuteHand = document.getElementById("mh");
+      var minuteHand;
       var minuteHandArray = [ [0, -44], [15, -46], [29, -50], [44, -56], [56, -63], [67, -70], [82, -78], [92, -88], [102, -100], [110, -110],          // 0 - 9
           [116, -123], [124, -138], [128, -150], [130, -166], [131, -184], [129,-195], [128, -213], [124, -225], [119, -240], [111, -254],              // 10 - 19
           [106, -265], [96, -277], [85, -287], [73, -296], [61, -304], [46, -310], [35, -317], [19, -321], [5, -325], [-10, -325],                      // 20 - 29
           [-25, -323], [-40, -320], [-55, -317], [-69, -312], [-82, -306], [-94, -303], [-106, -288], [-118, -278], [-125, -268], [-134, -258],         // 30 - 39     
           [-140, -247], [-145, -230], [-149, -215], [-152, -200], [-155, -185], [-156, -174], [-153, -159], [-150, -145], [-144, -130], [-138, -116],   // 40 - 49
           [-130, -104], [-121, -92], [-111, -81], [-99, -71], [-86, -63], [-72, -55], [-59, -53], [-45, -48], [-30, -46], [-15, -45] ];                 // 50 - 59      
-      var hourHand = document.getElementById("hh"); 
-      var bigHourHand, bigMinuteHand;                                                                                              
+      var hourHand;                                                                                               
       
       function init()   {
         var d = new Date();
@@ -343,11 +342,16 @@
         ctx = canvas.getContext('2d');  
         
         if (SIZE == "small")   {    
-          ctx.translate(116, 127); 
+          ctx.translate(116, 127);
+          minuteHand = document.getElementById("mh");
+          hourHand = document.getElementById("hh"); 
         }
         else   {
-//          ctx.translate(216, 77); 
           ctx.translate(116, 127); 
+          minuteHand = new Image();
+          minuteHand.src = 'img/bigMinuteHand.png';
+          hourHand = new Image();
+          minuteHand.src = 'img/bigHourHand.png';
         }
       }
       
@@ -364,8 +368,6 @@
         }
 
         handPosition = m * 6 * Math.PI / 180;
-        
-//        handPosition = 15 * 6 * Math.PI / 180;
          
         ctx.rotate(handPosition);  
         
@@ -697,7 +699,6 @@
           document.getElementById("Hour-strikes").style.width = "35px";
           document.getElementById("Hour-strikes").style.height = "35px";
           document.getElementById("bottomNavBar").style.height = "75px";
-//          document.getElementById("bottomNavBar").style.marginBottom = "40px";
           document.getElementById("minimage").style.marginRight = "120px";
           document.getElementById("setup_but").style.marginTop = "450px";
         }
