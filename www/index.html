@@ -230,7 +230,7 @@
           loopDelay = 60000;
           loopThread = setTimeout(doMainLoop, loopDelay); 
         }     
-      }
+      } 
 
       function playBen(x)   {
         var phoneAdjustmentsHaveBeenMade = false;
@@ -348,16 +348,20 @@
           hourHand = document.getElementById("hh"); 
         }
         else   {
+          var d2 = new Date();
+          var min2 = d2.getMinutes();        
+          var hr2 = d2.getHours();
+
           ctx.translate(116, 127); 
           minuteHand = new Image();
           minuteHand.onload = function() {
-            xcounter++;
+            doTimeDisplay(hr2, min2);
           };          
           minuteHand.src = 'img/bigMinuteHand.png';
           
           hourHand = new Image();
           hourHand.onload = function() {
-            xcounter++;
+            doTimeDisplay(hr2, min2);
           };
           hourHand.src = 'img/bigHourHand.png';
         }
@@ -383,7 +387,7 @@
           ctx.drawImage(minuteHand, -13,  -182);
         }
         else   {
-          ctx.drawImage(minuteHand, -14,  -178);
+          ctx.drawImage(minuteHand, -12,  -183);
         }
         
         ctx.rotate(handPosition * -1);
@@ -397,10 +401,10 @@
           ctx.drawImage(hourHand, -16, -100); 
         }
         else   {  
-          ctx.drawImage(hourHand, -16, -95); 
+          ctx.drawImage(hourHand, -18, -102); 
         }
           
-        ctx.rotate(hourHandPosition * -1); 
+        ctx.rotate(hourHandPosition * -1);  
         
 
   
