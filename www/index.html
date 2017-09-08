@@ -713,7 +713,15 @@
           document.getElementById("Hour-strikes").style.height = "35px";
           document.getElementById("bottomNavBar").style.height = "75px";
           document.getElementById("minimage").style.marginRight = "120px";
-          document.getElementById("setup_but").style.marginTop = "450px";
+          document.getElementById("setup_but").style.fontSize = "1.5em";
+          document.getElementById("setupTable").style.fontSize = "18px";
+          
+          if (ORIENT == "landscape")   {
+            document.getElementById("setup_but").style.marginBottom = "8%";
+          }
+          else   {
+            document.getElementById("setup_but").style.marginTop = "500px";
+          }
         }
         else   {
           document.getElementById("ximage").style.width = "45px";
