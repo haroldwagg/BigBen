@@ -639,28 +639,32 @@
         if (screen.height > screen.width) {   
           if (SIZE == "small")   {
             body.style.backgroundImage = 'url(img/bg_pt_sm.png)';
+            document.getElementById("setupButtonDiv").style.marginTop = "0px";
           }
           else   {             
             body.style.backgroundImage = 'url(img/bg_pt_lg.png)';
+            document.getElementById("setupButtonDiv").style.marginTop = "600px";
           }
 
           document.getElementById("setup_but").style.marginRight = "10px";
           document.getElementById("setup_but").style.backgroundColor = "#e8e8ff";
-          document.getElementById("setupButtonDiv").style.marginTop = "0px";
+          
 
           ORIENT = 'portrait';
         }
         else   {
           if (SIZE == "small")   {
             body.style.backgroundImage = 'url(img/bg_lscape_sm.png)';
+            document.getElementById("setupButtonDiv").style.marginBottom = "12%";  
           }
           else   {             
             body.style.backgroundImage = 'url(img/bg_lscape_lg.png)';
+            document.getElementById("setupButtonDiv").style.marginBottom = "8%";  
           }
         
           document.getElementById("setup_but").style.marginRight = "20px";
           document.getElementById("setup_but").style.backgroundColor = "#e8e8ff";
-          document.getElementById("setupButtonDiv").style.marginTop = "-140px";          
+                  
           
           ORIENT = 'landscape';
         }
@@ -716,7 +720,7 @@
           document.getElementById("setup_but").style.fontSize = "1.2em";
           document.getElementById("setupTable").style.fontSize = "20px";
           
-          if (screen.height < screen.width) {   
+          if (screen.height <= screen.width) {   
             document.getElementById("setupButtonDiv").style.marginBottom = "8%";
           }
           else   {
@@ -732,6 +736,14 @@
           document.getElementById("minimage").style.marginRight = "100px";
           document.getElementById("helpIcon").style.width = "45px";
           document.getElementById("helpIcon").style.height = "45px"; 
+          
+          if (screen.height <= screen.width) {   
+            document.getElementById("setupButtonDiv").style.marginBottom = "12%";
+          }
+          else   {
+            document.getElementById("setupButtonDiv").style.marginTop = "0px";
+          }
+           
         }  
         
         setLanguage();
