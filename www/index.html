@@ -21,7 +21,7 @@
       </canvas>
   </div>
                 
-                <div id="setupButtonDiv" style="float: right; background-color: yellow;">
+                <div id="setupButtonDiv" style="float: right; ">
                 <input type="button" class="rounderCorners" id="setup_but" onClick="doSetUp()" style="margin-right: 10px; border: solid 5px #0000aa; z-index: 100;position:relative" />
  
 <img src="img/bb_minute_hand.png" id="mh" style="display:none" /> 
@@ -639,7 +639,7 @@
         if (screen.height > screen.width) {   
           if (SIZE == "small")   {
             body.style.backgroundImage = 'url(img/bg_pt_sm.png)';
-            document.getElementById("setupButtonDiv").style.marginTop = "50px";
+            document.getElementById("setupButtonDiv").style.marginTop = "250px";
           }
           else   {             
             body.style.backgroundImage = 'url(img/bg_pt_lg.png)';
@@ -656,12 +656,15 @@
         else   {
           if (SIZE == "small")   {
             body.style.backgroundImage = 'url(img/bg_lscape_sm.png)';
-            document.getElementById("setupButtonDiv").style.marginBottom = "80px";  
+            document.getElementById("setupButtonDiv").style.position = "fixed";
+            document.getElementById("setupButtonDiv").style.bottom = "50px";
+            document.getElementById("setupButtonDiv").style.right = "0px";   
           }
           else   {             
             body.style.backgroundImage = 'url(img/bg_lscape_lg.png)';
-            document.getElementById("setupButtonDiv").style.marginBottom = "100px";  
-            document.getElementById("setup_but").style.marginTop = "0px"; 
+            document.getElementById("setupButtonDiv").style.position = "fixed";
+            document.getElementById("setupButtonDiv").style.bottom = "70px";
+            document.getElementById("setupButtonDiv").style.right = "0px";   
           }
         
           document.getElementById("setup_but").style.marginRight = "20px";
@@ -723,8 +726,9 @@
           document.getElementById("setupTable").style.fontSize = "20px";
           
           if (screen.height <= screen.width) {   
-            document.getElementById("setupButtonDiv").style.marginBottom = "100px";
-            document.getElementById("setupButtonDiv").style.marginTop = "0px"; 
+            document.getElementById("setupButtonDiv").style.position = "fixed";
+            document.getElementById("setupButtonDiv").style.bottom = "70px";
+            document.getElementById("setupButtonDiv").style.right = "0px";   
           }
           else   {
             document.getElementById("setupButtonDiv").style.marginTop = "600px";
@@ -742,12 +746,13 @@
           document.getElementById("helpIcon").style.height = "45px"; 
           
           if (screen.height <= screen.width) {   
-            document.getElementById("setupButtonDiv").style.marginBottom = "80px";
+            document.getElementById("setupButtonDiv").style.position = "fixed";
+            document.getElementById("setupButtonDiv").style.bottom = "50px";
+            document.getElementById("setupButtonDiv").style.right = "0px";   
           }
           else   {
-            document.getElementById("setupButtonDiv").style.marginTop = "50px";
-          }
-           
+            document.getElementById("setupButtonDiv").style.marginTop = "250px";       
+          }           
         }  
         
         setLanguage();
