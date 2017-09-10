@@ -21,7 +21,7 @@
       </canvas>
   </div>
                 
-                <div id="setupButtonDiv" style="float: right;">
+                <div id="setupButtonDiv" style="float: right; background-color: yellow;">
                 <input type="button" class="rounderCorners" id="setup_but" onClick="doSetUp()" style="margin-right: 10px; border: solid 5px #0000aa; z-index: 100;position:relative" />
  
 <img src="img/bb_minute_hand.png" id="mh" style="display:none" /> 
@@ -639,7 +639,7 @@
         if (screen.height > screen.width) {   
           if (SIZE == "small")   {
             body.style.backgroundImage = 'url(img/bg_pt_sm.png)';
-            document.getElementById("setupButtonDiv").style.marginTop = "550px";
+            document.getElementById("setupButtonDiv").style.marginTop = "50px";
           }
           else   {             
             body.style.backgroundImage = 'url(img/bg_pt_lg.png)';
@@ -745,7 +745,7 @@
             document.getElementById("setupButtonDiv").style.marginBottom = "80px";
           }
           else   {
-            document.getElementById("setupButtonDiv").style.marginTop = "550px";
+            document.getElementById("setupButtonDiv").style.marginTop = "50px";
           }
            
         }  
