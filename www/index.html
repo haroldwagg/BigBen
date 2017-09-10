@@ -22,7 +22,7 @@
   </div>
                 
                 <div id="setupButtonDiv" style="float: right; ">
-                <input type="button" class="rounderCorners" id="setup_but" onClick="doSetUp()" style="margin-right: 10px; border: solid 5px #0000aa; z-index: 100;position:relative" />
+                <input type="button" class="rounderCorners" id="setup_but" onClick="doSetUp()" style="margin-right: 20px; border: solid 5px #0000aa; z-index: 100;position:relative" />
  
 <img src="img/bb_minute_hand.png" id="mh" style="display:none" /> 
 <img src="img/bb_hour_hand.png" id="hh" style="display:none" /> 
@@ -640,8 +640,12 @@
         if (screen.height > screen.width) {   
           if (SIZE == "small")   {
             body.style.backgroundImage = 'url(img/bg_pt_sm.png)';
-            document.getElementById("setupButtonDiv").style.position = "relative";
-            document.getElementById("setupButtonDiv").style.marginTop = "368px";
+//            document.getElementById("setupButtonDiv").style.position = "relative";
+//            document.getElementById("setupButtonDiv").style.marginTop = "368px";
+              document.getElementById("setupButtonDiv").style.position = "fixed";
+              document.getElementById("setupButtonDiv").style.top = "368px";
+              document.getElementById("setupButtonDiv").style.left = "10px";
+
           }
           else   {             
             body.style.backgroundImage = 'url(img/bg_pt_lg.png)';
@@ -757,8 +761,11 @@
           }
           else   {
             body.style.backgroundImage = 'url(img/bg_pt_sm.png)';
-            document.getElementById("setupButtonDiv").style.position = "relative";
-            document.getElementById("setupButtonDiv").style.marginTop = "368px";       
+//            document.getElementById("setupButtonDiv").style.position = "relative";
+//            document.getElementById("setupButtonDiv").style.marginTop = "368px";
+            document.getElementById("setupButtonDiv").style.position = "fixed";
+            document.getElementById("setupButtonDiv").style.top = "368px";
+            document.getElementById("setupButtonDiv").style.left = "10px";
           }           
         }  
         
