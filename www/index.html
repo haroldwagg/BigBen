@@ -639,12 +639,13 @@
         if (screen.height > screen.width) {   
           if (SIZE == "small")   {
             body.style.backgroundImage = 'url(img/bg_pt_sm.png)';
-            document.getElementById("setupButtonDiv").style.marginTop = "250px";
+            document.getElementById("setupButtonDiv").style.position = "relative";
+            document.getElementById("setupButtonDiv").style.marginTop = "300px";
           }
           else   {             
             body.style.backgroundImage = 'url(img/bg_pt_lg.png)';
+            document.getElementById("setupButtonDiv").style.position = "relative";
             document.getElementById("setupButtonDiv").style.marginTop = "600px";
-            document.getElementById("setup_but").style.marginTop = "0px";
           }
 
           document.getElementById("setup_but").style.marginRight = "10px";
@@ -663,7 +664,7 @@
           else   {             
             body.style.backgroundImage = 'url(img/bg_lscape_lg.png)';
             document.getElementById("setupButtonDiv").style.position = "fixed";
-            document.getElementById("setupButtonDiv").style.bottom = "70px";
+            document.getElementById("setupButtonDiv").style.bottom = "100px";
             document.getElementById("setupButtonDiv").style.right = "0px";   
           }
         
@@ -727,10 +728,11 @@
           
           if (screen.height <= screen.width) {   
             document.getElementById("setupButtonDiv").style.position = "fixed";
-            document.getElementById("setupButtonDiv").style.bottom = "70px";
+            document.getElementById("setupButtonDiv").style.bottom = "100px";
             document.getElementById("setupButtonDiv").style.right = "0px";   
           }
           else   {
+            document.getElementById("setupButtonDiv").style.position = "relative";
             document.getElementById("setupButtonDiv").style.marginTop = "600px";
             document.getElementById("setup_but").style.marginTop = "0px";
           }
@@ -751,7 +753,8 @@
             document.getElementById("setupButtonDiv").style.right = "0px";   
           }
           else   {
-            document.getElementById("setupButtonDiv").style.marginTop = "250px";       
+            document.getElementById("setupButtonDiv").style.position = "relative";
+            document.getElementById("setupButtonDiv").style.marginTop = "300px";       
           }           
         }  
         
