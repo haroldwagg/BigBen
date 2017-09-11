@@ -132,7 +132,7 @@
       var hourHand; 
       var xcounter = 0; 
       
-      var HOUR_HAND_CORRECTION_FACTOR = -1;                                                                                             
+      var HOUR_HAND_CORRECTION_FACTOR = -2;                                                                                             
       
       function init()   {
         var d = new Date();
@@ -642,8 +642,6 @@
         if (screen.height > screen.width) {   
           if (SIZE == "small")   {
             body.style.backgroundImage = 'url(img/bg_pt_sm.png)';
-//            document.getElementById("setupButtonDiv").style.position = "relative";
-//            document.getElementById("setupButtonDiv").style.marginTop = "368px";
             document.getElementById("setupButtonDiv").style.position = "fixed";
             document.getElementById("setupButtonDiv").style.top = "286px";
             document.getElementById("setupButtonDiv").style.right = "0px";
@@ -681,7 +679,6 @@
         }
       }
       
-//      doOnOrientationChange();
       window.addEventListener('orientationchange', doOnOrientationChange);
 
       document.addEventListener("deviceready", starter, false);
