@@ -130,7 +130,9 @@
           [-140, -247], [-145, -230], [-149, -215], [-152, -200], [-155, -185], [-156, -174], [-153, -159], [-150, -145], [-144, -130], [-138, -116],   // 40 - 49
           [-130, -104], [-121, -92], [-111, -81], [-99, -71], [-86, -63], [-72, -55], [-59, -53], [-45, -48], [-30, -46], [-15, -45] ];                 // 50 - 59      
       var hourHand; 
-      var xcounter = 0;                                                                                              
+      var xcounter = 0; 
+      
+      var HOUR_HAND_CORRECTION_FACTOR = -2;                                                                                             
       
       function init()   {
         var d = new Date();
@@ -389,14 +391,14 @@
           ctx.drawImage(minuteHand, -12,  -182);
         }
         else   {
-          ctx.drawImage(minuteHand, -13,  -177);
+          ctx.drawImage(minuteHand, -14,  -177);
         }
         
         ctx.rotate(handPosition * -1);
         
         hrs %= 12;
        
-        hourHandPosition = ((hrs * 6 * 5) * Math.PI / 180) + ((m * 6 * Math.PI / 180) / 12);
+        hourHandPosition = ((hrs * 6 * 5) * Math.PI / 180) + (((m + HOUR_HAND_CORRECTION_FACTOR) * 6 * Math.PI / 180) / 12);
         ctx.rotate(hourHandPosition); 
         
         if (SIZE == "small")   {          
@@ -1037,7 +1039,6 @@
                      
           if (localStorage["language"] == "pt")   { 
             do24Hr = true;         
-//            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = " OPÇÕES >"; 
             mantleClockText = "RELÓGIO MANTEL";
             grandfatherClockText = "RELÓGIO AVÔ";
@@ -1059,7 +1060,6 @@
           }
           else if (localStorage["language"] == "fr")   {
             do24Hr = true;
-//            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "OPTIONS >";
             mantleClockText = "HORLOGE MANTELLE";
             grandfatherClockText = "HORLOGE GRAND-PÈRE";
@@ -1081,7 +1081,6 @@
           }          
           else if (localStorage["language"] == "de")   {
             do24Hr = true;
-//            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "OPTIONEN >";
             mantleClockText = "UHR MANTEL";
             grandfatherClockText = "UHR GROßVATER";
@@ -1102,7 +1101,6 @@
             optionsOutText = "< OPTIONEN";
           }         
           else   {               
-//            document.getElementById("titler").innerHTML = "BIG BEN BONGER";
             document.getElementById("setup_but").value = "OPTIONS >";
             mantleClockText = "MANTLE CLOCK";
             grandfatherClockText = "GRANDFATHER CLOCK";
@@ -1112,7 +1110,7 @@
             document.getElementById("Hour_Label").innerHTML = "&nbsp;ON-THE-HOUR STRIKES";             
             helpText = "Let Big Ben V1.3 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
             helpText += "Tap the [< OPTIONS] button to adjust settings. Your settings are always saved.  When finished, tap the [OPTIONS >] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\n";
-            helpText += "But most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the blue square Minimize Icon at the bottom of the screen. Big Ben will continue to bong until you exit the app.\n\n";
+            helpText += "But most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square blue Minimize Icon at the bottom of the screen. Big Ben will continue to bong until you exit the app.\n\n";
             helpText += "To re-maximize the Bonger, tap the Big Ben icon. You can then exit the app using the red \"X\" Icon in the bottom right corner. Thank you for choosing the Big Ben Bonger.\n\n";
             helpText += "God Save The Queen.\n\n\numikeapps@outlook.com";
             helpTextTitle = "Welcome to the Big Ben Bonger"; 
