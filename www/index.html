@@ -388,7 +388,7 @@
         ctx.rotate(handPosition);  
         
         if (SIZE == "small")   {      
-          ctx.drawImage(minuteHand, -12,  -182);
+          ctx.drawImage(minuteHand, -13,  -182);
         }
         else   {
           ctx.drawImage(minuteHand, -14,  -177);
@@ -1096,6 +1096,27 @@
             backgroundNotificationText = "Tippen Sie auf das Big Ben Icon, um es wiederherzustellen";
             optionsInText = "OPTIONEN >";
             optionsOutText = "< OPTIONEN";
+          }         
+          else if (localStorage["language"] == "es")   {
+            do24Hr = false;
+            document.getElementById("setup_but").value = "OPCIONES >";
+            mantleClockText = "RELOJ ANTIGUO";
+            grandfatherClockText = "RELOJ DE ABUELO";
+            document.getElementById("bongDuringCall").innerHTML = " BONG DURANTE PHONECALLS"; 
+            document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
+            document.getElementById("Half_Label").innerHTML = "&nbsp;CHIMES DE LA MEDIA HORA";
+            document.getElementById("Hour_Label").innerHTML = "&nbsp;CADA HORA CHIMES";
+            helpText = "Deje que Big Ben V1.3 le ayude cuando no quiera perder la noción del tiempo. Perfecto para leer, trabajar, estudiar o incluso ir de compras. Un sutil recordatorio cada 15 minutos.\n\n";                    
+            helpText += "Pulse el botón [< OPTIONS] para ajustar la configuración. Su configuración siempre se guarda. Cuando termine, vuelva a pulsar el botón [OPTIONS >]. Puede dejar a Ben así y mostrará el tiempo y el bong todo el día.\n\n";       
+            helpText += "Pero lo más probable es que desee hacer otras cosas con su teléfono o tableta. Puede minimizar Big Ben pulsando en el icono del cuadrado azul de minimizar en la parte inferior de la pantalla. Big Ben continuará haciendo bong hasta que salga de la aplicación.\n\n";       
+            helpText += "Para volver a maximizar el Bonger, pulse en el icono Big Ben. Puede salir de la aplicación usando el icono rojo de la \"X\" en la esquina inferior derecha. Gracias por elegir Big Ben Bonger.\n\n";       
+            helpText += "Dios salve a la reina.\n\n\numikeapps@outlook.com";
+            helpTextTitle = "Bienvenido al Big Ben Bonger";
+            helpDismissText ="DESPEDIR";
+            quitConfirmText = "¿Quieres salir de Big Ben Bonger?";
+            backgroundNotificationText = "Toque el icono de Big Ben para restaurar";
+            optionsInText = "OPCIONES >";
+            optionsOutText = "< OPCIONES";
           }         
           else   {               
             document.getElementById("setup_but").value = "OPTIONS >";
