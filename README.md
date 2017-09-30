@@ -33,3 +33,5 @@ Added language support for German  V1.2
 Added third Clock sound -- grandfather clock  V1.2
 Set phone bong volume to 0.1   V1.2
 
+Added Language Support for Spanish
+Added active Main Screen that displays time as Big Ben
