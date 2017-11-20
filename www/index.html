@@ -109,6 +109,7 @@
       var startTimeArray = [];
       var nextUp = 0;
       
+      var dingThread;
       var ctx;
       var lang;
       var XStr;
@@ -225,9 +226,17 @@
         
 //        document.getElementById("clock").innerHTML = "&nbsp;" + n + delimiter + mins + "&nbsp;";
                  
-        if ((mins % 15) == 0)   {
+        if ((mins == 15) || (mins == 30) || (mins == 45))   {
           playBen(mins);
           init();        
+        }
+        else if (mins == 59)   {
+          if (localStorage["ding_selection"] == "bb")   {
+            dingThread = setTimeout(playBen(0), 43000);
+          }
+          else   {
+            dingThread = setTimeout(playBen(0), 60000);
+          }        
         }
         else   {
           doTimeDisplay(d.getHours(), mins);
