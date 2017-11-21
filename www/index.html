@@ -179,6 +179,7 @@
           cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
 //        } 
        
+        clearTimeout(loopThread);
         loopThread = setTimeout(doMainLoop, loopDelay);
       }
       
@@ -240,11 +241,13 @@
           
           doTimeDisplay(d.getHours(), mins);
           loopDelay = 60000;
+          clearTimeout(loopThread);
           loopThread = setTimeout(doMainLoop, loopDelay);      
         }
         else   {
           doTimeDisplay(d.getHours(), mins);
           loopDelay = 60000;
+          clearTimeout(loopThread);
           loopThread = setTimeout(doMainLoop, loopDelay); 
         }     
       } 
