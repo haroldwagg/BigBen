@@ -299,6 +299,18 @@
             setTimeout(function()   { 
               var d = new Date();
               var n = d.getHours();
+              var mins = d.getMinutes();
+
+//  Big Ben starts at XX:59:44.  It is  not impossible that we get here just before the hour change (e.g., XX:59:59.88)
+//  This is just a double check that the time has rolled over to the new hour.
+//  If not rolled over yet, increment the hour.
+              
+              if (mins == 59)   {
+                n++;
+                if (n == 24)   {
+                  n = 0;
+                }
+              } 
               
               if (n == 0)   {
                 n = 12;
