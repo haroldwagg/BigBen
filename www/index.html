@@ -237,7 +237,10 @@
               init();
             }, 60000);
           }
-          init();        
+          
+          doTimeDisplay(d.getHours(), mins);
+          loopDelay = 60000;
+          loopThread = setTimeout(doMainLoop, loopDelay);      
         }
         else   {
           doTimeDisplay(d.getHours(), mins);
