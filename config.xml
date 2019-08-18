@@ -9,17 +9,23 @@
     </author>
     <content src="index.html" />
     <icon src="icon.png" />
+
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+
+    <preference name='phonegap-version' value='cli-9.0.0' />
+    <preference name='pgb-builder-version' value='1' />
+    
     <preference name="DisallowOverscroll" value="true" />
     <preference name="AndroidLaunchMode" value="singleInstance" />
     <preference name="android-minSdkVersion" value="14" />
-    <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" /> 
+    <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0" />
     <plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
     <plugin name="cordova-plugin-background-mode" source="npm" />
     <plugin name="io.gvox.plugin.phonecalltrap" source="npm" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
     <platform name="browser">
-<!--    
+<!--
       <preference name="SplashScreen" value="splash" />
       <preference name="SplashScreenDelay" value="4000" />
       <preference name="FadeSplashScreenDuration" value="1000"/>
@@ -29,7 +35,7 @@
       <preference name="SplashShowOnlyFirstTime" value="false" />
       <preference name="ShowSplashScreen" value="true" />
       <splash src="splash.png" />
--->      
+-->
     </platform>
     <platform name="android">
 <!--
@@ -41,8 +47,8 @@
       <preference name="SplashMaintainAspectRatio" value="false" />
       <preference name="SplashShowOnlyFirstTime" value="false" />
       <preference name="ShowSplashScreen" value="true" />
-      <splash src="splash.png" /> 
-     
+      <splash src="splash.png" />
+
         <icon density="ldpi" src="www/res/screen/android/splash-land-ldpi.png" />
         <icon density="mdpi" src="www/res/screen/android/splash-land-mdpi.png" />
         <icon density="hdpi" src="www/res/screen/android/splash-land-hdpi.png" />
@@ -51,12 +57,12 @@
         <splash src="www/res/screen/android/splash-land-hdpi.png" density="land-hdpi"/>
         <splash src="www/res/screen/android/splash-land-ldpi.png" density="land-ldpi"/>
         <splash src="www/res/screen/android/splash-land-mdpi.png" density="land-mdpi"/>
-        <splash src="www/res/screen/android/splash-land-xhdpi.png" density="land-xhdpi"/>    
+        <splash src="www/res/screen/android/splash-land-xhdpi.png" density="land-xhdpi"/>
         <splash src="www/res/screen/android/splash-port-hdpi.png" density="port-hdpi"/>
         <splash src="www/res/screen/android/splash-port-ldpi.png" density="port-ldpi"/>
         <splash src="www/res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
         <splash src="www/res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
--->        
+-->
     </platform>
     <platform name="ios">
     </platform>
