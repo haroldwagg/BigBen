@@ -831,17 +831,6 @@
         false );
 
         init();
-
-        cordova.plugins.backgroundMode.setDefaults({
-          title: "Big Ben Bonger Background",
-          text: backgroundNotificationText,
-          resume: true,
-          hidden: false
-        });
-
-        init();
-
-
       }
 
       document.addEventListener("resume", onResume, false);
@@ -924,6 +913,16 @@
 
       function doGoToBG()   {
         window.plugins.insomnia.allowSleepAgain();
+        
+        cordova.plugins.backgroundMode.setDefaults({
+          title: "Big Ben Bonger Background",
+          text: backgroundNotificationText,
+          resume: true,
+          hidden: false
+        });
+
+        cordova.plugins.backgroundMode.disableWebViewOptimizations();
+
         firstTimeInBG = true;
         cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
         cordova.plugins.backgroundMode.moveToBackground();
