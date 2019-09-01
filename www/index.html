@@ -102,6 +102,7 @@
       var DUP_EXIT = false;
       var startTimeArray = [];
       var nextUp = 0;
+      var firstTimeInBG = true;
 
       var dingThread;
       var ctx;
@@ -170,7 +171,7 @@
 
 
 //        if (cordova.plugins.backgroundMode.isActive())   {
-          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: false  });
+          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
 //        }
 
         clearTimeout(loopThread);
@@ -182,6 +183,11 @@
         var mins = d.getMinutes();
         var n = d.getHours();
         var delimiter = ":";
+
+        if (firstTimeInBG)   {
+          firstTimeInBG = false;
+          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
+        }
 
         if (do24Hr)   {
           if (localStorage["language"] == "de")   {
@@ -358,10 +364,7 @@
       function initializeCanvas()   {
         canvas = document.getElementById("myCanvas");
 
-//        if (! canvas.getContext)   {
-//          alert ('Put in static pic');
-//          return;
-//        }
+
 
         ctx = canvas.getContext('2d');
 
@@ -727,6 +730,8 @@
         }
 
 
+
+
         if (SIZE == "big")   {
           document.getElementById("ximage").style.width = "65px";
           document.getElementById("ximage").style.height = "65px";
@@ -783,10 +788,11 @@
             document.getElementById("setupButtonDiv").style.right = "0px";
           }
         }
-
         setLanguage();
-
         processSavedSettings();
+        initializeCanvas();
+        d = new Date();
+        doTimeDisplay(d.getHours(), d.getMinutes());
 
         window.plugins.insomnia.keepAwake();
 
@@ -796,12 +802,7 @@
           cordova.plugins.backgroundMode.disableWebViewOptimizations();
         });
 
-        cordova.plugins.backgroundMode.setDefaults({
-          title: "Big Ben Bonger Background",
-          text: backgroundNotificationText,
-          resume: false,
-          hidden: false
-        });
+
 
         PhoneCallTrap.onCall(function(state) {
           switch (state) {
@@ -828,6 +829,17 @@
             }
           },
         false );
+
+        init();
+
+        cordova.plugins.backgroundMode.setDefaults({
+          title: "Big Ben Bonger Background",
+          text: backgroundNotificationText,
+          resume: true,
+          hidden: false
+        });
+
+        init();
 
 
       }
@@ -912,6 +924,8 @@
 
       function doGoToBG()   {
         window.plugins.insomnia.allowSleepAgain();
+        firstTimeInBG = true;
+        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
         cordova.plugins.backgroundMode.moveToBackground();
       }
 
@@ -1238,8 +1252,8 @@
 
           x.options.add(d, 2);
 
-          initializeCanvas();
-          init();
+
+
         },
         ignoreError2() );
 
