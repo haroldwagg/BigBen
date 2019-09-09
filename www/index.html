@@ -714,6 +714,13 @@
 
       function starter()   {
 
+        cordova.plugins.backgroundMode.setDefaults({
+          title: "Big Ben Bonger Background",
+          text: "[Tap HERE to Restore]",
+          resume: true,
+          hidden: false
+        });
+
         var body = document.getElementsByTagName('body')[0];
         var ratio = window.devicePixelRatio || 1;
         var h = screen.height;
@@ -913,7 +920,7 @@
 
       function doGoToBG()   {
         window.plugins.insomnia.allowSleepAgain();
-        
+
         cordova.plugins.backgroundMode.setDefaults({
           title: "Big Ben Bonger Background",
           text: backgroundNotificationText,
