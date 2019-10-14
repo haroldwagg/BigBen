@@ -25,7 +25,7 @@
 -->
 
 <gap:config-file platform="android" parent="/manifest/application">
-  <activity android:name=".SingleInstanceActivity" android:label="singleInstance launchMode" android:launchMode="singleInstance" />
+  <activity android:launchMode="singleTask" />
 </gap:config-file>
 
 <preference name="android-minSdkVersion" value="14" />
