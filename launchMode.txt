@@ -1,0 +1,4 @@
+<activity
+    android:name=".SingleTaskActivity"
+    android:label="singleTask launchMode"
+    android:launchMode="singleTask" />
