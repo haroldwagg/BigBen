@@ -171,7 +171,7 @@
 
 
 //        if (cordova.plugins.backgroundMode.isActive())   {
-          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
+          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: false  });
 //        }
 
         clearTimeout(loopThread);
@@ -186,7 +186,7 @@
 
         if (firstTimeInBG)   {
           firstTimeInBG = false;
-          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
+          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: false  });
         }
 
         if (do24Hr)   {
@@ -717,7 +717,7 @@
         cordova.plugins.backgroundMode.setDefaults({
           title: "Big Ben Bonger Background",
           text: "[Tap HERE to Restore]",
-          resume: true,
+          resume: false,
           hidden: false
         });
 
@@ -924,14 +924,14 @@
 //        cordova.plugins.backgroundMode.setDefaults({
 //          title: "Big Ben Bonger Background",
 //          text: backgroundNotificationText,
-//          resume: true,
+//          resume: false,
 //          hidden: false
 //        });
 //
 //        cordova.plugins.backgroundMode.disableWebViewOptimizations();
 //
         firstTimeInBG = true;
-//        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
+//        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: false  });
         cordova.plugins.backgroundMode.moveToBackground();
       }
 
