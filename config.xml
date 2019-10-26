@@ -30,9 +30,11 @@
     <plugin name="io.gvox.plugin.phonecalltrap" source="npm" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
 
-
-
-
+<!--
+    <gap:config-file platform="android" parent="/manifest/application">
+      <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    </gap:config-file>
+-->
 
 
 
@@ -50,6 +52,10 @@
 -->
     </platform>
     <platform name="android">
+      <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/uses-permission" xmlns:android="http://schemas.android.com/apk/res/android">
+        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+      </edit-config>
+
 
 <!--
       <preference name="SplashScreen" value="splash" />
