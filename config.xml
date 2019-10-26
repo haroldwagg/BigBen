@@ -11,22 +11,16 @@
     <icon src="icon.png" />
 
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="DisallowOverscroll" value="true" />
 
     <preference name='phonegap-version' value='cli-9.0.0' />
     <preference name='pgb-builder-version' value='1' />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-targetSdkVersion" value="28" />
 
-    <preference name="DisallowOverscroll" value="true" />
-
-<!--
-<preference name="AndroidLaunchMode" value="singleInstance" />
--->
-
-<gap:config-file platform="android" parent="/manifest/application">
-    <activity android:launchMode="singleInstance" />
-</gap:config-file>
-
-<preference name="android-minSdkVersion" value="14" />
-<preference name="android-targetSdkVersion" value="28" />
+    <gap:config-file platform="android" parent="/manifest/application">
+        <activity android:launchMode="singleInstance" />
+    </gap:config-file>
 
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0" />
@@ -34,6 +28,15 @@
     <plugin name="cordova-plugin-background-mode" version="0.7.2" source="npm" />
     <plugin name="io.gvox.plugin.phonecalltrap" source="npm" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
+
+    <gap:config-file platform="android" parent="/manifest/application">
+      <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    </gap:config-file>
+
+
+
+
+
     <platform name="browser">
 <!--
       <preference name="SplashScreen" value="splash" />
@@ -48,12 +51,6 @@
 -->
     </platform>
     <platform name="android">
-      <config-file platform="android" parent="/manifest" mode="merge">
-        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-      </config-file>
-
-
-
 
 <!--
       <preference name="SplashScreen" value="splash" />
