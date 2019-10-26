@@ -707,6 +707,18 @@
 
 //     window.onload = setTimeout(function() {starter();}, 2000);
 
+function error() {
+alert('No FOREGROUND_SERVICE');
+}
+
+function success( status ) {
+  if( !status.hasPermission )   {
+     alert('No FOREGROUND_SERVICE --from success');
+  }
+  else   {
+    alert("SUCCESS!!");
+  }
+}
 
 //////////////////////////////////////////////////////
 ///  STARTER  ////////////////////////////////////////
@@ -737,7 +749,10 @@
         }
 
         var permissions = cordova.plugins.permissions;
-        alert(JSON.stringify(permissions, null, 4));
+//        alert(JSON.stringify(permissions, null, 4));
+        permissions.requestPermission(permissions.FOREGROUND_SERVICE, success, error);
+
+
 
 
         if (SIZE == "big")   {
