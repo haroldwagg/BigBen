@@ -171,7 +171,7 @@
 
 
 //        if (cordova.plugins.backgroundMode.isActive())   {
-          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: false  });
+          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
 //        }
 
         clearTimeout(loopThread);
@@ -186,7 +186,7 @@
 
         if (firstTimeInBG)   {
           firstTimeInBG = false;
-          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: false  });
+          cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
         }
 
         if (do24Hr)   {
@@ -716,8 +716,8 @@
 
         cordova.plugins.backgroundMode.setDefaults({
           title: "Big Ben Bonger Background",
-          text: "[Tap the Big Ben ICON to Restore]",
-          resume: false,
+          text: "[Tap HERE to Restore]",
+          resume: true,
           hidden: false
         });
 
@@ -924,14 +924,14 @@
 //        cordova.plugins.backgroundMode.setDefaults({
 //          title: "Big Ben Bonger Background",
 //          text: backgroundNotificationText,
-//          resume: false,
+//          resume: true,
 //          hidden: false
 //        });
 //
 //        cordova.plugins.backgroundMode.disableWebViewOptimizations();
 //
         firstTimeInBG = true;
-//        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: false  });
+//        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
         cordova.plugins.backgroundMode.moveToBackground();
       }
 
@@ -1094,7 +1094,7 @@
             helpTextTitle = "Bem-vindo ao Big Ben Bonger";
             helpDismissText = "DISPENSAR";
             quitConfirmText = "Você quer sair do Big Ben Bonger?";
-            backgroundNotificationText = "[Toque no ícone do Big Ben para restaurar]";
+            backgroundNotificationText = "[Toque AQUI para restaurar]";
             optionsInText = "OPÇÕES >";
             optionsOutText = "< OPÇÕES";
           }
@@ -1119,7 +1119,7 @@
             helpTextTitle = "Bienvenue au Big Ben Bonger";
             helpDismissText ="RENVOYER";
             quitConfirmText = "Voulez-vous quitter Big Ben Bonger?";
-            backgroundNotificationText = "[Appuyez sur l'icône Big Ben pour restaurer]";
+            backgroundNotificationText = "[Tapez ICI pour restaurer]";
             optionsInText = "OPTIONS >";
             optionsOutText = "< OPTIONS";
           }
@@ -1144,7 +1144,7 @@
             helpTextTitle = "Willkommen bei den Big Ben Bonger";
             helpDismissText ="SCHLIEßEB";
             quitConfirmText = "Willst du Big Ben Bonger verlassen?";
-            backgroundNotificationText = "[Tippen Sie zum Wiederherstellen auf das Big Ben-Symbol]";
+            backgroundNotificationText = "[Tippen Sie zum Wiederherstellen HIER]";
             optionsInText = "OPTIONEN >";
             optionsOutText = "< OPTIONEN";
           }
@@ -1169,7 +1169,7 @@
             helpTextTitle = "Bienvenido al Big Ben Bonger";
             helpDismissText ="DESPEDIR";
             quitConfirmText = "¿Quieres salir de Big Ben Bonger?";
-            backgroundNotificationText = "[Toca el ICONO Big Ben para restaurar]";
+            backgroundNotificationText = "[Toca AQUÍ para restaurar]";
             optionsInText = "OPCIONES >";
             optionsOutText = "< OPCIONES";
           }
@@ -1194,7 +1194,7 @@
             helpTextTitle = "Benvenuti nel Big Ben Bonger";
             helpDismissText = "CHIUDI";
             quitConfirmText = "Vuoi uscire dal Big Ben Bonger?";
-            backgroundNotificationText = "[Tocca l'ICONA del Big Ben per ripristinare]";
+            backgroundNotificationText = "[Tocca QUI per ripristinare]";
             optionsInText = "OPZIONI >";
             optionsOutText = "< OPZIONI";
           }
@@ -1218,7 +1218,7 @@
             helpTextTitle = "Welcome to the Big Ben Bonger";
             helpDismissText = "DISMISS";
             quitConfirmText = "Do you want to exit Big Ben Bonger?";
-            backgroundNotificationText = "[Tap the Big Ben ICON to Restore]";
+            backgroundNotificationText = "[Tap HERE to Restore]";
             optionsInText = "OPTIONS >";
             optionsOutText = "< OPTIONS";
           }
