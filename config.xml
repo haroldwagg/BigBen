@@ -1,4 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
+<gap:config-file platform="android" parent="/manifest/application">
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+</gap:config-file>
 <widget id="com.phonegap.bigben" version="4.8.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Big Ben</name>
     <description>
@@ -29,9 +32,7 @@
     <plugin name="io.gvox.plugin.phonecalltrap" source="npm" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
 
-    <gap:config-file platform="android" parent="/manifest/application">
-      <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    </gap:config-file>
+
 
 
 
