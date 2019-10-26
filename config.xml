@@ -29,6 +29,8 @@
     <plugin name="cordova-plugin-background-mode" version="0.7.2" source="npm" />
     <plugin name="io.gvox.plugin.phonecalltrap" source="npm" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
+    <plugin name="cordova-plugin-android-permissions" source="npm" />
+
 
 <!--
     <gap:config-file platform="android" parent="/manifest/application">
@@ -52,7 +54,7 @@
 -->
     </platform>
     <platform name="android">
-<!--      
+<!--
       <config-file target="AndroidManifest.xml" parent="/manifest">
          <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
      </config-file>
