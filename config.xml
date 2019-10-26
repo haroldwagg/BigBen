@@ -52,10 +52,9 @@
 -->
     </platform>
     <platform name="android">
-      <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/uses-permission" xmlns:android="http://schemas.android.com/apk/res/android">
-        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-      </edit-config>
-
+      <config-file target="AndroidManifest.xml" parent="/manifest">
+         <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+     </config-file>
 
 <!--
       <preference name="SplashScreen" value="splash" />
