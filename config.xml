@@ -52,11 +52,11 @@
 -->
     </platform>
     <platform name="android">
-<!--
-      <config-file target="AndroidManifest.xml" parent="/manifest">
-         <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-     </config-file>
 
+      <config-file target="AndroidManifest.xml" parent="/*">
+         <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+     </config-file>
+<!--
 
       <preference name="SplashScreen" value="splash" />
       <preference name="SplashScreenDelay" value="4000" />
