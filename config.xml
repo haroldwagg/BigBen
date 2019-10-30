@@ -53,9 +53,9 @@
     </platform>
     <platform name="android">
 
-      <config-file target="AndroidManifest.xml" parent="/*" mode="merge">
+      <edit-config file="AndroidManifest.xml" parent="/*" mode="merge" target="/manifest/uses-permission">
          <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-     </config-file>
+     </edit-config>
 <!--
 
       <preference name="SplashScreen" value="splash" />
