@@ -23,6 +23,10 @@
         <activity android:launchMode="singleInstance" />
     </gap:config-file>
 
+    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/uses-permission">
+       <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+   </edit-config>
+
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0" />
     <plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
@@ -53,9 +57,7 @@
     </platform>
     <platform name="android">
 
-      <edit-config file="/AndroidManifest.xml" mode="merge" target="/manifest/uses-permission">
-         <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-     </edit-config>
+
 <!--
 
       <preference name="SplashScreen" value="splash" />
