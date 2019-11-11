@@ -733,6 +733,8 @@ function success( status ) {
           hidden: false
         });
 
+        cordova.plugins.backgroundMode.setDefaults({ silent: true });
+
         var body = document.getElementsByTagName('body')[0];
         var ratio = window.devicePixelRatio || 1;
         var h = screen.height;
