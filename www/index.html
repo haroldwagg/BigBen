@@ -733,8 +733,6 @@ function success( status ) {
           hidden: false
         });
 
-        cordova.plugins.backgroundMode.setDefaults({ silent: true });
-
         var body = document.getElementsByTagName('body')[0];
         var ratio = window.devicePixelRatio || 1;
         var h = screen.height;
@@ -816,8 +814,6 @@ function success( status ) {
 
         window.plugins.insomnia.keepAwake();
 
-        cordova.plugins.backgroundMode.setEnabled(true);
-
         cordova.plugins.backgroundMode.on('activate', function() {
           cordova.plugins.backgroundMode.disableWebViewOptimizations();
         });
@@ -857,6 +853,7 @@ function success( status ) {
 
       function onResume()   {
         cordova.plugins.backgroundMode.moveToForeground();
+        cordova.plugins.backgroundMode.setEnabled(false);
         window.plugins.insomnia.keepAwake();
         clearTimeout(loopThread);
         init();
@@ -942,9 +939,11 @@ function success( status ) {
 //        });
 //
 //        cordova.plugins.backgroundMode.disableWebViewOptimizations();
+//        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
 //
         firstTimeInBG = true;
-//        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
+
+        cordova.plugins.backgroundMode.setEnabled(true);
         cordova.plugins.backgroundMode.moveToBackground();
       }
 
