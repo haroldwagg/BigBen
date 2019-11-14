@@ -814,6 +814,9 @@ function success( status ) {
 
         window.plugins.insomnia.keepAwake();
 
+        cordova.plugins.backgroundMode.setEnabled(true);
+        cordova.plugins.backgroundMode.overrideBackButton();
+
         cordova.plugins.backgroundMode.on('activate', function() {
           cordova.plugins.backgroundMode.disableWebViewOptimizations();
         });
@@ -834,17 +837,17 @@ function success( status ) {
           }
         });
 
-        document.addEventListener("backbutton", function (e) {               // Disable Back Button
-            e.preventDefault();
-            var q = confirm(quitConfirmText);
-            if (q == true)   {
-              doExit();
-            }
-            else   {
-              ;
-            }
-          },
-        false );
+//        document.addEventListener("backbutton", function (e) {
+//            e.preventDefault();
+//            var q = confirm(quitConfirmText);
+//            if (q == true)   {
+//              doExit();
+//            }
+//            else   {
+//              ;
+//            }
+//          },
+//        false );
 
         init();
       }
@@ -852,8 +855,7 @@ function success( status ) {
       document.addEventListener("resume", onResume, false);
 
       function onResume()   {
-        cordova.plugins.backgroundMode.moveToForeground();
-        cordova.plugins.backgroundMode.setEnabled(false);
+//        cordova.plugins.backgroundMode.moveToForeground();
         window.plugins.insomnia.keepAwake();
         clearTimeout(loopThread);
         init();
@@ -861,9 +863,6 @@ function success( status ) {
 
       function doExit()   {
         clearTimeout(loopThread);
-        if (! DUP_EXIT)   {
-          localStorage["locker"] = 0;
-        }
         window.plugins.insomnia.allowSleepAgain();
         navigator.app.exitApp();
       }
@@ -929,8 +928,8 @@ function success( status ) {
       }
 
       function doGoToBG()   {
-        window.plugins.insomnia.allowSleepAgain();
-
+//        window.plugins.insomnia.allowSleepAgain();
+//
 //        cordova.plugins.backgroundMode.setDefaults({
 //          title: "Big Ben Bonger Background",
 //          text: backgroundNotificationText,
@@ -941,10 +940,11 @@ function success( status ) {
 //        cordova.plugins.backgroundMode.disableWebViewOptimizations();
 //        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
 //
-        firstTimeInBG = true;
-
-        cordova.plugins.backgroundMode.setEnabled(true);
-        cordova.plugins.backgroundMode.moveToBackground();
+//        firstTimeInBG = true;
+//
+//
+//        cordova.plugins.backgroundMode.moveToBackground();
+          alert("THIS BUTTON HAS BEEN DISCONNECTED\n\nTo move Big Ben to Background Mode, use your device's BACK button" );
       }
 
       function doHelp()   {
