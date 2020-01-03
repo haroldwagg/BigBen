@@ -455,19 +455,19 @@
 
           if (h / ratio > 780)   {
             if (localStorage["language"] == "fr")   {
-              panelStyle.width = '395px';
+              panelStyle.width = '4655px';
             }
             else if (localStorage["language"] == "pt")   {
-              panelStyle.width = '480px';
+              panelStyle.width = '550px';
             }
             else if (localStorage["language"] == "de")   {
-              panelStyle.width = '460px';
+              panelStyle.width = '530px';
             }
             else   {
-              panelStyle.width = '400px';
+              panelStyle.width = '470px';
             }
 
-            panelStyle.height = '365px';
+            panelStyle.height = '375px';
             document.getElementById("Quarter").style.marginTop = "10px";
             document.getElementById("Half").style.marginTop = "8px";
             document.getElementById("Hour-strikes").style.marginTop = "8px";
@@ -477,19 +477,19 @@
           }
           else   {
             if (localStorage["language"] == "fr")   {
-              panelStyle.width = '250px';
+              panelStyle.width = '310px';
             }
             else if (localStorage["language"] == "pt")   {
-              panelStyle.width = '290px';
+              panelStyle.width = '350px';
             }
             else if (localStorage["language"] == "de")   {
-              panelStyle.width = '257px';
+              panelStyle.width = '317px';
             }
             else   {
-              panelStyle.width = '235px';
+              panelStyle.width = '295px';
             }
 
-            panelStyle.height = '225px';
+            panelStyle.height = '215px';
             document.getElementById("spkr").style.width = "22px";
             document.getElementById("spkr").style.height = "22px";
           }
@@ -815,7 +815,7 @@ function success( status ) {
         window.plugins.insomnia.keepAwake();
 
         cordova.plugins.backgroundMode.setEnabled(true);
-        cordova.plugins.backgroundMode.overrideBackButton();
+//        cordova.plugins.backgroundMode.overrideBackButton();
 
         cordova.plugins.backgroundMode.on('activate', function() {
           cordova.plugins.backgroundMode.disableWebViewOptimizations();
@@ -837,17 +837,17 @@ function success( status ) {
           }
         });
 
-//        document.addEventListener("backbutton", function (e) {
-//            e.preventDefault();
-//            var q = confirm(quitConfirmText);
-//            if (q == true)   {
-//              doExit();
-//            }
-//            else   {
-//              ;
-//            }
-//          },
-//        false );
+        document.addEventListener("backbutton", function (e) {
+            e.preventDefault();
+            var q = confirm(quitConfirmText);
+            if (q == true)   {
+              doExit();
+            }
+            else   {
+              ;
+            }
+          },
+        false );
 
         init();
       }
@@ -928,8 +928,8 @@ function success( status ) {
       }
 
       function doGoToBG()   {
-//        window.plugins.insomnia.allowSleepAgain();
-//
+        window.plugins.insomnia.allowSleepAgain();
+
 //        cordova.plugins.backgroundMode.setDefaults({
 //          title: "Big Ben Bonger Background",
 //          text: backgroundNotificationText,
@@ -937,14 +937,12 @@ function success( status ) {
 //          hidden: false
 //        });
 //
-//        cordova.plugins.backgroundMode.disableWebViewOptimizations();
+        cordova.plugins.backgroundMode.disableWebViewOptimizations();
 //        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
 //
-//        firstTimeInBG = true;
-//
-//
-//        cordova.plugins.backgroundMode.moveToBackground();
-          alert("THIS BUTTON HAS BEEN DISCONNECTED\n\nTo move Big Ben to Background Mode, use your device's BACK button" );
+        firstTimeInBG = true;
+        cordova.plugins.backgroundMode.moveToBackground();
+        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
       }
 
       function doHelp()   {
