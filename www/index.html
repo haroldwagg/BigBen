@@ -837,7 +837,10 @@ function success( status ) {
           }
         });
 
-        document.addEventListener("backbutton", confirmExit(e), false );
+        document.addEventListener("backbutton", function(e) {
+            e.preventDefault();
+            confirmExit();
+          }, false );
 
         init();
       }
@@ -857,10 +860,7 @@ function success( status ) {
         navigator.app.exitApp();
       }
 
-      function confirmExit(e)   {
-        if (arguments.length > 0)   {
-          e.preventDefault();
-        }
+      function confirmExit()   {
         var q = confirm(quitConfirmText);
         if (q == true)   {
           doExit();
