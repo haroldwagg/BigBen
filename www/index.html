@@ -455,19 +455,19 @@
 
           if (h / ratio > 780)   {
             if (localStorage["language"] == "fr")   {
-              panelStyle.width = '4655px';
+              panelStyle.width = '440px';
             }
             else if (localStorage["language"] == "pt")   {
-              panelStyle.width = '550px';
+              panelStyle.width = '525px';
             }
             else if (localStorage["language"] == "de")   {
-              panelStyle.width = '530px';
+              panelStyle.width = '505px';
             }
             else   {
-              panelStyle.width = '470px';
+              panelStyle.width = '445px';
             }
 
-            panelStyle.height = '375px';
+            panelStyle.height = '380px';
             document.getElementById("Quarter").style.marginTop = "10px";
             document.getElementById("Half").style.marginTop = "8px";
             document.getElementById("Hour-strikes").style.marginTop = "8px";
@@ -477,19 +477,19 @@
           }
           else   {
             if (localStorage["language"] == "fr")   {
-              panelStyle.width = '310px';
+              panelStyle.width = '290px';
             }
             else if (localStorage["language"] == "pt")   {
-              panelStyle.width = '350px';
+              panelStyle.width = '330px';
             }
             else if (localStorage["language"] == "de")   {
-              panelStyle.width = '317px';
+              panelStyle.width = '297px';
             }
             else   {
-              panelStyle.width = '295px';
+              panelStyle.width = '275px';
             }
 
-            panelStyle.height = '215px';
+            panelStyle.height = '220px';
             document.getElementById("spkr").style.width = "22px";
             document.getElementById("spkr").style.height = "22px";
           }
@@ -940,7 +940,7 @@ function success( status ) {
 //          hidden: false
 //        });
 //
-        cordova.plugins.backgroundMode.disableWebViewOptimizations();
+//        cordova.plugins.backgroundMode.disableWebViewOptimizations();
 //        cordova.plugins.backgroundMode.configure({ text: backgroundNotificationText, resume: true  });
 //
         firstTimeInBG = true;
