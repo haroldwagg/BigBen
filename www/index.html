@@ -55,7 +55,7 @@
 
                 <div id="bottomNavBar" style="background-color: black; margin: 0; padding: 0; height: 54px; position: fixed; bottom: 0%; width: 100%; overflow:visible;">
                   <img src="img/help.png" width="30" height="30" id="helpIcon" onClick="doHelp()" style="margin-left: 8px; margin-top: 5px;" />
-                  <img id="ximage" name="ximage" src="x.png" width="45" height="45" style="float: right; border: none;  padding: 0; margin-top: 5px; margin-right: 8px;" onClick="doExit()" />
+                  <img id="ximage" name="ximage" src="x.png" width="45" height="45" style="float: right; border: none;  padding: 0; margin-top: 5px; margin-right: 8px;" onClick="confirmExit()" />
                   <img id="minimage" name="minimage" src="img/min.png" width="45" height="45" style="float: right; border: none; margin-top: 5px;" onClick="doGoToBG()" />
                   <div id="clearr" style=" clear: both;"></div>
                 </div>
@@ -837,17 +837,7 @@ function success( status ) {
           }
         });
 
-        document.addEventListener("backbutton", function (e) {
-            e.preventDefault();
-            var q = confirm(quitConfirmText);
-            if (q == true)   {
-              doExit();
-            }
-            else   {
-              ;
-            }
-          },
-        false );
+        document.addEventListener("backbutton", confirmExit(e), false );
 
         init();
       }
@@ -865,6 +855,19 @@ function success( status ) {
         clearTimeout(loopThread);
         window.plugins.insomnia.allowSleepAgain();
         navigator.app.exitApp();
+      }
+
+      function confirmExit(e)   {
+        if (arguments.length > 0)   {
+          e.preventDefault();
+        }
+        var q = confirm(quitConfirmText);
+        if (q == true)   {
+          doExit();
+        }
+        else   {
+          return;
+        }
       }
 
       window.addEventListener("beforeunload", function (event) {
