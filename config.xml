@@ -31,7 +31,7 @@
 
     <config-file platform="android" parent="/manifest" mode="merge">
         <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <config-file>
+    </config-file>
 
 
 <!--
