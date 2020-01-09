@@ -9,41 +9,29 @@
         Uncle Mike
     </author>
     <content src="index.html" />
-<!--
-    <icon src="/icon.png" />
--->
+
+    <icon src="icon.png" />
+
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="DisallowOverscroll" value="true" />
 
     <preference name='phonegap-version' value='cli-9.0.0' />
-    <preference name='pgb-builder-version' value='2' />
+    <preference name='pgb-builder-version' value='1' />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="android-targetSdkVersion" value="28" />
-<!--
+
     <gap:config-file platform="android" parent="/manifest/application">
         <activity android:launchMode="singleTask" />
     </gap:config-file>
--->
 
-    <config-file platform="android" parent="/manifest/application" mode="merge">
-      <activity android:launchMode="singleInstance" />
-    </config-file>
-
-    <config-file platform="android" parent="/manifest" mode="merge">
-        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    </config-file>
-
-
-<!--
     <gap:config-file platform="android" parent="/manifest">
         <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     </gap:config-file>
--->
 
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0" />
     <plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
-    <plugin name="cordova-plugin-background-mode" version="0.7.2" source="npm" />
+    <plugin name="cordova-plugin-background-mode" source="npm" />
     <plugin name="io.gvox.plugin.phonecalltrap" source="npm" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
 
