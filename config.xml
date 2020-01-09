@@ -26,7 +26,7 @@
 -->
 
     <config-file platform="android" parent="/manifest/application" mode="merge">
-      <activity android:launchMode="singleTask" />
+      <activity android:launchMode="singleInstance" />
     </config-file>
 
     <gap:config-file platform="android" parent="/manifest">
