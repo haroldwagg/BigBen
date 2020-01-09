@@ -9,8 +9,8 @@
         Uncle Mike
     </author>
     <content src="index.html" />
-    <icon src="icon.png" />
-    
+    <icon src="/icon.png" />
+
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="DisallowOverscroll" value="true" />
 
