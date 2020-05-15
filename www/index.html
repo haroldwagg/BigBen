@@ -1132,6 +1132,8 @@ function success( status ) {
           myLang = language.value.substring(0, 2);
           localStorage["language"] = myLang;
 
+alert(localStorage["language"]);         
+
           if (localStorage["language"] == "pt")   {
             do24Hr = true;
             document.getElementById("setup_but").value = " OPÇÕES >";
