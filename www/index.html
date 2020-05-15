@@ -731,24 +731,14 @@
 
 //     window.onload = setTimeout(function() {starter();}, 2000);
 
-function error() {
-alert('No FOREGROUND_SERVICE');
-}
-
-function success( status ) {
-  if( !status.hasPermission )   {
-     alert('No FOREGROUND_SERVICE --from success');
-  }
-  else   {
-    alert("SUCCESS!!");
-  }
-}
 
 //////////////////////////////////////////////////////
 ///  STARTER  ////////////////////////////////////////
 //////////////////////////////////////////////////////
 
       function starter()   {
+
+        setLanguage();
 
         cordova.plugins.backgroundMode.setDefaults({
           title: "Big Ben Bonger Background",
@@ -771,8 +761,6 @@ function success( status ) {
           body.style.fontSize = "12px";
           SIZE = "small";
         }
-
-        setLanguage();
 
         if (SIZE == "big")   {
           document.getElementById("ximage").style.width = "65px";
@@ -1132,7 +1120,7 @@ function success( status ) {
           myLang = language.value.substring(0, 2);
           localStorage["language"] = myLang;
 
-alert(localStorage["language"]);         
+//        alert(localStorage["language"]);
 
           if (localStorage["language"] == "pt")   {
             do24Hr = true;
