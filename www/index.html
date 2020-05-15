@@ -663,13 +663,25 @@
 
         if (screen.height > screen.width) {
           if (SIZE == "small")   {
-            body.style.backgroundImage = 'url(img/bg_pt_sm.jpg)';
+            if (localStorage["language"] == "ru")   {
+              body.style.backgroundImage = 'url(img/bg_ru_pt_sm.jpg)';
+            }
+            else   {
+              body.style.backgroundImage = 'url(img/bg_pt_sm.jpg)';
+            }
+
             document.getElementById("setupButtonDiv").style.position = "fixed";
             document.getElementById("setupButtonDiv").style.top = "286px";
             document.getElementById("setupButtonDiv").style.right = "0px";
           }
           else   {
-            body.style.backgroundImage = 'url(img/bg_pt_lg.jpg)';
+            if (localStorage["language"] == "ru")   {
+              body.style.backgroundImage = 'url(img/bg_ru_pt_lg.jpg)';
+            }
+            else   {
+              body.style.backgroundImage = 'url(img/bg_pt_lg.jpg)';
+            }
+
             document.getElementById("setupButtonDiv").style.position = "relative";
             document.getElementById("setupButtonDiv").style.marginTop = "600px";
           }
@@ -682,13 +694,25 @@
         }
         else   {
           if (SIZE == "small")   {
-            body.style.backgroundImage = 'url(img/bg_lscape_sm.jpg)';
+            if (localStorage["language"] == "ru")   {
+              body.style.backgroundImage = 'url(img/bg_ru_lscape_sm.jpg)';
+            }
+            else   {
+              body.style.backgroundImage = 'url(img/bg_lscape_sm.jpg)';
+            }
+
             document.getElementById("setupButtonDiv").style.position = "fixed";
             document.getElementById("setupButtonDiv").style.top = "230px";
             document.getElementById("setupButtonDiv").style.right = "0px";
           }
           else   {
-            body.style.backgroundImage = 'url(img/bg_lscape_lg.jpg)';
+            if (localStorage["language"] == "ru")   {
+              body.style.backgroundImage = 'url(img/bg_ru_lscape_lg.jpg)';
+            }
+            else   {
+              body.style.backgroundImage = 'url(img/bg_lscape_lg.jpg)';
+            }
+
             document.getElementById("setupButtonDiv").style.position = "relative";
             document.getElementById("setupButtonDiv").style.marginTop = "530px";
           }
@@ -748,7 +772,7 @@ function success( status ) {
           SIZE = "small";
         }
 
-
+        setLanguage();
 
         if (SIZE == "big")   {
           document.getElementById("ximage").style.width = "65px";
@@ -771,12 +795,24 @@ function success( status ) {
           document.getElementById("setupTable").style.fontSize = "20px";
 
           if (screen.height <= screen.width) {
-            body.style.backgroundImage = 'url(img/bg_lscape_lg.jpg)';
+            if (localStorage["language"] == "ru")   {
+              body.style.backgroundImage = 'url(img/bg_ru_lscape_lg.jpg)';
+            }
+            else   {
+              body.style.backgroundImage = 'url(img/bg_lscape_lg.jpg)';
+            }
+
             document.getElementById("setupButtonDiv").style.position = "relative";
             document.getElementById("setupButtonDiv").style.marginTop = "530px";
           }
           else   {
-            body.style.backgroundImage = 'url(img/bg_pt_lg.jpg)';
+            if (localStorage["language"] == "ru")   {
+              body.style.backgroundImage = 'url(img/bg_ru_pt_lg.jpg)';
+            }
+            else   {
+              body.style.backgroundImage = 'url(img/bg_pt_lg.jpg)';
+            }
+
             document.getElementById("setupButtonDiv").style.position = "relative";
             document.getElementById("setupButtonDiv").style.marginTop = "600px";
           }
@@ -792,21 +828,31 @@ function success( status ) {
           document.getElementById("helpIcon").style.height = "45px";
 
           if (screen.height <= screen.width) {
-            body.style.backgroundImage = 'url(img/bg_lscape_sm.jpg)';
+            if (localStorage["language"] == "ru")   {
+              body.style.backgroundImage = 'url(img/bg_ru_lscape_sm.jpg)';
+            }
+            else   {
+              body.style.backgroundImage = 'url(img/bg_lscape_sm.jpg)';
+            }
+
             document.getElementById("setupButtonDiv").style.position = "fixed";
             document.getElementById("setupButtonDiv").style.top = "230px";
             document.getElementById("setupButtonDiv").style.right = "0px";
           }
           else   {
-            body.style.backgroundImage = 'url(img/bg_pt_sm.jpg)';
-//            document.getElementById("setupButtonDiv").style.position = "relative";
-//            document.getElementById("setupButtonDiv").style.marginTop = "368px";
+            if (localStorage["language"] == "ru")   {
+              body.style.backgroundImage = 'url(img/bg_ru_pt_sm.jpg)';
+            }
+            else   {
+              body.style.backgroundImage = 'url(img/bg_pt_sm.jpg)';
+            }
+
             document.getElementById("setupButtonDiv").style.position = "fixed";
             document.getElementById("setupButtonDiv").style.top = "286px";
             document.getElementById("setupButtonDiv").style.right = "0px";
           }
         }
-        setLanguage();
+
         processSavedSettings();
         initializeCanvas();
         d = new Date();
