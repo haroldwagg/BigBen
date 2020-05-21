@@ -850,7 +850,6 @@
         window.plugins.insomnia.keepAwake();
 
         cordova.plugins.backgroundMode.setEnabled(true);
-//        cordova.plugins.backgroundMode.overrideBackButton();
 
         cordova.plugins.backgroundMode.on('activate', function() {
           cordova.plugins.backgroundMode.disableWebViewOptimizations();
@@ -1313,6 +1312,24 @@
             optionsInText = "OPTIONS >";
             optionsOutText = "< OPTIONS";
           }
+
+          if (localStorage["language"] == "ru")   {
+            cordova.plugins.backgroundMode.setDefaults({
+              title: "Биг Бен Бонгер Фон",
+              text: backgroundNotificationText,
+              resume: true,
+              hidden: false
+              });
+            }
+            else   {
+              cordova.plugins.backgroundMode.setDefaults({
+                title: "Big Ben Bonger Background",
+                text: backgroundNotificationText,
+                resume: true,
+                hidden: false
+                });
+            }
+
 
 //
 //  Add Select options
