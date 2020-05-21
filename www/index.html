@@ -1320,7 +1320,12 @@
           var x = document.getElementById("clocker");
 
           var b = document.createElement("option");
-          b.text = "BIG BEN";
+          if (localStorage["language"] == "ru")   {
+            b.text = "Биг Бен";
+          }
+          else   {
+            b.text = "BIG BEN";
+          }
           b.value = "bb";
 
           if ((localStorage["ding_selection"] != "bg") && (localStorage["ding_selection"] != "gf"))  {
