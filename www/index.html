@@ -110,7 +110,7 @@
       var lang;
       var XStr;
       var setupIsDisplayed = false;
-      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText;
+      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText notificationTitle;
 
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -1146,6 +1146,7 @@
             backgroundNotificationText = "[Toque AQUI para restaurar]";
             optionsInText = "OPÇÕES >";
             optionsOutText = "< OPÇÕES";
+            notificationTitle = "Fundo Big Ben Bogner";
           }
           else if (localStorage["language"] == "fr")   {
             do24Hr = true;
@@ -1171,6 +1172,7 @@
             backgroundNotificationText = "[Appuyez ICI pour restaurer]";
             optionsInText = "OPTIONS >";
             optionsOutText = "< OPTIONS";
+            notificationTitle = "Fond de Big Ben Bonger";
           }
           else if (localStorage["language"] == "de")   {
             do24Hr = true;
@@ -1196,6 +1198,7 @@
             backgroundNotificationText = "[Tippen Sie zum Wiederherstellen HIER]";
             optionsInText = "OPTIONEN >";
             optionsOutText = "< OPTIONEN";
+            notificationTitle = "Big Ben Bonger Hintergrund";
           }
           else if (localStorage["language"] == "es")   {
             do24Hr = false;
@@ -1221,6 +1224,7 @@
             backgroundNotificationText = "[Toca AQUÍ para restaurar]";
             optionsInText = "OPCIONES >";
             optionsOutText = "< OPCIONES";
+            notificationTitle = "Fondo Big Ben Bonger";
           }
           else if (localStorage["language"] == "it")   {
             do24Hr = true;
@@ -1246,6 +1250,7 @@
             backgroundNotificationText = "[Tocca QUI per ripristinare]";
             optionsInText = "OPZIONI >";
             optionsOutText = "< OPZIONI";
+            notificationTitle = "Sfondo di Big Ben Bonger";
           }
           else if (localStorage["language"] == "ru")   {
             if (screen.height <= screen.width)   {
@@ -1287,6 +1292,7 @@
             backgroundNotificationText = "[Нажмите ЗДЕСЬ, чтобы восстановить]";
             optionsInText = "ОПЦИИ >";
             optionsOutText = "< ОПЦИИ";
+            notificationTitle = "Биг Бен Бонгер Фон";
           }
           else   {
             document.getElementById("setup_but").value = "OPTIONS >";
@@ -1311,25 +1317,15 @@
             backgroundNotificationText = "[Tap HERE to Restore]";
             optionsInText = "OPTIONS >";
             optionsOutText = "< OPTIONS";
+            notificationTitle = "Big Ben Bonger Background";
           }
 
-          if (localStorage["language"] == "ru")   {
-            cordova.plugins.backgroundMode.setDefaults({
-              title: "Биг Бен Бонгер Фон",
-              text: backgroundNotificationText,
-              resume: true,
-              hidden: false
-              });
-            }
-            else   {
-              cordova.plugins.backgroundMode.setDefaults({
-                title: "Big Ben Bonger Background",
-                text: backgroundNotificationText,
-                resume: true,
-                hidden: false
-                });
-            }
-
+          cordova.plugins.backgroundMode.setDefaults({
+            title: notificationTitle,
+            text: backgroundNotificationText,
+            resume: true,
+            hidden: false
+          });
 
 //
 //  Add Select options
