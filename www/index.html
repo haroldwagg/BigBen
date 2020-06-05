@@ -461,6 +461,9 @@
             else if (localStorage["language"] == "pt")   {
               panelStyle.width = '535px';
             }
+            else if (localStorage["language"] == "vi")   {
+              panelStyle.width = '525px';
+            }
             else if (localStorage["language"] == "de")   {
               panelStyle.width = '515px';
             }
@@ -482,6 +485,9 @@
             }
             else if (localStorage["language"] == "pt")   {
               panelStyle.width = '330px';
+            }
+            else if (localStorage["language"] == "pt")   {
+              panelStyle.width = '315px';
             }
             else if (localStorage["language"] == "de")   {
               panelStyle.width = '297px';
@@ -1294,6 +1300,31 @@
             optionsInText = "ОПЦИИ >";
             optionsOutText = "< ОПЦИИ";
             notificationTitle = "Биг Бен Бонгер Фон";
+          }
+          else if (localStorage["language"] == "vi")   {
+            document.getElementById("setup_but").value = "LỰA CHỌN >";
+            mantleClockText = "ĐỒNG HỒ ĐEO TAY";
+            grandfatherClockText = "ĐỒNG HỒ GRANDFATHER";
+            document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG TRONG PHONECALLS";
+            document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
+            document.getElementById("Half_Label").innerHTML = "&nbsp;:30 CHIMES";
+            document.getElementById("Hour_Label").innerHTML = "&nbsp;CHIMES TRÊN GIỜ";
+            helpText = "Let Big Ben V1.6 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
+            helpText += "Tap the [OPTIONS >] button to adjust settings. Your settings are always saved.  When finished, tap the [< OPTIONS] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\n";
+            helpText += "But most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square blue Minimize Icon at the bottom of the screen. Big Ben will continue to bong until you exit the app.\n\n";
+            helpText += "To re-maximize the Bonger, tap the Big Ben notification message, or the Big Ben icon. You can then exit the app using the red \"X\" Icon in the bottom right corner. Thank you for choosing the Big Ben Bonger.\n\n";
+            helpText += "=======================\n";
+            helpText += "Hiện tại có sẵn:\nBIG BEN BONGER ++PLUS++\n\n";
+            helpText += "Âm thanh đồng hồ bổ sung ... Pendulum Âm thanh ... 'Thời Gian Tĩnh Lặng' ... Tự động bắt đầu ... Tắt tiếng bằng tay\n\nGhé thăm trang web của chúng tôi để xem nó trong hành động:\nwww.BigBenBonger.com\n";
+            helpText += "=======================\n\n";
+            helpText += "Chúa cứu nữ hoàng...\n" + localStorage["language"] + "\n\numikeapps@outlook.com";
+            helpTextTitle = "Welcome to the Big Ben Bonger";
+            helpDismissText = "ĐÓNG";
+            quitConfirmText = "Bạn có muốn thoát khỏi Big Ben Bonger?";
+            backgroundNotificationText = "[Nhấn vào đây để khôi phục]";
+            optionsInText = "LỰA CHỌN >";
+            optionsOutText = "< LỰA CHỌN";
+            notificationTitle = "Lý lịch Big Ben Bonger";
           }
           else   {
             document.getElementById("setup_but").value = "OPTIONS >";
