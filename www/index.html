@@ -793,6 +793,9 @@
             if (localStorage["language"] == "ru")   {
               body.style.backgroundImage = 'url(img/bg_ru_lscape_lg.jpg)';
             }
+            else if (localStorage["language"] == "ar")   {
+              body.style.backgroundImage = 'url(img/img/bg_ar_lscape_lg.jpg)';
+            }
             else   {
               body.style.backgroundImage = 'url(img/bg_lscape_lg.jpg)';
             }
@@ -803,6 +806,9 @@
           else   {
             if (localStorage["language"] == "ru")   {
               body.style.backgroundImage = 'url(img/bg_ru_pt_lg.jpg)';
+            }
+            else if (localStorage["language"] == "ar")   {
+              body.style.backgroundImage = 'url(img/bg_ar_pt_lg.jpg)';
             }
             else   {
               body.style.backgroundImage = 'url(img/bg_pt_lg.jpg)';
@@ -826,6 +832,9 @@
             if (localStorage["language"] == "ru")   {
               body.style.backgroundImage = 'url(img/bg_ru_lscape_sm.jpg)';
             }
+            else if (localStorage["language"] == "ar")   {
+              body.style.backgroundImage = 'url(img/bg_ar_lscape_sm.jpg)';
+            }
             else   {
               body.style.backgroundImage = 'url(img/bg_lscape_sm.jpg)';
             }
@@ -837,6 +846,9 @@
           else   {
             if (localStorage["language"] == "ru")   {
               body.style.backgroundImage = 'url(img/bg_ru_pt_sm.jpg)';
+            }
+            else if (localStorage["language"] == "ar")   {
+              body.style.backgroundImage = 'url(img/bg_ar_pt_sm.jpg)';
             }
             else   {
               body.style.backgroundImage = 'url(img/bg_pt_sm.jpg)';
@@ -1258,6 +1270,54 @@
             optionsOutText = "< OPZIONI";
             notificationTitle = "Sfondo di Big Ben Bonger";
           }
+
+
+          else if (localStorage["language"] == "ar")   {
+            do24Hr = true;
+            if (screen.height <= screen.width)   {
+              if (SIZE == "big")   {
+                body.style.backgroundImage = 'url(img/bg_ar_lscape_lg.jpg)';
+              }
+              else   {
+                body.style.backgroundImage = 'url(img/bg_ar_lscape_sm.jpg)';
+              }
+            }
+            else   {
+              if (SIZE == "big")   {
+                body.style.backgroundImage = 'url(img/bg_ar_pt_lg.jpg)';
+              }
+              else   {
+                body.style.backgroundImage = 'url(img/bg_ar_pt_sm.jpg)';
+              }
+            }
+
+            document.getElementById("setup_but").value = "OPTIONS >";
+            mantleClockText = "MANTLE CLOCK";
+            grandfatherClockText = "GRANDFATHER CLOCK";
+            document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURING PHONECALLS";
+            document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
+            document.getElementById("Half_Label").innerHTML = "&nbsp;HALF HOUR CHIMES";
+            document.getElementById("Hour_Label").innerHTML = "&nbsp;ON-THE-HOUR STRIKES";
+            helpText = "Let Big Ben V1.6 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
+            helpText += "Tap the [OPTIONS >] button to adjust settings. Your settings are always saved.  When finished, tap the [< OPTIONS] button again.  You can leave Ben like this and he'll display the time and bong for you all day.\n\n";
+            helpText += "But most likely you'll want to do other things with your phone or tablet. You can minimize Big Ben by tapping the square blue Minimize Icon at the bottom of the screen. Big Ben will continue to bong until you exit the app.\n\n";
+            helpText += "To re-maximize the Bonger, tap the Big Ben notification message, or the Big Ben icon. You can then exit the app using the red \"X\" Icon in the bottom right corner. Thank you for choosing the Big Ben Bonger.\n\n";
+            helpText += "=======================\n";
+            helpText += "Now available:\nBIG BEN BONGER ++PLUS++\n\n";
+            helpText += "More clock sounds ... Pendulum sound ... 'Quiet Time' ... Auto-start ... Manual mute\n\nVisit our website to see it in action:\nwww.BigBenBonger.com\n";
+            helpText += "=======================\n\n";
+            helpText += "God Save The Queen...\n" + localStorage["language"] + "\n\numikeapps@outlook.com";
+            helpTextTitle = "Welcome to the Big Ben Bonger";
+            helpDismissText = "DISMISS";
+            quitConfirmText = "Do you want to exit Big Ben Bonger?";
+            backgroundNotificationText = "[Tap HERE to Restore]";
+            optionsInText = "OPTIONS >";
+            optionsOutText = "< OPTIONS";
+            notificationTitle = "Big Ben Bonger Background";
+
+          }
+
+
           else if (localStorage["language"] == "ru")   {
             do24Hr = true;
             if (screen.height <= screen.width)   {
