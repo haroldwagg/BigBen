@@ -496,7 +496,12 @@
               panelStyle.width = '275px';
             }
 
-            panelStyle.height = '220px';
+            if (localStorage["language"] == "ar") {
+              panelStyle.height = '230px';
+            }
+            else   {
+              panelStyle.height = '220px';
+            }
             document.getElementById("spkr").style.width = "22px";
             document.getElementById("spkr").style.height = "22px";
           }
@@ -1310,7 +1315,7 @@
             mantleClockText = "ساعة الطاولة";
             grandfatherClockText = "ساعة الجد الأكبر";
             document.getElementById("bongDuringCall").innerHTML = "&nbsp;بونج خلال المكالمات الهاتفية";
-            document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 ناقوس";
+            document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 & :45 ناقوس";
             document.getElementById("Half_Label").innerHTML = "&nbsp;:30 ناقوس";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;:00 ناقوس";
             helpText = "Let Big Ben V1.6 help you when you don't want to lose track of time -- perfect when reading, working, studying or even shopping -- a subtle reminder every 15 minutes.\n\n";
@@ -1442,6 +1447,9 @@
           var b = document.createElement("option");
           if (localStorage["language"] == "ru")   {
             b.text = "БИГ БЕН";
+          }
+          else if (localStorage["language"] == "ar")   {
+            b.text = "بج بن";
           }
           else   {
             b.text = "BIG BEN";
