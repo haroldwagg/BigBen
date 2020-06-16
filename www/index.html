@@ -105,6 +105,8 @@
       var firstTimeInBG = true;
       var failSafe = 0;
 
+      var volumes = [0.0, 0.04, 0.09, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
+
       var dingThread;
       var ctx;
       var lang;
@@ -1381,9 +1383,9 @@
           }
           else if (localStorage["language"] == "vi")   {
             document.getElementById("setup_but").value = "LỰA CHỌN >";
-            mantleClockText = "ĐỒNG HỒ ĐEO TAY";
+            mantleClockText = "ĐỒNG HỒ NHỎ";
             grandfatherClockText = "ĐỒNG HỒ GRANDFATHER";
-            document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG TRONG PHONECALLS";
+            document.getElementById("bongDuringCall").innerHTML = "&nbsp;TỰ ĐỘNG BẮT ĐẦU KHI ĐIỆN THOẠI";
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;:30 CHIMES";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;CHIMES TRÊN GIỜ";
