@@ -1124,14 +1124,14 @@
 //  Volume
 //
         if ((localStorage["volume"] == "undefined") || (localStorage["volume"] == "") || (localStorage["volume"] == null))   {
-          localStorage["volume"] = "0.3";
+          localStorage["volume"] = "6";
         }
 
-        if (parseFloat(localStorage["volume"]) < 0.1)   {
-          localStorage["volume"] = "0.1";
+        if (parseFloat(localStorage["volume"]) < 1.0)   {
+          localStorage["volume"] = "6";
         }
-        else if (parseFloat(localStorage["volume"]) > 1.0)   {
-          localStorage["volume"] = "1.0";
+        else if (parseFloat(localStorage["volume"]) > 12)   {
+          localStorage["volume"] = "12";
         }
 
         MASTER_VOLUME = parseFloat(localStorage["volume"]);
