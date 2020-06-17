@@ -473,7 +473,13 @@
               panelStyle.width = '455px';
             }
 
-            panelStyle.height = '380px';
+            if (localStorage["language"] == "ar") {
+              panelStyle.height = '390px';
+            }
+            else   {
+              panelStyle.height = '380px';
+            }
+            
             document.getElementById("Quarter").style.marginTop = "10px";
             document.getElementById("Half").style.marginTop = "8px";
             document.getElementById("Hour-strikes").style.marginTop = "8px";
@@ -482,7 +488,7 @@
             document.getElementById("sprk").style.marginBottom = "-8px";
           }
           else   {
-            if (localStorage["language"] == "fr")   {
+            if (localStorage["language"] == "fr") {
               panelStyle.width = '290px';
             }
             else if (localStorage["language"] == "pt")   {
@@ -499,7 +505,7 @@
             }
 
             if (localStorage["language"] == "ar") {
-              panelStyle.height = '231px';
+              panelStyle.height = '240px';
             }
             else   {
               panelStyle.height = '220px';
