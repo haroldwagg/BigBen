@@ -112,7 +112,7 @@
       var lang;
       var XStr;
       var setupIsDisplayed = false;
-      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText, notificationTitle;
+      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, magdaleneClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText, notificationTitle;
 
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -1509,6 +1509,7 @@
             document.getElementById("setup_but").value = "OPTIONS >";
             mantleClockText = "MANTLE CLOCK";
             grandfatherClockText = "GRANDFATHER CLOCK";
+            magdaleneClockText = "MAGDALINE CHIMES";
             document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURING PHONECALLS";
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;HALF HOUR CHIMES";
@@ -1587,7 +1588,15 @@
 
           x.options.add(d, 2);
 
+          var e = document.createElement("option");
+          e.text = magdaleneClockText;
+          e.value = "mg";
 
+          if (localStorage["ding_selection"] == "mg")   {
+            e.selected = true;
+          }
+
+          x.options.add(e, 3);
 
         },
         ignoreError2() );
@@ -1601,15 +1610,7 @@
 
 //        alert("The value of your clock is " + theValue);
 
-        if (theValue == "bb")   {
-          selectBB();
-        }
-        else if (theValue == "bg")   {
-          selectBG();
-        }
-        else   {
-          selectGF();
-        }
+        doClockChange(theValue);
 
         QUARTER_DING = localStorage["ding_selection"] + "_quarter.mp3";
         HALF_DING  = localStorage["ding_selection"] + "_half.mp3";
