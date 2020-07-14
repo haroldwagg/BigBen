@@ -298,6 +298,9 @@
             else if (DING_SELECTION == "gf")   {
               deela = 16000;
             }
+            else if (DING_SELECTION == "mg")   {
+              deela = 4500;
+            }
             else   {
               deela = 13000;
             }
@@ -523,6 +526,72 @@
         clearTimeout(loopThread);
         init();
       }
+
+
+
+      function doClockChange(clk)   {
+        DING_SELECTION     = clk;
+        localStorage["ding_selection"] = clk;
+
+        if (clk == "mg")   {
+          var dingerFile = this.root + "audio/mg_half.mp3";
+        }
+        else   {
+          var dingerFile = this.root + "audio/" + clk + "_quarter.mp3";
+        }
+
+        if(my_media_WHICH != "NOT_RUNNING")   {
+          clearTimeout(Timeouter);
+          my_media_WHICH.stop();
+          my_media_WHICH.release();
+          my_media_WHICH = "NOT_RUNNING";
+        }
+
+        if(my_media_TEST != "NOT_RUNNING")   {
+          clearTimeout(delayRelease);
+          my_media_TEST.stop();
+          my_media_TEST.release();
+          my_media_TEST = "NOT_RUNNING";
+        }
+
+        my_media_WHICH = new Media(dingerFile,
+           function () { console.log("playAudio():Audio Success"); },
+           ignoreError()
+        );
+
+        my_media_WHICH.play();
+        my_media_WHICH.setVolume(volumes[MASTER_VOLUME]);
+
+        var timeoutDelay;
+
+        if (clk == "mg")   {
+          timeoutDelay = 3700;
+        }
+        else if (clk == "bb")   {
+          timeoutDelay = 9300;
+        }
+        else if (clk == "bg")   {
+          timeoutDelay = 11000;
+        }
+        else   {    //gf
+          timeoutDelay = 10000;
+        }
+
+        Timeouter = setTimeout(function()   {
+            my_media_WHICH.stop();
+            my_media_WHICH.release();
+            my_media_WHICH = "NOT_RUNNING";
+          }, timeoutDelay);
+      }
+
+
+
+
+
+
+
+
+
 
       function selectBB()   {
         DING_SELECTION     = "bb";
