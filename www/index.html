@@ -950,13 +950,6 @@
         }
       }
 
-      window.addEventListener("beforeunload", function (event) {
-//      event.preventDefault();
-        if (! DUP_EXIT)   {
-          localStorage["locker"] = 0;
-        }
-      });
-
       function changeVolume(dir)   {
         if(my_media_WHICH != "NOT_RUNNING")   {
           clearTimeout(Timeouter);
@@ -1493,8 +1486,8 @@
             document.getElementById("setup_but").value = "LỰA CHỌN >";
             mantleClockText = "ĐỒNG HỒ NHỎ";
             grandfatherClockText = "ĐỒNG HỒ GRANDFATHER";
-            magdaleneClockText = "CHUÔNG CỦA MAGDALINE";
-            document.getElementById("bongDuringCall").innerHTML = "&nbsp;TỰ ĐỘNG BẮT ĐẦU KHI ĐIỆN THOẠI";
+            magdaleneClockText = "MAGDALIN CHIMES";
+            document.getElementById("bongDuringCall").innerHTML = "&nbsp;KÊU VANG TRÊN ĐIỆN THOẠI";
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;:30 CHIMES";
             document.getElementById("Hour_Label").innerHTML = "&nbsp;CHIMES TRÊN GIỜ";
@@ -1572,7 +1565,7 @@
           }
           b.value = "bb";
 
-          if ((localStorage["ding_selection"] != "bg") && (localStorage["ding_selection"] != "gf"))  {
+          if ((localStorage["ding_selection"] != "bg") && (localStorage["ding_selection"] != "gf") && (localStorage["ding_selection"] != "mg"))  {
             b.selected = true;
           }
 
