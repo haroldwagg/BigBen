@@ -112,7 +112,7 @@
       var lang;
       var XStr;
       var setupIsDisplayed = false;
-      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, magdaleneClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText, notificationTitle, newYearText;
+      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, magdaleneClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText, notificationTitle, newYearText, introText;
 
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -1535,10 +1535,12 @@
             notificationTitle = "Big Ben Bonger Background";
 
             newYearText = "HAPPY NEW YEAR!  Thank you for trying Big Ben Bonger. If you are going to use this app to ring in the new year, you need to be aware of the timing of Big Ben's bongs.\n\n";
-            newYearText += "On all clocks the Westminster Chimes will begin exactly at :15, :30, :45 and on-the-hour. However there is one exception -- Big Ben. ";
+            newYearText += "On all our clocks the Westminster Chimes will begin exactly at :15, :30, :45 and on-the-hour. However there is one exception -- Big Ben. ";
             newYearText += "At the beginning of each hour, Big Ben's Westminster Chimes (the 16-note tune played before the hour strikes) will start about 15 seconds early. ";
             newYearText += "Each hour actually begins when Big Ben starts bonging the hours. That's how the specifications for the clock were written in the 1840's, and it's been bonging that way in London ever since.\n\n ";
             newYearText += "So if Big Ben is your clock of choice, at midnight you should expect to hear the chimes early, and the first strike of midnight being the beginning of the new year. All other clocks will not begin bonging until exactly midnight.";
+
+            introText = "PLEASE READ THIS. It will only be displayed once. Your device is currently running Android " + device.version + "\n";
           }
 
           cordova.plugins.backgroundMode.setDefaults({
@@ -1617,7 +1619,7 @@
             localStorage["firstTime"] = "didIt";
 
             navigator.notification.alert(
-              newYearText,
+              introText,
               "",
               helpTextTitle,
               helpDismissText
