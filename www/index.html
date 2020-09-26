@@ -112,7 +112,7 @@
       var lang;
       var XStr;
       var setupIsDisplayed = false;
-      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, magdaleneClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText, notificationTitle;
+      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, magdaleneClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText, notificationTitle, newYearText;
 
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -1158,7 +1158,7 @@
           myLang = language.value.substring(0, 2);
           localStorage["language"] = myLang;
 
-//        alert(localStorage["language"]);
+        alert(localStorage["language"]);
 
           if (localStorage["language"] == "pt")   {
             do24Hr = true;
@@ -1512,7 +1512,7 @@
             document.getElementById("setup_but").value = "OPTIONS >";
             mantleClockText = "MANTLE CLOCK";
             grandfatherClockText = "GRANDFATHER CLOCK";
-            magdaleneClockText = "MAGDALINE CHIMES";
+            magdaleneClockText = "MAGDALEN CHIMES";
             document.getElementById("bongDuringCall").innerHTML = "&nbsp;BONG DURING PHONECALLS";
             document.getElementById("15_45_Label").innerHTML = "&nbsp;:15 &amp; :45 CHIMES";
             document.getElementById("Half_Label").innerHTML = "&nbsp;HALF HOUR CHIMES";
@@ -1533,6 +1533,12 @@
             optionsInText = "OPTIONS >";
             optionsOutText = "< OPTIONS";
             notificationTitle = "Big Ben Bonger Background";
+
+            newYearText = "HAPPY NEW YEAR!  Thank you for trying Big Ben Bonger. If you are going to use this app to ring in the new year, you need to be aware of the timing of Big Ben's bongs.\n\n";
+            newYearText += "On all clocks the Westminster Chimes will begin exactly at :15, :30, :45 and on-the-hour. However there is one exception -- Big Ben. ";
+            newYearText += "At the beginning of each hour, Big Ben's Westminster Chimes (the 16-note tune played before the hour strikes) will start about 15 seconds early. ";
+            newYearText += "Each hour actually begins when Big Ben starts bonging the hours. That's how the specifications for the clock were written in the 1840's, and it's been bonging that way in London ever since.\n\n ";
+            newYearText += "So if Big Ben is your clock of choice, at midnight you should expect to hear the chimes early, and the first strike of midnight being the beginning of the new year. All other clocks will not begin bonging until exactly midnight.";
           }
 
           cordova.plugins.backgroundMode.setDefaults({
@@ -1545,6 +1551,7 @@
 //
 //  Add Select options
 //
+
           var x = document.getElementById("clocker");
 
           var b = document.createElement("option");
@@ -1600,6 +1607,20 @@
           }
 
           x.options.add(e, 3);
+alert(newYearText);
+
+
+//          if(typeof localStorage["firstTime"] != 'undefined')   {
+//            localStorage["firstTime"] = true;
+
+//            navigator.notification.alert(
+//              newYearText,
+//              "",
+//              helpTextTitle,
+//              helpDismissText
+//            );
+//          }
+
 
         },
         ignoreError2() );
