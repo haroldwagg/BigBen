@@ -94,6 +94,7 @@
       var DING_SELECTION;
       var do24Hr = false;
       var myLang;
+      var minerva = false;
 
       var Timeouter;
       var delayRelease;
@@ -1552,6 +1553,7 @@
 
           if ((mmonthh == 11 && ddayy == 30) || (mmonthh == 11 && ddayy == 31) || (mmonthh == 0 && ddayy == 1))   {
             introText += "\n\n" + newYearText;
+            minerva = true;
           }
 
           cordova.plugins.backgroundMode.setDefaults({
@@ -1624,8 +1626,9 @@
 //          sessionStorage.removeItem("firstTime");
 //          alert(typeof localStorage["firstTime"]);
 
-          if(typeof localStorage["firstTime"] == 'undefined')   {
+          if (typeof localStorage["firstTime"] == 'undefined')   {
             localStorage["firstTime"] = "didIt";
+            localStorage["lastYear"] = "2019";
 
             navigator.notification.alert(
               introText,
@@ -1635,6 +1638,16 @@
             );
           }
 
+          if (typeof localStorage["lastYear"] == 'undefined')   {
+            localStorage["lastYear"] = "2019";
+          }
+
+
+          var thisYear = new Date().getFullYear();
+          if (parseInt(localStorage["lastYear"]) < thisYear)   {
+            alert (localStorage["lastYear"] + " = " + thisYear);
+
+          }
 
         },
         ignoreError2() );
