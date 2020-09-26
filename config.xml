@@ -34,6 +34,7 @@
     <plugin name="cordova-plugin-background-mode" source="npm" />
     <plugin name="io.gvox.plugin.phonecalltrap" source="npm" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
+    <plugin name="cordova-plugin-device" source="npm" />
 
     <platform name="browser">
 <!--
