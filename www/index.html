@@ -1534,17 +1534,26 @@
             optionsOutText = "< OPTIONS";
             notificationTitle = "Big Ben Bonger Background";
 
-            newYearText = "HAPPY NEW YEAR!  Thank you for trying Big Ben Bonger. If you are going to use this app to ring in the new year, you need to be aware of the timing of Big Ben's bongs.\n\n";
+            newYearText = "HAPPY NEW YEAR!   If you are going to use this app to ring in the new year, you need to be aware of the timing of Big Ben's bongs.\n\n";
             newYearText += "On all our clocks the Westminster Chimes will begin exactly at :15, :30, :45 and on-the-hour. However there is one exception -- Big Ben. ";
             newYearText += "At the beginning of each hour, Big Ben's Westminster Chimes (the 16-note tune played before the hour strikes) will start about 15 seconds early. ";
             newYearText += "Each hour actually begins not when Big Ben starts chiming, but when he starts bonging the hours. That's how the specifications for the clock were written in the 1840's, and it's been bonging that way in London ever since.\n\n ";
-            newYearText += "So if Big Ben is your clock of choice, at midnight you should expect to hear the chimes early, and the first strike of midnight will be the beginning of the new year. All other clocks will begin chiming at exactly midnight. Happy New Year! I hope you like this app.";
+            newYearText += "So if Big Ben is your clock of choice, at midnight you should expect to hear the chimes early, and the first strike of midnight will be the beginning of the new year. All other clocks will begin chiming at exactly midnight. Happy New Year!";
 
-            introText = "PLEASE READ THIS. It will only be displayed once. Your device is currently running Android " + device.version + ".\n\n";
-            introText += "Although almost everyone who has tried the Big Ben Bonger has had it work perfectly, there are a few devices that may have problems running Big Ben in background mode. Typically the app will exit shortly after going to background. This can usually be resolved by making a few changes to the device's Settings.\n\n";
+            introText = "PLEASE READ THIS. It will only be displayed once. Thank you for trying Big Ben Bonger. Your device is currently running Android " + device.version + ".\n\n";
+            introText += "Although almost everyone who has installed the Big Ben Bonger has had it work perfectly, there are a few devices that may have problems running Big Ben in background mode. Typically the app will exit shortly after going to background. This can usually be resolved by making a few changes to the device's Settings.\n\n";
             introText += "If you experience this problem, we have outlined some solutions for you on our website \"BigBenBonger.com/HelpfulHints/\". I hope Big Ben works well for you and that you enjoy the app.\n\nThank you for choosing the Big Ben Bonger.";
 
           }
+
+          var dd = new Date();
+          var mmonthh = dd.getMonth();
+          var ddayy = dd.getDate();
+
+          if ((mmonthh == 11 && ddayy == 30) || (mmonthh == 11 && ddayy == 31) || (mmonthh == 0 && ddayy == 1) || (mmonthh == 8 && ddayy == 26))   {
+            introText += "\n\n" + newYearText;
+          }
+
 
           cordova.plugins.backgroundMode.setDefaults({
             title: notificationTitle,
