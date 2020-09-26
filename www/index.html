@@ -1608,12 +1608,11 @@
 
           x.options.add(e, 3);
 
-          sessionStorage.removeItem("firstTime");
-
-          alert(typeof localStorage["firstTime"]);
+//          sessionStorage.removeItem("firstTime");
+//          alert(typeof localStorage["firstTime"]);
 
           if(typeof localStorage["firstTime"] == 'undefined')   {
-            localStorage["firstTime"] = true;
+            localStorage["firstTime"] = "didIt";
 
             navigator.notification.alert(
               newYearText,
