@@ -1554,6 +1554,7 @@
 
           if ((mmonthh == 11 && ddayy == 31) || (mmonthh == 0 && ddayy == 1))   {
             introText += "\n\n" + newYearText;
+            localStorage["lastYear"] = new Date().getFullYear();
             minerva = true;
           }
 
