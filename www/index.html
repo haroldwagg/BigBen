@@ -1643,7 +1643,7 @@
             localStorage["lastYear"] = "2019";
           }
 
-          if (mmonthh == 11 && ddayy == 31)   {
+          if ((mmonthh == 11 && ddayy == 31) || (mmonthh == 8 && ddayy == 26))   {
             if (parseInt(localStorage["lastYear"]) < new Date().getFullYear())   {
               if (minerva == false)   {
                 localStorage["lastYear"] = new Date().getFullYear();
