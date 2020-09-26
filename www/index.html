@@ -1158,7 +1158,7 @@
           myLang = language.value.substring(0, 2);
           localStorage["language"] = myLang;
 
-        alert(localStorage["language"]);
+//        alert(localStorage["language"]);
 
           if (localStorage["language"] == "pt")   {
             do24Hr = true;
@@ -1607,19 +1607,21 @@
           }
 
           x.options.add(e, 3);
-alert(newYearText);
 
+          sessionStorage.removeItem("firstTime");
 
-//          if(typeof localStorage["firstTime"] != 'undefined')   {
-//            localStorage["firstTime"] = true;
+          alert(typeof localStorage["firstTime"]);
 
-//            navigator.notification.alert(
-//              newYearText,
-//              "",
-//              helpTextTitle,
-//              helpDismissText
-//            );
-//          }
+          if(typeof localStorage["firstTime"] == 'undefined')   {
+            localStorage["firstTime"] = true;
+
+            navigator.notification.alert(
+              newYearText,
+              "",
+              helpTextTitle,
+              helpDismissText
+            );
+          }
 
 
         },
