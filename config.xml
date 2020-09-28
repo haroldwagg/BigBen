@@ -19,6 +19,7 @@
     <preference name='pgb-builder-version' value='1' />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="android-targetSdkVersion" value="28" />
+    <preference name="android:usesCleartextTraffic" value="true" />
 
     <gap:config-file platform="android" parent="/manifest/application">
         <activity android:launchMode="singleTask" />
@@ -50,10 +51,6 @@
       <splash src="splash.png" />
 -->
     </platform>
-    <platform name="android">
-      <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
-          <application android:usesCleartextTraffic="true" />
-      </edit-config>
 
 
 <!--
