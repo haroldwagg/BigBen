@@ -53,8 +53,8 @@
 
     <platform name="android">
 
-      
-      <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
+
+      <edit-config target="AndroidManifest.xml" mode="merge" parent="/manifest/application">
         <application android:usesCleartextTraffic="true" />
       </edit-config>
 
