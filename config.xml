@@ -35,6 +35,7 @@
     <plugin name="io.gvox.plugin.phonecalltrap" source="npm" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
     <plugin name="cordova-plugin-device" source="npm" />
+    <plugin name="cordova-plugin-inappbrowser" source="npm" />
 
     <platform name="browser">
 <!--
