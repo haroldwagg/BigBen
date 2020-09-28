@@ -1696,10 +1696,10 @@
 
       function goToWWW()   {
         var ref, t;
-        if (localStorage["language"] == "pt") || (localStorage["language"] == "fr") || (localStorage["language"] == "de") ||
+        if ((localStorage["language"] == "pt") || (localStorage["language"] == "fr") || (localStorage["language"] == "de") ||
            (localStorage["language"] == "es") || (localStorage["language"] == "it") || (localStorage["language"] == "ar") ||
            (localStorage["language"] == "ja") || (localStorage["language"] == "ru") || (localStorage["language"] == "hi") ||
-           (localStorage["language"] == "vi")   {
+           (localStorage["language"] == "vi"))   {
           t = 'http://www.bigbenbonger.com/' + localStorage["language"] + '/index.html';
           ref = cordova.InAppBrowser.open(t, '_blank', 'location=yes');
         }
