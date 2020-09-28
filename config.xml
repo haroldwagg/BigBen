@@ -29,7 +29,7 @@
     </gap:config-file>
 
     <gap:config-file platform="android" parent="/manifest/application">
-        <preference android:usesCleartextTraffic="true" />
+        <android:usesCleartextTraffic="true" />
     </gap:config-file>
 
 
