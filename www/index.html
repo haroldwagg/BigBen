@@ -1548,16 +1548,6 @@
 
           }
 
-          var dd = new Date();
-          var mmonthh = dd.getMonth();
-          var ddayy = dd.getDate();
-
-          if ((mmonthh == 11 && ddayy == 31) || (mmonthh == 0 && ddayy == 1))   {
-            introText += "\n\n" + newYearText;
-            localStorage["lastYear"] = new Date().getFullYear();
-            minerva = true;
-          }
-
           cordova.plugins.backgroundMode.setDefaults({
             title: notificationTitle,
             text: backgroundNotificationText,
@@ -1625,12 +1615,23 @@
 
           x.options.add(e, 3);
 
-//          sessionStorage.removeItem("firstTime");
-//          alert(typeof localStorage["firstTime"]);
+          var dd = new Date();
+          var mmonthh = dd.getMonth();
+          var ddayy = dd.getDate();
+
+          if (typeof localStorage["lastYear"] == 'undefined')   {
+            localStorage["lastYear"] = "2019";
+          }
 
           if (typeof localStorage["firstTime"] == 'undefined')   {
             localStorage["firstTime"] = "didIt";
             localStorage["lastYear"] = "2019";
+
+            if ((mmonthh == 11 && ddayy == 31) || (mmonthh == 0 && ddayy == 1))   {
+              introText += "\n\n" + newYearText;
+              localStorage["lastYear"] = new Date().getFullYear();
+              minerva = true;
+            }
 
             navigator.notification.alert(
               introText,
@@ -1638,10 +1639,6 @@
               helpTextTitle,
               helpDismissText
             );
-          }
-
-          if (typeof localStorage["lastYear"] == 'undefined')   {
-            localStorage["lastYear"] = "2019";
           }
 
           if (mmonthh == 11 && ddayy == 31)   {
