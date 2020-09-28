@@ -53,13 +53,19 @@
 
                 </div>
 
+                <div id="goToBottom" style="width: 100%; position: absolute; left: 0; bottom: 65px;">
+                  <div id="websiteButtonDiv" style="display: block; margin: auto; width: 250px; position: relative">
+                    <input type="button" class="rounderCorners" id="www_but" onClick="goToWWW()" value="  www.BigBenBonger.com  " style="border: solid 4px #b35900; z-index: 100; font-size: 1.5em; background-color: #ffe6cc; color: #b35900; text-decoration: none;" />
+                  </div>
+                </div>
+
                 <div id="bottomNavBar" style="background-color: black; margin: 0; padding: 0; height: 54px; position: fixed; bottom: 0%; width: 100%; overflow:visible;">
                   <img src="img/help.png" width="30" height="30" id="helpIcon" onClick="doHelp()" style="margin-left: 8px; margin-top: 5px;" />
                   <img id="ximage" name="ximage" src="x.png" width="45" height="45" style="float: right; border: none;  padding: 0; margin-top: 5px; margin-right: 8px;" onClick="confirmExit()" />
                   <img id="minimage" name="minimage" src="img/min.png" width="45" height="45" style="float: right; border: none; margin-top: 5px;" onClick="doGoToBG()" />
                   <div id="clearr" style=" clear: both;"></div>
                 </div>
-    </div>
+
 
     <script type="text/javascript" src="cordova.js"></script>
 
@@ -1543,8 +1549,8 @@
             newYearTextTitle = "The Year is Ending";
 
             introText = "PLEASE READ THIS. It will only be displayed once.\n\nThank you for trying Big Ben Bonger. ";
-            introText += "Although almost everyone who has installed this app has had it work perfectly, there are a few devices that may have problems running Big Ben in background mode. Typically the app will exit shortly after going to background. This can usually be resolved by making a few changes to the device's Settings.\n\n";
-            introText += "If you experience this problem, we have outlined some solutions for you on our website \"BigBenBonger.com/HelpfulHints/\". I hope Big Ben works well for you and that you enjoy the app.\n\nThank you for choosing the Big Ben Bonger. Your device is currently running Android " + device.version + ".";
+            introText += "Although almost everyone who has installed this app has had it work perfectly, there are a few devices that may have problems running Big Ben in background mode. This can usually be resolved by making a few changes to the device's Settings.\n\n";
+            introText += "If Big Ben quits working for you when running in the background, we have outlined some solutions on our website \"BigBenBonger.com/HelpfulHints/\". I hope Big Ben works well for you and that you enjoy the app.\n\nThank you for choosing the Big Ben Bonger. Your device is running Android " + device.version + ".";
 
           }
 
@@ -1688,7 +1694,9 @@
         ;
       }
 
-
+      function goToWWW()   {
+        alert("WWW");
+      }
 
 
     </script>
