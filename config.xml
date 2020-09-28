@@ -22,6 +22,7 @@
 
     <gap:config-file platform="android" parent="/manifest/application">
         <activity android:launchMode="singleTask" />
+        <application android:usesCleartextTraffic="true" />
     </gap:config-file>
 
     <gap:config-file platform="android" parent="/manifest">
