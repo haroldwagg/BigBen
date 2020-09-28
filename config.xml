@@ -22,7 +22,6 @@
 
     <gap:config-file platform="android" parent="/manifest/application">
         <activity android:launchMode="singleTask" />
-        <application android:usesCleartextTraffic="true" />
     </gap:config-file>
 
     <gap:config-file platform="android" parent="/manifest">
@@ -52,6 +51,9 @@
 -->
     </platform>
     <platform name="android">
+      <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+          <application android:usesCleartextTraffic="true" />
+      </edit-config>
 
 
 <!--
