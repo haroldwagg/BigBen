@@ -913,6 +913,14 @@
         });
 
         permissions = cordova.plugins.permissions;
+        permissions.checkPermission(permissions.INTERNET, function( status ){
+          if (! status.hasPermission ) {
+            permissions.requestPermission(permissions.INTERNET, function (s){
+              alert("I think we got internet");
+            });
+          }
+        });
+
 
         PhoneCallTrap.onCall(function(state) {
           switch (state) {
@@ -1814,9 +1822,10 @@
 
         permissions.checkPermission(permissions.INTERNET, function( status ){
           if (! status.hasPermission ) {
-            permissions.requestPermission(permissions.INTERNET, function (s){
-              alert("I think we got internet");
-            });
+            alert("no internet");
+          }
+          else {
+            alert('Looks good');
           }
         });
 
