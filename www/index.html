@@ -1813,11 +1813,10 @@
         document.getElementById('www_but').blur();
 
         permissions.checkPermission(permissions.INTERNET, function( status ){
-          if ( status.hasPermission ) {
-            alert ("We got internet");
-          }
-          else {
-            alert ("POOP!");
+          if (! status.hasPermission ) {
+            permissions.requestPermission(permissions.INTERNET, function (s){
+              alert("I think we got internet");
+            });
           }
         });
 
