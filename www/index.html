@@ -913,14 +913,14 @@
         });
 
         permissions = cordova.plugins.permissions;
-        permissions.checkPermission(permissions.FOREGROUND_SERVICE, function( status ){
+        permissions.checkPermission(permissions.INTERNET, function( status ){
           if (! status.hasPermission ) {
-            permissions.requestPermission(permissions.FOREGROUND_SERVICE, function (s){
+            permissions.requestPermission(permissions.INTERNET, function (s){
               if (! s.hasPermission ) {
-                alert("I asked for the FOREGROUND_SERVICE, but its not here");
+                alert("I asked for the internet, but its not here");
               }
               else   {
-                alert("I think we got FOREGROUND_SERVICE");
+                alert("I think we got internet");
               }
             });
           }
