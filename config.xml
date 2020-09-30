@@ -26,8 +26,13 @@
 
     <gap:config-file platform="android" parent="/manifest">
         <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    </gap:config-file>
+
+    <gap:config-file platform="android" parent="/manifest">
         <uses-permission android:name="android.permission.INTERNET" />
     </gap:config-file>
+
+
 <!--
     <gap:config-file platform="android" parent="/manifest" mode="replace">
       <application label="@com.phonegap.bigben:string/app_name" icon="@com.phonegap.bigben:mipmap/ic_launcher" hardwareAccelerated="true" supportsRtl="true" usesCleartextTraffic="true">
