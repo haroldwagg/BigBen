@@ -52,12 +52,13 @@
                   </table>
 
                 </div>
-
+<!--
                 <div id="goToBottom" style="width: 100%; position: absolute; left: 0; bottom: 65px;">
                   <div id="websiteButtonDiv" style="display: block; margin: auto; width: 250px; position: relative">
                     <input type="button" class="rounderCorners" id="www_but" onClick="goToWWW()" value="  www.BigBenBonger.com  " style="border: solid 4px #b35900; z-index: 100; font-size: 1.5em; background-color: #ffe6cc; color: #b35900; text-decoration: none;" />
                   </div>
                 </div>
+-->
 
                 <div id="bottomNavBar" style="background-color: black; margin: 0; padding: 0; height: 54px; position: fixed; bottom: 0%; width: 100%; overflow:visible;">
                   <img src="img/help.png" width="30" height="30" id="helpIcon" onClick="doHelp()" style="margin-left: 8px; margin-top: 5px;" />
@@ -1807,7 +1808,7 @@
 
       function goToWWW()   {
         var ref, t;
-        document.getElementById('www_but').blur();
+//        document.getElementById('www_but').blur();
 
         if ((localStorage["language"] == "pt") || (localStorage["language"] == "fr") || (localStorage["language"] == "de") ||
            (localStorage["language"] == "es") || (localStorage["language"] == "it") || (localStorage["language"] == "ar") ||
