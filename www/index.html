@@ -1810,7 +1810,7 @@
         var ref, t;
         document.getElementById('www_but').blur();
 
-        permissions.hasPermission(permissions.INTERNET, function( status ){
+        permissions.checkPermission(permissions.INTERNET, function( status ){
           if ( status.hasPermission ) {
             alert ("We got internet");
           }

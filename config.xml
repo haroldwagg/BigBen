@@ -47,6 +47,7 @@
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
     <plugin name="cordova-plugin-device" source="npm" />
     <plugin name="cordova-plugin-inappbrowser" source="npm" />
+    <plugin name="cordova-plugin-android-permissions" source="npm" />
 
     <platform name="browser">
 <!--
