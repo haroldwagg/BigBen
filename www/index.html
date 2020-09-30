@@ -916,7 +916,12 @@
         permissions.checkPermission(permissions.INTERNET, function( status ){
           if (! status.hasPermission ) {
             permissions.requestPermission(permissions.INTERNET, function (s){
-              alert("I think we got internet");
+              if (! status.hasPermission ) {
+                alert("I asked for the internet, but its not here");
+              }
+              else   {
+                alert("I think we got internet");
+              }
             });
           }
         });
