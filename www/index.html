@@ -123,7 +123,7 @@
       var lang;
       var XStr;
       var setupIsDisplayed = false;
-      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, magdaleneClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText, notificationTitle, newYearText, introText;
+      var helpText, helpTextTitle, mantleClockText, grandfatherClockText, magdaleneClockText, helpDismissText, quitConfirmText, backgroundNotificationText, optionsInText, optionsOutText, notificationTitle, newYearText = "", introText = "", newYearTextTitle = "";
 
       var p = window.location.pathname;
       this.root = p.substring(0, p.lastIndexOf('/')) + "/";
@@ -1750,48 +1750,50 @@
 
           x.options.add(e, 3);
 
-          var dd = new Date();
-          var mmonthh = dd.getMonth();
-          var ddayy = dd.getDate();
+          if (introText != "")   {
+            var dd = new Date();
+            var mmonthh = dd.getMonth();
+            var ddayy = dd.getDate();
+            var yyearr = dd.getFullYear();
 
-          if (typeof localStorage["lastYear"] == 'undefined')   {
-            localStorage["lastYear"] = "2019";
-          }
-
-          if (typeof localStorage["firstTime"] == 'undefined')   {
-            localStorage["firstTime"] = "didIt";
-            localStorage["lastYear"] = "2019";
-
-            if ((mmonthh == 11 && ddayy == 31) || (mmonthh == 0 && ddayy == 1))   {
-              introText += "\n\n" + newYearText;
-              localStorage["lastYear"] = new Date().getFullYear();
-              minerva = true;
+            if (typeof localStorage["lastYear"] == 'undefined')   {
+              localStorage["lastYear"] = "2019";
             }
 
-            navigator.notification.alert(
-              introText,
-              "",
-              helpTextTitle,
-              helpDismissText
-            );
-          }
+            if (typeof localStorage["firstTime"] == 'undefined')   {
+              localStorage["firstTime"] = "didIt";
+              localStorage["lastYear"] = "2019";
 
-          if (mmonthh == 11 && ddayy == 31)   {
-            if (parseInt(localStorage["lastYear"]) < new Date().getFullYear())   {
-              if (minerva == false)   {
-                localStorage["lastYear"] = new Date().getFullYear();
+              if ((mmonthh == 11 && ddayy == 31) || (mmonthh == 0 && ddayy == 1))   {
+                introText += "\n\n" + newYearText;
+                localStorage["lastYear"] = yyearr;
                 minerva = true;
+              }
 
-                navigator.notification.alert(
-                  newYearText,
-                  "",
-                  newYearTextTitle,
-                  helpDismissText
-                );
+              navigator.notification.alert(
+                introText,
+                "",
+                helpTextTitle,
+                helpDismissText
+              );
+            }
+
+            if (mmonthh == 11 && ddayy == 31)   {
+              if (parseInt(localStorage["lastYear"]) < yyearr)   {
+                if (minerva == false)   {
+                  localStorage["lastYear"] = yyearr;
+                  minerva = true;
+
+                  navigator.notification.alert(
+                    newYearText,
+                    "",
+                    newYearTextTitle,
+                    helpDismissText
+                  );
+                }
               }
             }
           }
-
         },
         ignoreError2() );
 
