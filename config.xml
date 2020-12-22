@@ -24,11 +24,10 @@
         <activity android:launchMode="singleTask" />
     </gap:config-file>
 
-<!--
     <gap:config-file platform="android" parent="/manifest">
         <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     </gap:config-file>
--->
+
 
 <!--
     <gap:config-file platform="android" parent="/manifest">
@@ -65,13 +64,15 @@
 
     <platform name="android">
 
+<!--
       <config-file target="AndroidManifest.xml" parent="/manifest">
           <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
           <uses-permission android:name="android.permission.INTERNET" />
           <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
-      </config-file>
 
-<!--
+      </config-file>
+-->
+
 
       <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
         <application android:usesCleartextTraffic="true" />
